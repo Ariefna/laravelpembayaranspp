@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +20,9 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-    <link href="<?=URL::to('/');?>/main.css" rel="stylesheet">
+    <link href="<?= URL::to('/'); ?>/main.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
@@ -63,7 +65,7 @@
                         </div>
                         <button class="close"></button>
                     </div>
-                  
+
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -415,56 +417,56 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Master</li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="mm-active">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master Siswa
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master Kelas
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master SPP
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master Makan
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master Kegiatan
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Master Buku Paket
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Data Keuangan
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Pembayaran</li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Transaksi Pembayaran
                                 </a>
                             </li>
                             <li>
-                                <a href="<?=URL::to('/');?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/index.html" class="">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Data Pembayaran
                                 </a>
@@ -500,8 +502,310 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Siswa</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>NIK</th>
+                                                    <th>Nama</th>
+                                                    <th>Kelas</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>29873872</td>
+                                                    <td>Bela</td>
+                                                    <td>kelas 1</td>
+                                                    <td>Edit | Hapus</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>29873872</td>
+                                                    <td>Bela</td>
+                                                    <td>kelas 1</td>
+                                                    <td>Edit | Hapus</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>29873872</td>
+                                                    <td>Bela</td>
+                                                    <td>kelas 1</td>
+                                                    <td>Edit | Hapus</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>29873872</td>
+                                                    <td>Bela</td>
+                                                    <td>kelas 1</td>
+                                                    <td>Edit | Hapus</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kelas</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nama Kelas</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master SPP</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semester</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Makanan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Harga</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Buku Paket</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Data Keuangan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Kegiatan</h5>
+                                    <div class="table-responsive">
+                                        <table class="mb-0 table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Semeter</th>
+                                                    <th>Harga</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -510,4 +814,5 @@
     </div>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
+
 </html>
