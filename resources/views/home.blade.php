@@ -418,69 +418,69 @@
                             <li class="app-sidebar__heading">Master</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-id"></i>
                                     Master Siswa
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-study"></i>
                                     Master Kelas
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
                                     Master SPP
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Master Makan
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Master Biaya Makan
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Master Kegiatan
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Master Biaya Kegiatan
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Master Buku Paket
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Master Biaya Buku Paket
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Keuangan
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Pembayaran</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-cash"></i>
                                     Transaksi Pembayaran
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
+                                    <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Pembayaran
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Laporan</li>
                             <li>
                                 <a href="dashboard-boxes.html">
-                                    <i class="metismenu-icon pe-7s-display2"></i>
+                                    <i class="metismenu-icon pe-7s-print"></i>
                                     Laporan Pembayaran
                                 </a>
                             </li>
                             <li>
                                 <a href="dashboard-boxes.html">
-                                    <i class="metismenu-icon pe-7s-display2"></i>
+                                    <i class="metismenu-icon pe-7s-print"></i>
                                     Laporan Tagihan
                                 </a>
                             </li>
