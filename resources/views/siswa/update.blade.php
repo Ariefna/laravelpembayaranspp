@@ -7,15 +7,25 @@
                 <h5 class="card-title">Form Ubah</h5>
                 <form method="POST" action="/mastersiswa/ubah/">
                     {{ csrf_field() }}
-                    <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control"></div>
-                    <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control" value="{{$data[0]->nis}}"></div>
+                    <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="{{$data[0]->nama}}"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><select name="kelas" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($kelas) :
                                 foreach ($kelas as $kelas) :
+                                    if ($kelas->id == $data[0]->id_kelas) {
                             ?>
-                                    <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                        <option value="<?= $kelas->id; ?>" selected><?= $kelas->nama; ?></option>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+
+
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Kelas Baru -</option>
