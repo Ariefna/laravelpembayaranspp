@@ -21,8 +21,8 @@ class pembayaran extends Controller
     }
     public function mastersiswaupdate($id)
     {
-        DB::table('siswa')->where('id', '=', $id)->delete();
-        return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+        $data = DB::table('siswa')->where('id', $id)->get();
+        return view('mastersiswa', ['data' => $data]);
     }
     public function masterkelas()
     {
@@ -34,6 +34,12 @@ class pembayaran extends Controller
         DB::table('kelas')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
+
+    public function masterkelasupdate($id)
+    {
+        $data = DB::table('kelas')->where('id', $id)->get();
+        return view('mastersiswa', ['data' => $data]);
+    }
     public function masterspp()
     {
         $data = DB::table('spp')->join('semester', 'semester.id', '=', 'spp.id_semester')->get();
@@ -43,6 +49,11 @@ class pembayaran extends Controller
     {
         DB::table('spp')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
+    public function mastersppupdate($id)
+    {
+        $data = DB::table('spp')->where('id', $id)->get();
+        return view('mastersiswa', ['data' => $data]);
     }
     public function mastermakan()
     {
@@ -54,6 +65,11 @@ class pembayaran extends Controller
         DB::table('makan')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
+    public function mastermakananupdate($id)
+    {
+        $data = DB::table('makan')->where('id', $id)->get();
+        return view('mastersiswa', ['data' => $data]);
+    }
     public function masterkegiatan()
     {
         $data = DB::table('kegiatan')->join('semester', 'semester.id', '=', 'kegiatan.id_semester')->get();
@@ -64,6 +80,11 @@ class pembayaran extends Controller
         DB::table('kegiatan')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
+    public function masterkegiatanupdate($id)
+    {
+        $data = DB::table('kegiatan')->where('id', $id)->get();
+        return view('mastersiswa', ['data' => $data]);
+    }
     public function masterbuku()
     {
         $data = DB::table('buku')->join('semester', 'semester.id', '=', 'buku.id_semester')->get();
@@ -73,5 +94,10 @@ class pembayaran extends Controller
     {
         DB::table('buku')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
+    public function masterbukuupdate($id)
+    {
+        $data = DB::table('buku')->where('id', $id)->get();
+        return view('masterbiayabukupaket', ['data' => $data]);
     }
 }
