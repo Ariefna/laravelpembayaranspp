@@ -19,6 +19,11 @@ class pembayaran extends Controller
         DB::table('siswa')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
+    public function mastersiswaupdate($id)
+    {
+        DB::table('siswa')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
     public function masterkelas()
     {
         $data = DB::table('kelas')->get();
