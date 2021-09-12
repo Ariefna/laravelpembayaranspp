@@ -5,10 +5,11 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Ubah</h5>
-                <form class="">
-                    <div class="position-relative form-group"><label for="exampleEmail" class="">NIS</label><input name="number" id="exampleEmail" placeholder="Masukkan NIS" type="email" class="form-control"></div>
-                    <div class="position-relative form-group"><label for="examplePassword" class="">Nama</label><input name="text" id="examplePassword" placeholder="Masukkan Nama" type="password" class="form-control"></div>
-                    <div class="position-relative form-group"><label for="exampleSelect" class="">Kelas</label><select name="select" id="exampleSelect" class="form-control">
+                <form method="POST" action="/mastersiswa/ubah/">
+                    {{ csrf_field() }}
+                    <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Kelas</label><select name="kelas" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($kelas) :
