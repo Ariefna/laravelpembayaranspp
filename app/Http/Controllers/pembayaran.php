@@ -67,10 +67,12 @@ class pembayaran extends Controller
         DB::table('makan')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
-    public function mastermakananupdate($id)
+    public function mastermakanupdate($id)
     {
         $data = DB::table('makan')->where('id', $id)->get();
-        return view('makan.update', ['data' => $data]);
+        $semester = DB::table('semester')->get();
+        return view('makan.update', ['data' =>
+        $data, 'semester' => $semester]);
     }
     public function masterkegiatan()
     {
@@ -85,7 +87,9 @@ class pembayaran extends Controller
     public function masterkegiatanupdate($id)
     {
         $data = DB::table('kegiatan')->where('id', $id)->get();
-        return view('kegiatan.update', ['data' => $data]);
+        $semester = DB::table('semester')->get();
+        return view('kegiatan.update', ['data' =>
+        $data, 'semester' => $semester]);
     }
     public function masterbuku()
     {
@@ -100,6 +104,7 @@ class pembayaran extends Controller
     public function masterbukuupdate($id)
     {
         $data = DB::table('buku')->where('id', $id)->get();
-        return view('buku.update', ['data' => $data]);
+        $semester = DB::table('semester')->get();
+        return view('buku.update', ['data' => $data, 'semester' => $semester]);
     }
 }

@@ -40,8 +40,7 @@
                                         <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->harga; ?></td>
                                         <td>
-                                            <button class="mb-2 mr-2 btn btn-warning">Edit
-                                            </button>
+                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayakegiatan'); ?>/ubah/<?= $datas->id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterbiayakegiatan'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
                                         </td>
                                     </tr>
