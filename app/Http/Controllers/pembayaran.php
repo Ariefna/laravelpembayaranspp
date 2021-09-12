@@ -39,7 +39,7 @@ class pembayaran extends Controller
     public function masterkelasupdate($id)
     {
         $data = DB::table('kelas')->where('id', $id)->get();
-        return view('mastersiswa', ['data' => $data]);
+        return view('kelas.update', ['data' => $data]);
     }
     public function masterspp()
     {
@@ -54,7 +54,8 @@ class pembayaran extends Controller
     public function mastersppupdate($id)
     {
         $data = DB::table('spp')->where('id', $id)->get();
-        return view('mastersiswa', ['data' => $data]);
+        $semester = DB::table('semester')->get();
+        return view('spp.update', ['data' => $data, 'semester' => $semester]);
     }
     public function mastermakan()
     {
@@ -69,7 +70,7 @@ class pembayaran extends Controller
     public function mastermakananupdate($id)
     {
         $data = DB::table('makan')->where('id', $id)->get();
-        return view('mastersiswa', ['data' => $data]);
+        return view('makan.update', ['data' => $data]);
     }
     public function masterkegiatan()
     {
@@ -84,7 +85,7 @@ class pembayaran extends Controller
     public function masterkegiatanupdate($id)
     {
         $data = DB::table('kegiatan')->where('id', $id)->get();
-        return view('mastersiswa', ['data' => $data]);
+        return view('kegiatan.update', ['data' => $data]);
     }
     public function masterbuku()
     {
@@ -99,6 +100,6 @@ class pembayaran extends Controller
     public function masterbukuupdate($id)
     {
         $data = DB::table('buku')->where('id', $id)->get();
-        return view('masterbiayabukupaket', ['data' => $data]);
+        return view('buku.update', ['data' => $data]);
     }
 }
