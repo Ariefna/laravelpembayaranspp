@@ -23,10 +23,10 @@
                                 foreach ($data as $datas) :
                             ?>
                                     <tr>
-                                        <th scope="row"><?= $no++; ?></th>
+                                        <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->nis; ?></td>
-                                        <td><?= $datas->nama; ?></td>
-                                        <td><?= $datas->id_kelas; ?></td>
+                                        <td><?= $datas->nama_siswa; ?></td>
+                                        <td><?= $datas->nama_kelas; ?></td>
                                         <td>
                                             <button class="mb-2 mr-2 btn btn-warning">Edit
                                             </button>
@@ -37,7 +37,7 @@
                                 <?php endforeach;
                             else : ?>
                                 <tr>
-                                    <td colspan="8" class="text-center">Silahkan tambahkan siswa / siswi baru</td>
+                                    <td colspan="5" class="text-center">Silahkan tambahkan data siswa / siswi baru</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

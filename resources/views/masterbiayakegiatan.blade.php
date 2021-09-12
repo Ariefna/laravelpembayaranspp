@@ -16,6 +16,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            $no = 1;
+                            if ($data) :
+                                foreach ($data as $datas) :
+                            ?>
+                                    <tr>
+                                        <td scope="row"><?= $no++; ?></td>
+                                        <td><?= $datas->kode; ?></td>
+                                        <td><?= $datas->harga; ?></td>
+                                        <td>
+                                            <button class="mb-2 mr-2 btn btn-warning">Edit
+                                            </button>
+                                            <button class="mb-2 mr-2 btn btn-danger">Hapus
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;
+                            else : ?>
+                                <tr>
+                                    <td colspan="4" class="text-center">Silahkan tambahkan Kegiatan baru</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
