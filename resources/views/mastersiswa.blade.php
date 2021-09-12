@@ -42,8 +42,7 @@
                                         <td><?= $datas->nama_siswa; ?></td>
                                         <td><?= $datas->nama_kelas; ?></td>
                                         <td>
-                                            <button class="mb-2 mr-2 btn btn-warning">Edit
-                                            </button>
+                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/mastersiswa'); ?>/ubah/<?= $datas->id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/mastersiswa'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
                                         </td>
                                     </tr>
