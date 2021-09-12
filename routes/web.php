@@ -13,36 +13,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', 'App\Http\Controllers\pembayaran@mastersiswa');
+Route::get('/mastersiswa', 'App\Http\Controllers\pembayaran@mastersiswa');
+
+
 Route::get('masterkelas', function () {
-    return view('home');
+    return view('masterkelas');
 });
 Route::get('masterspp', function () {
-    return view('home');
+    return view('masterspp');
 });
 Route::get('mastermakanan', function () {
-    return view('home');
+    return view('masterbiayamakanan');
 });
-Route::get('masterkegiatan', function () {
-    return view('home');
+Route::get('masterbiayakegiatan', function () {
+    return view('masterbiayakegiatan');
 });
-Route::get('masterbukupaket', function () {
-    return view('home');
+Route::get('masterbiayabukupaket', function () {
+    return view('masterbiayabukupaket');
 });
 Route::get('datakeuangan', function () {
-    return view('home');
+    return view('datakeuangan');
 });
 Route::get('transaksipembayaran', function () {
-    return view('home');
+    return view('mastersiswa');
 });
 Route::get('datapembayaran', function () {
-    return view('home');
+    return view('mastersiswa');
 });
 Route::get('laporanpembayaran', function () {
-    return view('home');
+    return view('mastersiswa');
 });
 Route::get('laporantagihan', function () {
-    return view('home');
+    return view('mastersiswa');
 });
