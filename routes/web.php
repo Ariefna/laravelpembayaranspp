@@ -16,17 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\pembayaran@mastersiswa');
 Route::get('/mastersiswa', 'App\Http\Controllers\pembayaran@mastersiswa');
-Route::get('/mastersiswa/delete/{id}', 'App\Http\Controllers\pembayaran@mastersiswa');
+Route::get('/mastersiswa/delete/{id}', 'App\Http\Controllers\pembayaran@mastersiswadelete');
 Route::get('/masterkelas', 'App\Http\Controllers\pembayaran@masterkelas');
-Route::get('/masterkelas/delete/{id}', 'App\Http\Controllers\pembayaran@masterkelas');
+Route::get('/masterkelas/delete/{id}', 'App\Http\Controllers\pembayaran@masterkelasdelete');
 Route::get('/masterspp', 'App\Http\Controllers\pembayaran@masterspp');
-Route::get('/masterspp/delete/{id}', 'App\Http\Controllers\pembayaran@masterspp');
+Route::get('/masterspp/delete/{id}', 'App\Http\Controllers\pembayaran@mastersppdelete');
 Route::get('/mastermakanan', 'App\Http\Controllers\pembayaran@mastermakan');
-Route::get('/mastermakanan/delete/{id}', 'App\Http\Controllers\pembayaran@mastermakan');
+Route::get('/mastermakanan/delete/{id}', 'App\Http\Controllers\pembayaran@mastermakandelete');
 Route::get('/masterbiayakegiatan', 'App\Http\Controllers\pembayaran@masterkegiatan');
-Route::get('/masterbiayakegiatan/delete/{id}', 'App\Http\Controllers\pembayaran@masterkegiatan');
+Route::get('/masterbiayakegiatan/delete/{id}', 'App\Http\Controllers\pembayaran@masterkegiatandelete');
 Route::get('/masterbiayabukupaket', 'App\Http\Controllers\pembayaran@masterbuku');
-Route::get('/masterbiayabukupaket/delete/{id}', 'App\Http\Controllers\pembayaran@masterbuku');
+Route::get('/masterbiayabukupaket/delete/{id}', 'App\Http\Controllers\pembayaran@masterbukudelete');
 
 Route::get('datakeuangan', function () {
     return view('datakeuangan');
