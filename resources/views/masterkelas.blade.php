@@ -18,7 +18,8 @@
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Master Kelas</h5>
+                <h5 class="card-title float-left">Master Kelas</h5>
+                <a class="mb-2 mr-2 btn btn-primary float-right" href="<?= URL::to('/masterkelas'); ?>/add/">Tambah</a>
                 <div class="table-responsive">
                     <table class="mb-0 table">
                         <thead>

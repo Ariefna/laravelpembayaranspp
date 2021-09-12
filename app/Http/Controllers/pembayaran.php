@@ -25,6 +25,11 @@ class pembayaran extends Controller
         $kelas = DB::table('kelas')->get();
         return view('siswa.update', ['data' => $data, 'kelas' => $kelas]);
     }
+    public function mastersiswaadd()
+    {
+        $kelas = DB::table('kelas')->get();
+        return view('siswa.add', ['kelas' => $kelas]);
+    }
     public function masterkelas()
     {
         $data = DB::table('kelas')->get();
@@ -41,6 +46,11 @@ class pembayaran extends Controller
         $data = DB::table('kelas')->where('id', $id)->get();
         return view('kelas.update', ['data' => $data]);
     }
+
+    public function masterkelasadd()
+    {
+        return view('kelas.add');
+    }
     public function masterspp()
     {
         $data = DB::table('spp')->join('semester', 'semester.id', '=', 'spp.id_semester')->get();
@@ -56,6 +66,11 @@ class pembayaran extends Controller
         $data = DB::table('spp')->where('id', $id)->get();
         $semester = DB::table('semester')->get();
         return view('spp.update', ['data' => $data, 'semester' => $semester]);
+    }
+    public function mastersppadd()
+    {
+        $semester = DB::table('semester')->get();
+        return view('spp.update', ['semester' => $semester]);
     }
     public function mastermakan()
     {
@@ -74,6 +89,11 @@ class pembayaran extends Controller
         return view('makan.update', ['data' =>
         $data, 'semester' => $semester]);
     }
+    public function mastermakanadd()
+    {
+        $semester = DB::table('semester')->get();
+        return view('makan.update', ['semester' => $semester]);
+    }
     public function masterkegiatan()
     {
         $data = DB::table('kegiatan')->join('semester', 'semester.id', '=', 'kegiatan.id_semester')->get();
@@ -91,6 +111,11 @@ class pembayaran extends Controller
         return view('kegiatan.update', ['data' =>
         $data, 'semester' => $semester]);
     }
+    public function masterkegiatanadd()
+    {
+        $semester = DB::table('semester')->get();
+        return view('kegiatan.update', ['semester' => $semester]);
+    }
     public function masterbuku()
     {
         $data = DB::table('buku')->join('semester', 'semester.id', '=', 'buku.id_semester')->get();
@@ -106,5 +131,10 @@ class pembayaran extends Controller
         $data = DB::table('buku')->where('id', $id)->get();
         $semester = DB::table('semester')->get();
         return view('buku.update', ['data' => $data, 'semester' => $semester]);
+    }
+    public function masterbukuadd()
+    {
+        $semester = DB::table('semester')->get();
+        return view('buku.update', ['semester' => $semester]);
     }
 }
