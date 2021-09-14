@@ -175,7 +175,7 @@ class pembayaran extends Controller
     public function mastermakanadd()
     {
         $semester = DB::table('semester')->get();
-        return view('makan.update', ['semester' => $semester]);
+        return view('makan.add', ['semester' => $semester]);
     }
     public function
     mastermakanaddaksi(Request $r)
@@ -207,7 +207,7 @@ class pembayaran extends Controller
     public function masterkegiatanadd()
     {
         $semester = DB::table('semester')->get();
-        return view('kegiatan.update', ['semester' => $semester]);
+        return view('kegiatan.add', ['semester' => $semester]);
     }
     public function
     masterkegiatanaddaksi(Request $r)
@@ -251,7 +251,7 @@ class pembayaran extends Controller
     public function masterbukuadd()
     {
         $semester = DB::table('semester')->get();
-        return view('buku.update', ['semester' => $semester]);
+        return view('buku.add', ['semester' => $semester]);
     }
     public function masterbukuaddaksi(Request $r)
     {

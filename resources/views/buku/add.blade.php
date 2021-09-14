@@ -19,7 +19,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Add</h5>
-                <form method="POST" action="/mastersiswa/add/">
+                <form method="POST" action="/masterbiayabukupaket/add/">
                     {{ csrf_field() }}
                     <div class="position-relative form-group"><label class="">Nama Buku</label><input name="buku" placeholder="Masukkan Nama Buku" type="text" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Harga</label><input require name="harga" placeholder="Masukkan Harga" type="text" class="form-control"></div>

@@ -19,7 +19,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Tambah</h5>
-                <form method="POST" action="/masterkegiatan/add/">
+                <form method="POST" action="/masterbiayakegiatan/add/">
                     {{ csrf_field() }}
                     <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Semester</label><select name="id_semester" class="form-control">
