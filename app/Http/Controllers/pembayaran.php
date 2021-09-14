@@ -129,7 +129,7 @@ class pembayaran extends Controller
     public function mastersppadd()
     {
         $semester = DB::table('semester')->get();
-        return view('spp.update', ['semester' => $semester]);
+        return view('spp.add', ['semester' => $semester]);
     }
     public function
     mastersppaddaksi(Request $r)
