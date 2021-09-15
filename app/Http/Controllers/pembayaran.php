@@ -162,13 +162,12 @@ class pembayaran extends Controller
     mastermakanupdateaksi(Request $r)
     {
         $id = $r->input('id');
-        $nama_supplier = $r->input('nama_supplier');
-        $no_telp = $r->input('no_telp');
-        $alamat = $r->input('alamat');
+        $harga = $r->input('harga');
+        $id_semester = $r->input('id_semester');
         DB::table('makan')
             ->where('id', $id)
             ->update(
-                ['nama_supplier' => $nama_supplier, 'no_telp' => $no_telp, 'alamat' => $alamat]
+                ['harga' => $harga, 'id_semester' => $id_semester]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -260,6 +259,51 @@ class pembayaran extends Controller
         $harga = $r->input('harga');
         DB::table('buku')->insert(
             ['id_semester' => $id_semester, 'buku' => $buku, 'harga' => $harga]
+        );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
+    }
+
+    public function mastersemester()
+    {
+        $data = DB::table('semester')->get();
+        return view('mastersemester', ['data' => $data]);
+    }
+    public function mastersemesterdelete($id)
+    {
+        DB::table('semester')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
+
+    public function mastersemesterupdate($id)
+    {
+        $data = DB::table('semester')->where('id', $id)->get();
+        return view('semester.update', ['data' => $data]);
+    }
+    public function
+    mastersemesterupdateaksi(Request $r)
+    {
+        $id = $r->input('id');
+        $kode = $r->input('kode');
+        $nama = $r->input('nama');
+        DB::table('semester')
+            ->where('id', $id)
+            ->update(
+                ['kode' => $kode, 'nama' => $nama]
+            );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
+    }
+
+    public function mastersemesteradd()
+    {
+        return view('semester.add');
+    }
+    public function
+    mastersemesteraddaksi(Request $r)
+    {
+        $kode = $r->input('kode');
+        $nama = $r->input('nama');
+        DB::table('semester')->insert(
+            ['kode' => $kode, 'nama' => $nama]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }

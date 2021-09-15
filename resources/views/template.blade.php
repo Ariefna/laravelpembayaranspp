@@ -417,8 +417,15 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Master</li>
                             <li>
-                            <!-- class="mm-active" -->
-                                <a href="<?= URL::to('/'); ?>/mastersiswa" >
+                                <!-- class="mm-active" -->
+                                <a href="<?= URL::to('/'); ?>/mastersemester">
+                                    <i class="metismenu-icon pe-7s-id"></i>
+                                    Master Semester
+                                </a>
+                            </li>
+                            <li>
+                                <!-- class="mm-active" -->
+                                <a href="<?= URL::to('/'); ?>/mastersiswa">
                                     <i class="metismenu-icon pe-7s-id"></i>
                                     Master Siswa
                                 </a>
