@@ -11,7 +11,7 @@ class pembayaran extends Controller
 {
     public function mastersiswa()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama as nama_siswa', 'kelas.nama AS nama_kelas')->get();
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
         return view('mastersiswa', ['data' => $data]);
     }
     public function mastersiswadelete($id)
@@ -99,7 +99,7 @@ class pembayaran extends Controller
     }
     public function masterspp()
     {
-        $data = DB::table('spp')->join('semester', 'semester.id', '=', 'spp.id_semester')->get();
+        $data = DB::table('spp')->join('semester', 'semester.id', '=', 'spp.id_semester')->select('*', 'spp.id as spp_id')->get();
         return view('masterspp', ['data' => $data]);
     }
     public function mastersppdelete($id)
@@ -143,7 +143,7 @@ class pembayaran extends Controller
     }
     public function mastermakan()
     {
-        $data = DB::table('makan')->join('semester', 'semester.id', '=', 'makan.id_semester')->get();
+        $data = DB::table('makan')->join('semester', 'semester.id', '=', 'makan.id_semester')->select('*', 'makan.id as makan_id')->get();
         return view('masterbiayamakanan', ['data' => $data]);
     }
     public function mastermakandelete($id)
@@ -249,6 +249,7 @@ class pembayaran extends Controller
     }
     public function masterbukuupdateaksi(Request $r)
     {
+        // DB::enableQueryLog();
         $id = $r->input('id');
         $id_semester = $r->input('id_semester');
         $buku = $r->input('buku');
@@ -258,6 +259,7 @@ class pembayaran extends Controller
             ->update(
                 ['id_semester' => $id_semester, 'buku' => $buku, 'harga' => $harga]
             );
+        // dd(DB::getQueryLog());
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
     public function masterbukuadd()

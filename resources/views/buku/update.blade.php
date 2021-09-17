@@ -19,7 +19,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Update</h5>
-                <form method="POST" action="/mastersiswa/ubah/">
+                <form method="POST" action="/masterbiayabukupaket/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
                     <div class="position-relative form-group"><label class="">Nama Buku</label><input name="buku" placeholder="Masukkan Nama Buku" type="text" class="form-control" value="{{$data[0]->buku}}"></div>
