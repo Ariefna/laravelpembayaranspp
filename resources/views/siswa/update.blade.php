@@ -23,7 +23,7 @@
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
                     <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control" value="{{$data[0]->nis}}"></div>
-                    <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="{{$data[0]->nama}}"></div>
+                    <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="{{$data[0]->nama_siswa}}"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php

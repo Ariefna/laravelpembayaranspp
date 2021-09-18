@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Sep 2021 pada 03.20
+-- Waktu pembuatan: 18 Sep 2021 pada 16.39
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -41,65 +41,6 @@ CREATE TABLE `buku` (
 INSERT INTO `buku` (`id`, `id_semester`, `buku`, `harga`) VALUES
 (1, 1, 'matematika', 20000),
 (2, 1, 'aadx', 100);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `harga_makan`
---
-
-CREATE TABLE `harga_makan` (
-  `id` int(11) NOT NULL,
-  `id_semester` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `harga_makan`
---
-
-INSERT INTO `harga_makan` (`id`, `id_semester`, `harga`) VALUES
-(1, 1, 500000);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `harga_siswa`
---
-
-CREATE TABLE `harga_siswa` (
-  `id` int(11) NOT NULL,
-  `nis` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `id_kelas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `harga_siswa`
---
-
-INSERT INTO `harga_siswa` (`id`, `nis`, `nama`, `id_kelas`) VALUES
-(4, 232, 'ascsc', 1),
-(5, 233, 'scdvdv', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `harga_spp`
---
-
-CREATE TABLE `harga_spp` (
-  `id` int(11) NOT NULL,
-  `id_semester` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `harga_spp`
---
-
-INSERT INTO `harga_spp` (`id`, `id_semester`, `harga`) VALUES
-(1, 1, 2000);
 
 -- --------------------------------------------------------
 
@@ -146,6 +87,25 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `makan`
+--
+
+CREATE TABLE `makan` (
+  `id` int(11) NOT NULL,
+  `id_semester` int(11) NOT NULL,
+  `harga_makan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `makan`
+--
+
+INSERT INTO `makan` (`id`, `id_semester`, `harga_makan`) VALUES
+(1, 1, 500000);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `semester`
 --
 
@@ -162,6 +122,46 @@ CREATE TABLE `semester` (
 INSERT INTO `semester` (`id`, `kode`, `nama`) VALUES
 (1, 211, 'Semester Genap 2021');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `siswa`
+--
+
+CREATE TABLE `siswa` (
+  `id` int(11) NOT NULL,
+  `nis` int(11) NOT NULL,
+  `nama_siswa` varchar(100) NOT NULL,
+  `id_kelas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `siswa`
+--
+
+INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`) VALUES
+(4, 232, 'ascss', 1),
+(5, 233, 'scdvdv', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `spp`
+--
+
+CREATE TABLE `spp` (
+  `id` int(11) NOT NULL,
+  `id_semester` int(11) NOT NULL,
+  `harga_spp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `spp`
+--
+
+INSERT INTO `spp` (`id`, `id_semester`, `harga_spp`) VALUES
+(1, 1, 2000);
+
 --
 -- Indexes for dumped tables
 --
@@ -170,24 +170,6 @@ INSERT INTO `semester` (`id`, `kode`, `nama`) VALUES
 -- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `harga_makan`
---
-ALTER TABLE `harga_makan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `harga_siswa`
---
-ALTER TABLE `harga_siswa`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `harga_spp`
---
-ALTER TABLE `harga_spp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -203,9 +185,27 @@ ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `makan`
+--
+ALTER TABLE `makan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `semester`
 --
 ALTER TABLE `semester`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `siswa`
+--
+ALTER TABLE `siswa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `spp`
+--
+ALTER TABLE `spp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -216,24 +216,6 @@ ALTER TABLE `semester`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `harga_makan`
---
-ALTER TABLE `harga_makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `harga_siswa`
---
-ALTER TABLE `harga_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `harga_spp`
---
-ALTER TABLE `harga_spp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -249,10 +231,28 @@ ALTER TABLE `kelas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT untuk tabel `makan`
+--
+ALTER TABLE `makan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `semester`
 --
 ALTER TABLE `semester`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `siswa`
+--
+ALTER TABLE `siswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `spp`
+--
+ALTER TABLE `spp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
