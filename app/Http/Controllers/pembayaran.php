@@ -322,4 +322,20 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+    public function
+    naikkelas()
+    {
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        return view('naikkelas', ['data' => $data]);
+    }
+    public function
+    naikkelasaksi($id)
+    {
+        DB::table('siswa')
+            ->where('id', $id)
+            ->update(
+                ['id_kelas' => DB::raw('id_kelas + 1')]
+            );
+        return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
+    }
 }

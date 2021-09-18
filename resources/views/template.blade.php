@@ -466,6 +466,13 @@
                                     Data Keuangan
                                 </a>
                             </li>
+                            <li class="app-sidebar__heading">Fungsi testing</li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/naikkelas" class="">
+                                    <i class="metismenu-icon pe-7s-up-arrow"></i>
+                                    Naik Kelas
+                                </a>
+                            </li>
                             <li class="app-sidebar__heading">Pembayaran</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/index.html" class="">

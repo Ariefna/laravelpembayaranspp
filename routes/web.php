@@ -58,6 +58,9 @@ Route::get('/mastersemester/ubah/{id}', 'App\Http\Controllers\pembayaran@masters
 Route::post('/mastersemester/ubah/', 'App\Http\Controllers\pembayaran@mastersemesterupdateaksi');
 Route::get('/mastersemester/add/', 'App\Http\Controllers\pembayaran@mastersemesteradd');
 Route::post('/mastersemester/add/', 'App\Http\Controllers\pembayaran@mastersemesteraddaksi');
+Route::get('/naikkelas', 'App\Http\Controllers\pembayaran@naikkelas');
+Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
+
 
 Route::get('datakeuangan', function () {
     return view('datakeuangan');
