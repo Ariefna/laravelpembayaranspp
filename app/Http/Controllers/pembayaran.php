@@ -11,17 +11,17 @@ class pembayaran extends Controller
 {
     public function mastersiswa()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('nama_siswa')->join('kelas', 'kelas.id', '=', 'nama_siswa.id_kelas')->select('*', 'nama_siswa.nama as nama_siswa', 'kelas.nama AS nama_kelas', 'nama_siswa.id AS siswa_id')->get();
         return view('mastersiswa', ['data' => $data]);
     }
     public function mastersiswadelete($id)
     {
-        DB::table('siswa')->where('id', '=', $id)->delete();
+        DB::table('nama_siswa')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
     public function mastersiswaupdate($id)
     {
-        $data = DB::table('siswa')->where('id', $id)->get();
+        $data = DB::table('nama_siswa')->where('id', $id)->get();
         $kelas = DB::table('kelas')->get();
         return view('siswa.update', ['data' => $data, 'kelas' => $kelas]);
     }
@@ -32,7 +32,7 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        DB::table('siswa')
+        DB::table('nama_siswa')
             ->where('id', $id)
             ->update(
                 ['nis' => $nis, 'nama' => $nama, 'id_kelas' => $id_kelas]
@@ -50,7 +50,7 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        DB::table('siswa')->insert(
+        DB::table('nama_siswa')->insert(
             ['nis' => $nis, 'nama' => $nama, 'id_kelas' => $id_kelas]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
@@ -99,17 +99,17 @@ class pembayaran extends Controller
     }
     public function masterspp()
     {
-        $data = DB::table('spp')->join('semester', 'semester.id', '=', 'spp.id_semester')->select('*', 'spp.id as spp_id')->get();
+        $data = DB::table('harga_spp')->join('semester', 'semester.id', '=', 'harga_spp.id_semester')->select('*', 'harga_spp.id as spp_id')->get();
         return view('masterspp', ['data' => $data]);
     }
     public function mastersppdelete($id)
     {
-        DB::table('spp')->where('id', '=', $id)->delete();
+        DB::table('harga_spp')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
     public function mastersppupdate($id)
     {
-        $data = DB::table('spp')->where('id', $id)->get();
+        $data = DB::table('harga_spp')->where('id', $id)->get();
         $semester = DB::table('semester')->get();
         return view('spp.update', ['data' => $data, 'semester' => $semester]);
     }
@@ -119,7 +119,7 @@ class pembayaran extends Controller
         $id = $r->input('id');
         $id_semester = $r->input('id_semester');
         $harga = $r->input('harga');
-        DB::table('spp')
+        DB::table('harga_spp')
             ->where('id', $id)
             ->update(
                 ['id_semester' => $id_semester, 'harga' => $harga]
@@ -136,24 +136,24 @@ class pembayaran extends Controller
     {
         $harga = $r->input('harga');
         $id_semester = $r->input('id_semester');
-        DB::table('spp')->insert(
+        DB::table('harga_spp')->insert(
             ['harga' => $harga, 'id_semester' => $id_semester]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
     public function mastermakan()
     {
-        $data = DB::table('makan')->join('semester', 'semester.id', '=', 'makan.id_semester')->select('*', 'makan.id as makan_id')->get();
+        $data = DB::table('harga_makan')->join('semester', 'semester.id', '=', 'harga_makan.id_semester')->select('*', 'harga_makan.id as makan_id')->get();
         return view('masterbiayamakanan', ['data' => $data]);
     }
     public function mastermakandelete($id)
     {
-        DB::table('makan')->where('id', '=', $id)->delete();
+        DB::table('harga_makan')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
     public function mastermakanupdate($id)
     {
-        $data = DB::table('makan')->where('id', $id)->get();
+        $data = DB::table('harga_makan')->where('id', $id)->get();
         $semester = DB::table('semester')->get();
         return view('makan.update', ['data' =>
         $data, 'semester' => $semester]);
@@ -164,7 +164,7 @@ class pembayaran extends Controller
         $id = $r->input('id');
         $harga = $r->input('harga');
         $id_semester = $r->input('id_semester');
-        DB::table('makan')
+        DB::table('harga_makan')
             ->where('id', $id)
             ->update(
                 ['harga' => $harga, 'id_semester' => $id_semester]
@@ -181,7 +181,7 @@ class pembayaran extends Controller
     {
         $harga = $r->input('harga');
         $id_semester = $r->input('id_semester');
-        DB::table('makan')->insert(
+        DB::table('harga_makan')->insert(
             ['harga' => $harga, 'id_semester' => $id_semester]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
