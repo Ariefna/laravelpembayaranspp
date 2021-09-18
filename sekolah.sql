@@ -38,9 +38,7 @@ CREATE TABLE `buku` (
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`id`, `id_semester`, `buku`, `harga`) VALUES
-(1, 1, 'matematika', 20000),
-(2, 1, 'aadx', 100);
+
 
 -- --------------------------------------------------------
 
@@ -58,9 +56,7 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id`, `id_semester`, `harga`) VALUES
-(1, 1, 20001),
-(2, 1, 9000);
+
 
 -- --------------------------------------------------------
 
@@ -83,6 +79,7 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 (3, 'Kelas 3'),
 (4, 'Kelas 4'),
 (5, 'Kelas 5');
+(5, 'Kelas 6');
 
 -- --------------------------------------------------------
 
@@ -100,8 +97,7 @@ CREATE TABLE `makan` (
 -- Dumping data untuk tabel `makan`
 --
 
-INSERT INTO `makan` (`id`, `id_semester`, `harga_makan`) VALUES
-(1, 1, 500000);
+
 
 -- --------------------------------------------------------
 
@@ -119,8 +115,7 @@ CREATE TABLE `semester` (
 -- Dumping data untuk tabel `semester`
 --
 
-INSERT INTO `semester` (`id`, `kode`, `nama`) VALUES
-(1, 211, 'Semester Genap 2021');
+
 
 -- --------------------------------------------------------
 
@@ -139,9 +134,6 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`) VALUES
-(4, 232, 'ascss', 1),
-(5, 233, 'scdvdv', 1);
 
 -- --------------------------------------------------------
 
@@ -159,8 +151,7 @@ CREATE TABLE `spp` (
 -- Dumping data untuk tabel `spp`
 --
 
-INSERT INTO `spp` (`id`, `id_semester`, `harga_spp`) VALUES
-(1, 1, 2000);
+
 
 --
 -- Indexes for dumped tables
