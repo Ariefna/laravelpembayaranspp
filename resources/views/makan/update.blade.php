@@ -43,6 +43,28 @@
                                 <option disabled='disabled'>- Tambah Semester Baru -</option>
                             <?php endif; ?>
                         </select></div>
+                    <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
+                            <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($kelas) :
+                                foreach ($kelas as $kelas) :
+                                    if ($kelas->id == $data[0]->id_kelas) {
+                            ?>
+                                        <option value="<?= $kelas->id; ?>" selected><?= $kelas->nama; ?></option>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+
+
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Kelas Baru -</option>
+                            <?php endif; ?>
+                        </select></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
