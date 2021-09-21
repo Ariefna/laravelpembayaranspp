@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Semester</th>
+                                <th>tahun</th>
                                 <th>Harga</th>
                                 <th>kelas</th>
                                 <th>Aksi</th>

@@ -418,9 +418,9 @@
                             <li class="app-sidebar__heading">Master</li>
                             <li>
                                 <!-- class="mm-active" -->
-                                <a href="<?= URL::to('/'); ?>/mastersemester">
+                                <a href="<?= URL::to('/'); ?>/mastertahun">
                                     <i class="metismenu-icon pe-7s-id"></i>
-                                    Master Semester
+                                    Master tahun
                                 </a>
                             </li>
                             <li>

@@ -23,24 +23,24 @@
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
                     <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->harga}}"></div>
-                    <div class="position-relative form-group"><label class="">Semester</label><select name="id_semester" class="form-control">
+                    <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
-                            if ($semester) :
-                                foreach ($semester as $semester) :
-                                    if ($semester->id == $data[0]->id_semester) {
+                            if ($tahun) :
+                                foreach ($tahun as $tahun) :
+                                    if ($tahun->id == $data[0]->id_tahun) {
                             ?>
-                                        <option value="<?= $semester->id; ?>" selected><?= $semester->nama; ?></option>
+                                        <option value="<?= $tahun->id; ?>" selected><?= $tahun->kode; ?></option>
                                     <?php
                                     } else {
                                     ?>
-                                        <option value="<?= $semester->id; ?>"><?= $semester->nama; ?></option>
+                                        <option value="<?= $tahun->id; ?>"><?= $tahun->kode; ?></option>
                                     <?php
                                     }
                                     ?>
                                 <?php endforeach;
                             else : ?>
-                                <option disabled='disabled'>- Tambah Semester Baru -</option>
+                                <option disabled='disabled'>- Tambah tahun Baru -</option>
                             <?php endif; ?>
                         </select></div>
                     <button class="mt-1 btn btn-primary">Submit</button>

@@ -52,12 +52,12 @@ Route::post('/masterbiayabukupaket/ubah/', 'App\Http\Controllers\pembayaran@mast
 Route::get('/masterbiayabukupaket/add/', 'App\Http\Controllers\pembayaran@masterbukuadd');
 Route::post('/masterbiayabukupaket/add/', 'App\Http\Controllers\pembayaran@masterbukuaddaksi');
 
-Route::get('/mastersemester', 'App\Http\Controllers\pembayaran@mastersemester');
-Route::get('/mastersemester/delete/{id}', 'App\Http\Controllers\pembayaran@mastersemesterdelete');
-Route::get('/mastersemester/ubah/{id}', 'App\Http\Controllers\pembayaran@mastersemesterupdate');
-Route::post('/mastersemester/ubah/', 'App\Http\Controllers\pembayaran@mastersemesterupdateaksi');
-Route::get('/mastersemester/add/', 'App\Http\Controllers\pembayaran@mastersemesteradd');
-Route::post('/mastersemester/add/', 'App\Http\Controllers\pembayaran@mastersemesteraddaksi');
+Route::get('/mastertahun', 'App\Http\Controllers\pembayaran@mastertahun');
+Route::get('/mastertahun/delete/{id}', 'App\Http\Controllers\pembayaran@mastertahundelete');
+Route::get('/mastertahun/ubah/{id}', 'App\Http\Controllers\pembayaran@mastertahunupdate');
+Route::post('/mastertahun/ubah/', 'App\Http\Controllers\pembayaran@mastertahunupdateaksi');
+Route::get('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunadd');
+Route::post('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunaddaksi');
 Route::get('/naikkelas', 'App\Http\Controllers\pembayaran@naikkelas');
 Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
 

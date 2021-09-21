@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Semeter</th>
+                                <th>tahun</th>
                                 <th>Nama Buku</th>
                                 <th>Harga</th>
                                 <th>Aksi</th>

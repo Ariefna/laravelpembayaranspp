@@ -18,15 +18,14 @@
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title float-left">Master semester</h5>
-                <a class="mb-2 mr-2 btn btn-primary float-right" href="<?= URL::to('/mastersemester'); ?>/add/">Tambah</a>
+                <h5 class="card-title float-left">Master tahun</h5>
+                <a class="mb-2 mr-2 btn btn-primary float-right" href="<?= URL::to('/mastertahun'); ?>/add/">Tambah</a>
                 <div class="table-responsive">
                     <table class="mb-0 table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kode</th>
-                                <th>Nama semester</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -39,16 +38,15 @@
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->kode; ?></td>
-                                        <td><?= $datas->nama; ?></td>
                                         <td>
-                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/mastersemester'); ?>/ubah/<?= $datas->id ?>">Edit</a>
-                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/mastersemester'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
+                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/mastertahun'); ?>/ubah/<?= $datas->id ?>">Edit</a>
+                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/mastertahun'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;
                             else : ?>
                                 <tr>
-                                    <td colspan="4" class="text-center">Silahkan tambahkan data semester baru</td>
+                                    <td colspan="4" class="text-center">Silahkan tambahkan data tahun baru</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
