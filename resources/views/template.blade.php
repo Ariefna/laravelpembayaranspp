@@ -445,19 +445,19 @@
                             <li>
                                 <a href="<?= URL::to('/'); ?>/mastermakanan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Master Biaya Makan
+                                    Biaya Makan
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterbiayakegiatan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Master Biaya Kegiatan
+                                    Biaya Kegiatan
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Master Biaya Buku Paket
+                                    Biaya Buku Paket
                                 </a>
                             </li>
                             <li>
@@ -475,7 +475,7 @@
                             </li>
                             <li class="app-sidebar__heading">Pembayaran</li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/transaksi" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
                                     Transaksi Pembayaran
                                 </a>

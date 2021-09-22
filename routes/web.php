@@ -60,6 +60,7 @@ Route::get('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunadd'
 Route::post('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunaddaksi');
 Route::get('/naikkelas', 'App\Http\Controllers\pembayaran@naikkelas');
 Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
+Route::get('/transaksi', 'App\Http\Controllers\pembayaran@transaksiview');
 
 
 Route::get('datakeuangan', function () {

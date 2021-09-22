@@ -336,4 +336,10 @@ class pembayaran extends Controller
             );
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
+    public function
+    transaksiview()
+    {
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        return view('transaksi', ['data' => $data]);
+    }
 }
