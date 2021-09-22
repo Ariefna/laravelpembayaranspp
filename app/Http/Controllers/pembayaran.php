@@ -51,7 +51,7 @@ class pembayaran extends Controller
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
         DB::table('siswa')->insert(
-            ['nis' => $nis, 'nama' => $nama, 'id_kelas' => $id_kelas]
+            ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
