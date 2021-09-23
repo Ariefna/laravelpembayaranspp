@@ -346,4 +346,10 @@ class pembayaran extends Controller
         $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
         return view('transaksi', ['data' => $data]);
     }
+    public function
+    transaksibayar($id)
+    {
+        $data = DB::table('siswa')->where('id', $id)->get();
+        return view('transaksi.bayar', ['data' => $data]);
+    }
 }
