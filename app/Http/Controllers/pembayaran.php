@@ -233,7 +233,7 @@ class pembayaran extends Controller
     }
     public function masterbuku()
     {
-        $data = DB::table('buku')->join('tahun', 'tahun.id', '=', 'buku.id_tahun')->get();
+        $data = DB::table('buku')->join('tahun', 'tahun.id', '=', 'buku.id_tahun')->join('kelas', 'kelas.id', '=', 'buku.id_kelas')->select('*', 'buku.id as id_buku')->get();
         return view('masterbiayabukupaket', ['data' => $data]);
     }
     public function masterbukudelete($id)
@@ -245,7 +245,8 @@ class pembayaran extends Controller
     {
         $data = DB::table('buku')->where('id', $id)->get();
         $tahun = DB::table('tahun')->get();
-        return view('buku.update', ['data' => $data, 'tahun' => $tahun]);
+        $kelas = DB::table('kelas')->get();
+        return view('buku.update', ['data' => $data, 'tahun' => $tahun, 'kelas' => $kelas]);
     }
     public function masterbukuupdateaksi(Request $r)
     {
@@ -254,10 +255,11 @@ class pembayaran extends Controller
         $id_tahun = $r->input('id_tahun');
         $buku = $r->input('buku');
         $harga = $r->input('harga');
+        $kelas = $r->input('id_kelas');
         DB::table('buku')
             ->where('id', $id)
             ->update(
-                ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga]
+                ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga, 'id_kelas' => $kelas]
             );
         // dd(DB::getQueryLog());
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
@@ -265,15 +267,17 @@ class pembayaran extends Controller
     public function masterbukuadd()
     {
         $tahun = DB::table('tahun')->get();
-        return view('buku.add', ['tahun' => $tahun]);
+        $kelas = DB::table('kelas')->get();
+        return view('buku.add', ['tahun' => $tahun, 'kelas' => $kelas]);
     }
     public function masterbukuaddaksi(Request $r)
     {
         $id_tahun = $r->input('id_tahun');
         $buku = $r->input('buku');
         $harga = $r->input('harga');
+        $kelas = $r->input('id_kelas');
         DB::table('buku')->insert(
-            ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga]
+            ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga, 'id_kelas' => $kelas]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }

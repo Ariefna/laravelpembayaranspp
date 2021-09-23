@@ -22,6 +22,7 @@
                 <form method="POST" action="/mastermakanan/add/">
                     {{ csrf_field() }}
                     <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control"></div>
+
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Sep 2021 pada 15.17
+-- Waktu pembuatan: 23 Sep 2021 pada 22.42
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -39,9 +39,7 @@ CREATE TABLE `buku` (
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`id`, `id_tahun`, `buku`, `harga`, `id_kelas`) VALUES
-(1, 1, 'matematika', 20000, 0),
-(2, 1, 'aadx', 100, 0);
+
 
 -- --------------------------------------------------------
 
@@ -83,9 +81,7 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id`, `id_tahun`, `harga`) VALUES
-(1, 1, 20001),
-(2, 1, 9000);
+
 
 -- --------------------------------------------------------
 
@@ -108,7 +104,7 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 (3, 'Kelas 3'),
 (4, 'Kelas 4'),
 (5, 'Kelas 5'),
-(6, 'Kelas 6');
+(7, 'Kelas 6');
 
 -- --------------------------------------------------------
 
@@ -119,16 +115,14 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 CREATE TABLE `makan` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `harga_makan` int(11) NOT NULL,
-  `id_kelas` int(11) NOT NULL
+  `harga_makan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `makan`
 --
 
-INSERT INTO `makan` (`id`, `id_tahun`, `harga_makan`, `id_kelas`) VALUES
-(1, 1, 500000, 1);
+
 
 -- --------------------------------------------------------
 
@@ -160,9 +154,7 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
-(4, 232, 'ascss', 1, 'lunas'),
-(5, 233, 'scdvdv', 2, 'lunas');
+
 
 -- --------------------------------------------------------
 
@@ -173,16 +165,13 @@ INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
 CREATE TABLE `spp` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `harga_spp` int(11) NOT NULL,
-  `id_kelas` int(11) NOT NULL
+  `harga_spp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `spp`
 --
 
-INSERT INTO `spp` (`id`, `id_tahun`, `harga_spp`, `id_kelas`) VALUES
-(1, 1, 2000, 0);
 
 -- --------------------------------------------------------
 
@@ -199,8 +188,20 @@ CREATE TABLE `tahun` (
 -- Dumping data untuk tabel `tahun`
 --
 
-INSERT INTO `tahun` (`id`, `kode`) VALUES
-(1, 2021);
+
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `debet` int(11) NOT NULL,
+  `kredit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -267,6 +268,12 @@ ALTER TABLE `tahun`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -274,7 +281,7 @@ ALTER TABLE `tahun`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `formulir`
@@ -304,7 +311,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT untuk tabel `makan`
 --
 ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pakaian`
@@ -316,34 +323,27 @@ ALTER TABLE `pakaian`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `spp`
 --
 ALTER TABLE `spp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
-  `id_siswa` int(11) NOT NULL,
-  `debet` int(11) NOT NULL,
-  `kredit` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id`);
-
-  ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;

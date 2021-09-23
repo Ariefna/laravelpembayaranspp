@@ -24,6 +24,26 @@
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
                     <div class="position-relative form-group"><label class="">Nama Buku</label><input name="buku" placeholder="Masukkan Nama Buku" type="text" class="form-control" value="{{$data[0]->buku}}"></div>
                     <div class="position-relative form-group"><label class="">Harga</label><input require name="harga" placeholder="Masukkan Harga" type="text" class="form-control" value="{{$data[0]->harga}}"></div>
+                    <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
+                            <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($kelas) :
+                                foreach ($kelas as $kelas) :
+                                    if ($kelas->id == $data[0]->id_kelas) {
+                            ?>
+                                        <option value="<?= $kelas->id; ?>" selected><?= $kelas->nama; ?></option>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Kelas Baru -</option>
+                            <?php endif; ?>
+                        </select></div>
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php

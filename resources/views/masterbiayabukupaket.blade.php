@@ -28,6 +28,7 @@
                                 <th>tahun</th>
                                 <th>Nama Buku</th>
                                 <th>Harga</th>
+                                <th>Kelas</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -42,9 +43,10 @@
                                         <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->buku; ?></td>
                                         <td><?= $datas->harga; ?></td>
+                                        <td><?= $datas->nama; ?></td>
                                         <td>
-                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayabukupaket'); ?>/ubah/<?= $datas->id ?>">Edit</a>
-                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterbiayabukupaket'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
+                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayabukupaket'); ?>/ubah/<?= $datas->id_buku ?>">Edit</a>
+                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterbiayabukupaket'); ?>/delete/<?= $datas->id_buku ?>" href="#">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;
