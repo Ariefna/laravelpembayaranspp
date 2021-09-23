@@ -27,7 +27,6 @@
                                 <th>#</th>
                                 <th>tahun</th>
                                 <th>Harga</th>
-                                <th>kelas</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -41,7 +40,6 @@
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->harga_spp; ?></td>
-                                        <td><?= $datas->id_kelas; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterspp'); ?>/ubah/<?= $datas->spp_id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterspp'); ?>/delete/<?= $datas->spp_id ?>" href="#">Hapus</a>
