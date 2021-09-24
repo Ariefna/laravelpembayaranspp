@@ -18,7 +18,7 @@
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Form Pembayaran</h5>
+                <h5 class="card-title">Form Pembayaran {{$data[0]->nama_siswa}}</h5>
                 <form method="POST" action="/transaksi/bayar">
                     {{ csrf_field() }}
                     <div class="position-relative form-group"><label class="">Total Tagihan</label><input name="tagihan" placeholder="" type="number" class="form-control" value="{{$data[0]->tagihan}}"></div>

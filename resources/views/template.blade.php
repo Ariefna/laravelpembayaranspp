@@ -461,6 +461,24 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Biaya Formulir
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Biaya Pakaian
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Biaya Gedung
+                                </a>
+                            </li>
+                            <li>
                                 <a href="<?= URL::to('/'); ?>/datakeuangan" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Keuangan
