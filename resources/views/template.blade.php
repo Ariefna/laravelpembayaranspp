@@ -462,19 +462,19 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                <a href="<?= URL::to('/'); ?>/lainlain" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Biaya Formulir
+                                    Biaya Lain Lain
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                <a href="<?= URL::to('/'); ?>/pakaian" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Pakaian
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                                <a href="<?= URL::to('/'); ?>/gedung" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Gedung
                                 </a>

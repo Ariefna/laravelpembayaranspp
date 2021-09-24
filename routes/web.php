@@ -63,6 +63,27 @@ Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
 Route::get('/transaksi', 'App\Http\Controllers\pembayaran@transaksiview');
 Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
 
+Route::get('/gedung', 'App\Http\Controllers\pembayaran@gedung');
+Route::get('/gedung/delete/{id}', 'App\Http\Controllers\pembayaran@gedungdelete');
+Route::get('/gedung/ubah/{id}', 'App\Http\Controllers\pembayaran@gedungupdate');
+Route::post('/gedung/ubah/', 'App\Http\Controllers\pembayaran@gedungupdateaksi');
+Route::get('/gedung/add/', 'App\Http\Controllers\pembayaran@gedungadd');
+Route::post('/gedung/add/', 'App\Http\Controllers\pembayaran@gedungaddaksi');
+
+Route::get('/lainlain', 'App\Http\Controllers\pembayaran@lainlain');
+Route::get('/lainlain/delete/{id}', 'App\Http\Controllers\pembayaran@lainlaindelete');
+Route::get('/lainlain/ubah/{id}', 'App\Http\Controllers\pembayaran@lainlainupdate');
+Route::post('/lainlain/ubah/', 'App\Http\Controllers\pembayaran@lainlainupdateaksi');
+Route::get('/lainlain/add/', 'App\Http\Controllers\pembayaran@lainlainadd');
+Route::post('/lainlain/add/', 'App\Http\Controllers\pembayaran@lainlainaddaksi');
+
+Route::get('/pakaian', 'App\Http\Controllers\pembayaran@pakaian');
+Route::get('/pakaian/delete/{id}', 'App\Http\Controllers\pembayaran@pakaiandelete');
+Route::get('/pakaian/ubah/{id}', 'App\Http\Controllers\pembayaran@pakaianupdate');
+Route::post('/pakaian/ubah/', 'App\Http\Controllers\pembayaran@pakaianupdateaksi');
+Route::get('/pakaian/add/', 'App\Http\Controllers\pembayaran@pakaianadd');
+Route::post('/pakaian/add/', 'App\Http\Controllers\pembayaran@pakaianaddaksi');
+
 
 
 
