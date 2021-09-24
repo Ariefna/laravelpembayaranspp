@@ -363,4 +363,54 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
     }
+    //lain lain
+
+    public function mastertahun()
+    {
+        $data = DB::table('tahun')->get();
+        return view('mastertahun', ['data' => $data]);
+    }
+    public function mastertahundelete($id)
+    {
+        DB::table('tahun')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
+
+    public function mastertahunupdate($id)
+    {
+        $data = DB::table('tahun')->where('id', $id)->get();
+        return view('tahun.update', ['data' => $data]);
+    }
+    public function
+    mastertahunupdateaksi(Request $r)
+    {
+        $id = $r->input('id');
+        $kode = $r->input('kode');
+        DB::table('tahun')
+            ->where('id', $id)
+            ->update(
+                ['kode' => $kode]
+            );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
+    }
+
+    public function mastertahunadd()
+    {
+        return view('tahun.add');
+    }
+    public function
+    mastertahunaddaksi(Request $r)
+    {
+        $kode = $r->input('kode');
+        DB::table('tahun')->insert(
+            ['kode' => $kode]
+        );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
+    }
+    //lain lain
+    //gadung
+    //gedung
+    //pakaian
+    //pakaian
+    //lain lain
 }
