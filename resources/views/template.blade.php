@@ -419,7 +419,7 @@
                             <li>
                                 <!-- class="mm-active" -->
                                 <a href="<?= URL::to('/'); ?>/mastertahun">
-                                    <i class="metismenu-icon pe-7s-id"></i>
+                                    <i class="metismenu-icon pe-7s-date"></i>
                                     Master tahun
                                 </a>
                             </li>
@@ -442,6 +442,7 @@
                                     Master SPP
                                 </a>
                             </li>
+                            <li class="app-sidebar__heading">Biaya</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/mastermakanan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
@@ -478,12 +479,13 @@
                                     Biaya Gedung
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/datakeuangan" class="">
+                            <!-- <li>
+                                <a href="<? //= URL::to('/'); 
+                                            ?>/datakeuangan" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Keuangan
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="app-sidebar__heading">Fungsi testing</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/naikkelas" class="">

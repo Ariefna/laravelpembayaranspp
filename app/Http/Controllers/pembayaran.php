@@ -349,7 +349,7 @@ class pembayaran extends Controller
     public function
     transaksibayar($id)
     {
-        $data = DB::table('siswa')->where('id_siswa', $id)->groupBy('siswa.id')->join('transaksi', 'siswa.id', '=', 'transaksi.id_siswa')->select(DB::raw('COALESCE(sum(debet-kredit),0) as tagihan'), 'nama_siswa')->get();
+        $data = DB::table('siswa')->where('id', $id)->select(DB::raw('(select COALESCE(sum(debet-kredit),0) as tagihan from transaksi where transaksi.id_siswa = siswa.id) as tagihan'), 'nama_siswa', 'id')->get();
         return view('transaksi.bayar', ['data' => $data]);
     }
 }
