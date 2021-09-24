@@ -62,6 +62,7 @@ Route::get('/naikkelas', 'App\Http\Controllers\pembayaran@naikkelas');
 Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
 Route::get('/transaksi', 'App\Http\Controllers\pembayaran@transaksiview');
 Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
+Route::post('/transaksi/bayar/', 'App\Http\Controllers\pembayaran@transaksibayaraksi');
 
 Route::get('/gedung', 'App\Http\Controllers\pembayaran@gedung');
 Route::get('/gedung/delete/{id}', 'App\Http\Controllers\pembayaran@gedungdelete');
