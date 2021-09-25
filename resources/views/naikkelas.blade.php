@@ -43,7 +43,8 @@
                                         <td><?= $datas->nama_siswa; ?></td>
                                         <td><?= $datas->nama_kelas; ?></td>
                                         <td>
-                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin Ingin Naik Kelas?')" href="<?= URL::to('/naikkelas'); ?>/<?= $datas->siswa_id ?>" href="#">Naik</a>
+                                            <a class="mb-2 mr-2 btn btn-warning" onclick="return confirm('Yakin Ingin Naik Kelas?')" href="<?= URL::to('/naikkelas'); ?>/<?= $datas->siswa_id ?>" href="#">Naik</a>
+                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin Ingin Tinggal Kelas?')" href="<?= URL::to('/tinggalkelas'); ?>/<?= $datas->siswa_id ?>" href="#">Tinggal</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;

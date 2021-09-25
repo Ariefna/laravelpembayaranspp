@@ -341,6 +341,17 @@ class pembayaran extends Controller
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
     public function
+    tinggalkelasaksi($id)
+    {
+        DB::table('siswa')
+            ->where('id', $id)
+            ->update(
+                ['id_kelas' => DB::raw('id_kelas')]
+            );
+        return redirect()->back()->with('success', 'Siswa Anda Berhasil Tinggal Kelas');
+    }
+
+    public function
     transaksiview()
     {
         $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id', DB::raw('(select COALESCE(sum(kredit-debet),0) as tagihan from transaksi where transaksi.id_siswa = siswa.id) as tagihan'))->get();
