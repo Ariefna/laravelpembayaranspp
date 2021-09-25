@@ -436,13 +436,14 @@
                                     Master Kelas
                                 </a>
                             </li>
+
+                            <li class="app-sidebar__heading">Biaya</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterspp" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Master SPP
+                                    biaya SPP
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">Biaya</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/mastermakanan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
