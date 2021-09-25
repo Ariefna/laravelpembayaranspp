@@ -25,7 +25,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Kode</th>
+                                <th>Tahun</th>
+                                <th>Harga</th>
+                                <th>Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -37,7 +39,9 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
-                                        <td><?= $datas->kode; ?></td>
+                                        <td><?= $datas->id_tahun; ?></td>
+                                        <td><?= $datas->harga; ?></td>
+                                        <td><?= $datas->keterangan; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/lainlain'); ?>/ubah/<?= $datas->id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/lainlain'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>

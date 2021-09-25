@@ -367,43 +367,49 @@ class pembayaran extends Controller
 
     public function lainlain()
     {
-        $data = DB::table('tahun')->get();
+        $data = DB::table('tetap')->get();
         return view('lainlain', ['data' => $data]);
     }
     public function lainlaindelete($id)
     {
-        DB::table('tahun')->where('id', '=', $id)->delete();
+        DB::table('tetap')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
 
     public function lainlainupdate($id)
     {
-        $data = DB::table('tahun')->where('id', $id)->get();
-        return view('tahun.update', ['data' => $data]);
+        $tahun = DB::table('tahun')->get();
+        $data = DB::table('tetap')->where('id', $id)->get();
+        return view('lainlain.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     lainlainupdateaksi(Request $r)
     {
         $id = $r->input('id');
-        $kode = $r->input('kode');
-        DB::table('tahun')
+        $id_tahun = $r->input('id_tahun');
+        $harga = $r->input('harga');
+        $keterangan = $r->input('keterangan');
+        DB::table('tetap')
             ->where('id', $id)
             ->update(
-                ['kode' => $kode]
+                ['id_tahun' => $id_tahun, 'harga' => $harga, 'keterangan' => $keterangan]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
 
     public function lainlainadd()
     {
-        return view('tahun.add');
+        $tahun = DB::table('tahun')->get();
+        return view('lainlain.add', ['tahun' => $tahun]);
     }
     public function
     lainlainaddaksi(Request $r)
     {
-        $kode = $r->input('kode');
+        $id_tahun = $r->input('id_tahun');
+        $harga = $r->input('harga');
+        $keterangan = $r->input('keterangan');
         DB::table('tahun')->insert(
-            ['kode' => $kode]
+            ['id_tahun' => $id_tahun, 'harga' => $harga, 'keterangan' => $keterangan]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -424,8 +430,9 @@ class pembayaran extends Controller
 
     public function gedungupdate($id)
     {
+        $tahun = DB::table('tahun')->get();
         $data = DB::table('gedung')->where('id', $id)->get();
-        return view('gedung.update', ['data' => $data]);
+        return view('gedung.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     gedungupdateaksi(Request $r)
@@ -442,7 +449,8 @@ class pembayaran extends Controller
 
     public function gedungadd()
     {
-        return view('gedung.add');
+        $tahun = DB::table('tahun')->get();
+        return view('gedung.add', ['tahun' => $tahun]);
     }
     public function
     gedungaddaksi(Request $r)
@@ -471,8 +479,9 @@ class pembayaran extends Controller
 
     public function pakaianupdate($id)
     {
+        $tahun = DB::table('tahun')->get();
         $data = DB::table('pakaian')->where('id', $id)->get();
-        return view('pakaian.update', ['data' => $data]);
+        return view('pakaian.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     pakaianupdateaksi(Request $r)
@@ -490,15 +499,16 @@ class pembayaran extends Controller
 
     public function pakaianadd()
     {
-        return view('pakaian.add');
+        $tahun = DB::table('tahun')->get();
+        return view('pakaian.add', ['tahun' => $tahun]);
     }
     public function
     pakaianaddaksi(Request $r)
     {
-        $kode = $r->input('id_tahun');
+        $id_tahun = $r->input('id_tahun');
         $harga_pakaian = $r->input('harga');
         DB::table('pakaian')->insert(
-            ['id_tahun' => $kode, 'harga_pakaian' => $harga_pakaian]
+            ['id_tahun' => $id_tahun, 'harga_pakaian' => $harga_pakaian]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
