@@ -11,7 +11,7 @@ class pembayaran extends Controller
 {
     public function mastersiswa()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [1, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
         return view('mastersiswa', ['data' => $data]);
     }
     public function mastersiswadelete($id)
@@ -327,7 +327,7 @@ class pembayaran extends Controller
     public function
     naikkelas()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [1, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
         return view('naikkelas', ['data' => $data]);
     }
     public function
@@ -338,6 +338,7 @@ class pembayaran extends Controller
             ->update(
                 ['id_kelas' => DB::raw('id_kelas + 1')]
             );
+        // DB::statement("INSERT INTO table (SELECT)");
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
     public function
@@ -348,6 +349,7 @@ class pembayaran extends Controller
             ->update(
                 ['id_kelas' => DB::raw('id_kelas')]
             );
+        // DB::statement("INSERT INTO table (SELECT)");
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Tinggal Kelas');
     }
 
