@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Sep 2021 pada 22.42
+-- Waktu pembuatan: 25 Sep 2021 pada 09.50
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -35,24 +35,6 @@ CREATE TABLE `buku` (
   `id_kelas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `buku`
---
-
-
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `formulir`
---
-
-CREATE TABLE `formulir` (
-  `id` int(11) NOT NULL,
-  `id_tahun` int(11) NOT NULL,
-  `harga_formulir` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- --------------------------------------------------------
 
 --
@@ -76,12 +58,6 @@ CREATE TABLE `kegiatan` (
   `id_tahun` int(11) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `kegiatan`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -118,12 +94,6 @@ CREATE TABLE `makan` (
   `harga_makan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `makan`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -150,12 +120,6 @@ CREATE TABLE `siswa` (
   `uang_makan` enum('lunas','angsur') NOT NULL DEFAULT 'lunas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `siswa`
---
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -168,11 +132,6 @@ CREATE TABLE `spp` (
   `harga_spp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `spp`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -184,11 +143,18 @@ CREATE TABLE `tahun` (
   `kode` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `tahun`
+-- Struktur dari tabel `tetap`
 --
 
-
+CREATE TABLE `tetap` (
+  `id` int(11) NOT NULL,
+  `id_tahun` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `keterangan` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -200,7 +166,9 @@ CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `debet` int(11) NOT NULL,
-  `kredit` int(11) NOT NULL
+  `kredit` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -211,12 +179,6 @@ CREATE TABLE `transaksi` (
 -- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `formulir`
---
-ALTER TABLE `formulir`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -268,6 +230,12 @@ ALTER TABLE `tahun`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tetap`
+--
+ALTER TABLE `tetap`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -281,12 +249,6 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `formulir`
---
-ALTER TABLE `formulir`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -299,7 +261,7 @@ ALTER TABLE `gedung`
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelas`
@@ -311,7 +273,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT untuk tabel `makan`
 --
 ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pakaian`
@@ -323,19 +285,25 @@ ALTER TABLE `pakaian`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `spp`
 --
 ALTER TABLE `spp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tetap`
+--
+ALTER TABLE `tetap`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
