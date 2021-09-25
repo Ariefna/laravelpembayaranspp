@@ -18,11 +18,11 @@
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Form Tambah</h5>
-                <form method="POST" action="/mastermakanan/add/">
+                <h5 class="card-title">Form Ubah</h5>
+                <form method="POST" action="/gedung/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{$data[0]->id}}">
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" {{$data[0]->harga}}></div>
+                    <div class="position-relative form-group"><label class="">Harga</label><input name="uang_gedung" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->uang_gedung}}"></div>
 
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>

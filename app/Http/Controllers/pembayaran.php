@@ -456,7 +456,7 @@ class pembayaran extends Controller
     public function
     gedungaddaksi(Request $r)
     {
-        $id_tahun = $r->input('id_tahun	');
+        $id_tahun = $r->input('id_tahun');
         $uang_gedung = $r->input('uang_gedung');
         DB::table('gedung')->insert(
             ['id_tahun' => $id_tahun, 'uang_gedung' => $uang_gedung]
