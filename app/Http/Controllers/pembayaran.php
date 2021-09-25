@@ -343,7 +343,7 @@ class pembayaran extends Controller
     public function
     transaksiview()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id', DB::raw('(select COALESCE(sum(kredit-debet),0) as tagihan from transaksi where transaksi.id_siswa = siswa.id) as tagihan'))->get();
         return view('transaksi', ['data' => $data]);
     }
     public function
@@ -359,7 +359,7 @@ class pembayaran extends Controller
         $keterangan = $r->input('keterangan');
         $bayar = $r->input('bayar');
         DB::table('transaksi')->insert(
-            ['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar]
+            ['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0]
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
     }
@@ -408,7 +408,7 @@ class pembayaran extends Controller
         $id_tahun = $r->input('id_tahun');
         $harga = $r->input('harga');
         $keterangan = $r->input('keterangan');
-        DB::table('tahun')->insert(
+        DB::table('tetap')->insert(
             ['id_tahun' => $id_tahun, 'harga' => $harga, 'keterangan' => $keterangan]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
@@ -438,11 +438,12 @@ class pembayaran extends Controller
     gedungupdateaksi(Request $r)
     {
         $id = $r->input('id');
-        $kode = $r->input('kode');
+        $id_tahun = $r->input('id_tahun');
+        $uang_gedung = $r->input('uang_gedung');
         DB::table('gedung')
             ->where('id', $id)
             ->update(
-                ['kode' => $kode]
+                ['id_tahun' => $id_tahun, 'uang_gedung' => $uang_gedung]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -456,7 +457,7 @@ class pembayaran extends Controller
     gedungaddaksi(Request $r)
     {
         $id_tahun = $r->input('id_tahun	');
-        $uang_gedung = $r->input('uang_gedung	');
+        $uang_gedung = $r->input('uang_gedung');
         DB::table('gedung')->insert(
             ['id_tahun' => $id_tahun, 'uang_gedung' => $uang_gedung]
         );

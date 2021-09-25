@@ -43,7 +43,7 @@
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->nis; ?></td>
                                         <td><?= $datas->nama_siswa; ?></td>
-                                        <td>0</td>
+                                        <td><?= $datas->tagihan; ?></td>
                                         <td><?= $datas->nama_kelas; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-primary" href="<?= URL::to('/transaksi'); ?>/bayar/<?= $datas->siswa_id ?>">Bayar</a>

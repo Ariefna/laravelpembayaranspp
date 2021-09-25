@@ -19,9 +19,9 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Tambah</h5>
-                <form method="POST" action="/mastermakanan/add/">
+                <form method="POST" action="/gedung/add/">
                     {{ csrf_field() }}
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Harga</label><input name="uang_gedung" placeholder="Masukkan Harga" type="number" class="form-control"></div>
 
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
