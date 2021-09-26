@@ -327,18 +327,25 @@ class pembayaran extends Controller
     public function
     naikkelas()
     {
-        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [1, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [0, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
         return view('naikkelas', ['data' => $data]);
     }
     public function
     naikkelasaksi($id)
     {
-        DB::table('siswa')
-            ->where('id', $id)
-            ->update(
-                ['id_kelas' => DB::raw('id_kelas + 1')]
-            );
-        // DB::statement("INSERT INTO table (SELECT)");
+        // DB::table('siswa')
+        //     ->where('id', $id)
+        //     ->update(
+        //         ['id_kelas' => DB::raw('id_kelas + 1')]
+        //     );
+
+        // uang pakaian, uang spp, uang kegiatan, uang buku paket, uang gedung, uang makan
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join tahun b on a.id_tahun = b.id order by b.id desc limit 1");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.harga as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga as kredit, CONCAT('Biaya Buku ',a.buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and a.id_kelas = (select id_kelas from siswa where id = " . $id . "))");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, uang_gedung as kredit, CONCAT('Uang Pangkal ',year(CURRENT_TIMESTAMP)) as keterangan FROM `gedung` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_makan as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `makan` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP)) and status = 1");
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
     public function
