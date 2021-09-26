@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 03:29 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Waktu pembuatan: 26 Sep 2021 pada 16.10
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -36,7 +36,7 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`id`, `id_tahun`, `buku`, `harga`, `id_kelas`) VALUES
@@ -55,7 +55,7 @@ INSERT INTO `buku` (`id`, `id_tahun`, `buku`, `harga`, `id_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gedung`
+-- Struktur dari tabel `gedung`
 --
 
 CREATE TABLE `gedung` (
@@ -65,7 +65,7 @@ CREATE TABLE `gedung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `gedung`
+-- Dumping data untuk tabel `gedung`
 --
 
 INSERT INTO `gedung` (`id`, `id_tahun`, `uang_gedung`) VALUES
@@ -75,29 +75,30 @@ INSERT INTO `gedung` (`id`, `id_tahun`, `uang_gedung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan`
+-- Struktur dari tabel `kegiatan`
 --
 
 CREATE TABLE `kegiatan` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kegiatan`
+-- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id`, `id_tahun`, `harga`) VALUES
-(1, 1, 1250000),
-(2, 1, 1750000),
-(3, 2, 1250000),
-(4, 2, 1750000);
+INSERT INTO `kegiatan` (`id`, `id_tahun`, `harga`, `status`) VALUES
+(1, 1, 1250000, 1),
+(2, 1, 1750000, 2),
+(3, 2, 1250000, 1),
+(4, 2, 1750000, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas`
+-- Struktur dari tabel `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -106,7 +107,7 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kelas`
+-- Dumping data untuk tabel `kelas`
 --
 
 INSERT INTO `kelas` (`id`, `nama`) VALUES
@@ -120,29 +121,30 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `makan`
+-- Struktur dari tabel `makan`
 --
 
 CREATE TABLE `makan` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `harga_makan` int(11) NOT NULL
+  `harga_makan` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `makan`
+-- Dumping data untuk tabel `makan`
 --
 
-INSERT INTO `makan` (`id`, `id_tahun`, `harga_makan`) VALUES
-(1, 1, 2400000),
-(2, 1, 200000),
-(3, 2, 2400000),
-(4, 2, 200000);
+INSERT INTO `makan` (`id`, `id_tahun`, `harga_makan`, `status`) VALUES
+(1, 1, 2400000, 1),
+(2, 1, 200000, 2),
+(3, 2, 2400000, 1),
+(4, 2, 200000, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pakaian`
+-- Struktur dari tabel `pakaian`
 --
 
 CREATE TABLE `pakaian` (
@@ -152,7 +154,7 @@ CREATE TABLE `pakaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pakaian`
+-- Dumping data untuk tabel `pakaian`
 --
 
 INSERT INTO `pakaian` (`id`, `id_tahun`, `harga_pakaian`) VALUES
@@ -162,7 +164,7 @@ INSERT INTO `pakaian` (`id`, `id_tahun`, `harga_pakaian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Struktur dari tabel `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -174,17 +176,17 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `siswa`
+-- Dumping data untuk tabel `siswa`
 --
 
 INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
 (1, 1000, 'Ray', 1, 'lunas'),
-(2, 2000, 'inii', 2, 'lunas');
+(2, 2000, 'Rani', 6, 'lunas');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spp`
+-- Struktur dari tabel `spp`
 --
 
 CREATE TABLE `spp` (
@@ -194,7 +196,7 @@ CREATE TABLE `spp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `spp`
+-- Dumping data untuk tabel `spp`
 --
 
 INSERT INTO `spp` (`id`, `id_tahun`, `harga_spp`) VALUES
@@ -204,7 +206,7 @@ INSERT INTO `spp` (`id`, `id_tahun`, `harga_spp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tahun`
+-- Struktur dari tabel `tahun`
 --
 
 CREATE TABLE `tahun` (
@@ -213,7 +215,7 @@ CREATE TABLE `tahun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tahun`
+-- Dumping data untuk tabel `tahun`
 --
 
 INSERT INTO `tahun` (`id`, `kode`) VALUES
@@ -223,7 +225,7 @@ INSERT INTO `tahun` (`id`, `kode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tetap`
+-- Struktur dari tabel `tetap`
 --
 
 CREATE TABLE `tetap` (
@@ -234,17 +236,17 @@ CREATE TABLE `tetap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tetap`
+-- Dumping data untuk tabel `tetap`
 --
 
 INSERT INTO `tetap` (`id`, `id_tahun`, `harga`, `keterangan`) VALUES
 (1, 2, 250000, 'Uang kertas formulir'),
-(2, 2, 250000, 'Uang kertas formulir');
+(2, 1, 250000, 'Uang kertas formulir');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -257,153 +259,149 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `date`, `keterangan`) VALUES
-(1, 1, 19350000, 0, '2021-09-25 20:19:03', 'bayar keseluruhan'),
-(2, 1, 240000, 0, '2021-09-25 20:19:42', 'uang makan'),
-(3, 1, 19590000, 0, '2021-09-25 20:20:22', 'semua');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `gedung`
+-- Indeks untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kegiatan`
+-- Indeks untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kelas`
+-- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `makan`
+-- Indeks untuk tabel `makan`
 --
 ALTER TABLE `makan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pakaian`
+-- Indeks untuk tabel `pakaian`
 --
 ALTER TABLE `pakaian`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siswa`
+-- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `spp`
+-- Indeks untuk tabel `spp`
 --
 ALTER TABLE `spp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tahun`
+-- Indeks untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tetap`
+-- Indeks untuk tabel `tetap`
 --
 ALTER TABLE `tetap`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `gedung`
+-- AUTO_INCREMENT untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kegiatan`
+-- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kelas`
+-- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `makan`
+-- AUTO_INCREMENT untuk tabel `makan`
 --
 ALTER TABLE `makan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pakaian`
+-- AUTO_INCREMENT untuk tabel `pakaian`
 --
 ALTER TABLE `pakaian`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `siswa`
+-- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `spp`
+-- AUTO_INCREMENT untuk tabel `spp`
 --
 ALTER TABLE `spp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tahun`
+-- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tetap`
+-- AUTO_INCREMENT untuk tabel `tetap`
 --
 ALTER TABLE `tetap`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

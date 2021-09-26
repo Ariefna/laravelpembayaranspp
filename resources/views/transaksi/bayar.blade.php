@@ -23,8 +23,8 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{$data[0]->id}}">
                     <div class="position-relative form-group"><label class="">Total Tagihan</label><input name="tagihan" placeholder="" type="number" class="form-control" disabled value="{{$data[0]->tagihan}}"></div>
-                    <div class="position-relative form-group"><label class="">Total Pembayaran</label><input name="bayar" placeholder="Masukkan Pembayaran" type="number" class="form-control"></div>
-                    <div class="position-relative form-group"><label class="">Keterangan</label><input name="keterangan" placeholder="Masukkan Keterangan" type="text" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Total Pembayaran</label><input name="bayar" placeholder="Masukkan Pembayaran" type="number" max="{{$data[0]->tagihan}}" min="1" class="form-control" require></div>
+                    <div class="position-relative form-group"><label class="">Keterangan</label><input name="keterangan" placeholder="Masukkan Keterangan" type="text" class="form-control" require></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
