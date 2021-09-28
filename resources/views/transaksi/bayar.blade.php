@@ -30,10 +30,6 @@
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">makan</label><select name="id_makan" class="form-control">
-                            <option disabled='disabled'>- Pilih -</option>
-
-                        </select></div>
                     <div class="position-relative form-group"><label class="">Pangkal</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
 
@@ -46,7 +42,7 @@
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Makanan</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Makan</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
@@ -59,6 +55,10 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Bulan</label><select name="id_makan" class="form-control">
+                            <option disabled='disabled'>- Pilih -</option>
+
+                        </select></div>
+                    <div class="position-relative form-group"><label class="">Total Bayar</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
