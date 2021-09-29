@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Sep 2021 pada 16.10
+-- Waktu pembuatan: 29 Sep 2021 pada 04.31
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -121,6 +121,18 @@ INSERT INTO `kelas` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `les`
+--
+
+CREATE TABLE `les` (
+  `id` int(11) NOT NULL,
+  `harga_les` int(11) NOT NULL,
+  `id_tahun` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `makan`
 --
 
@@ -180,8 +192,8 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
-(1, 1000, 'Ray', 1, 'lunas'),
-(2, 2000, 'Rani', 6, 'lunas');
+(1, 1000, 'Ray', 2, 'lunas'),
+(2, 2000, 'inii', 6, 'lunas');
 
 -- --------------------------------------------------------
 
@@ -262,6 +274,12 @@ CREATE TABLE `transaksi` (
 -- Dumping data untuk tabel `transaksi`
 --
 
+INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `date`, `keterangan`) VALUES
+(1, 1, 0, 500000, '2021-09-26 14:52:45', 'Biaya Pakaian 2021'),
+(2, 1, 0, 850000, '2021-09-26 14:52:45', 'Biaya SPP 2021'),
+(3, 1, 0, 1250000, '2021-09-26 14:52:45', 'Biaya Kegiatan 2021'),
+(4, 1, 0, 9800000, '2021-09-26 14:52:45', 'Uang Pangkal 2021'),
+(5, 1, 0, 2400000, '2021-09-26 14:52:45', 'Biaya makanan 2021');
 
 --
 -- Indexes for dumped tables
@@ -289,6 +307,12 @@ ALTER TABLE `kegiatan`
 -- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `les`
+--
+ALTER TABLE `les`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -360,6 +384,12 @@ ALTER TABLE `kegiatan`
 --
 ALTER TABLE `kelas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `les`
+--
+ALTER TABLE `les`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `makan`
