@@ -9,6 +9,7 @@ use Session;
 
 class pembayaran extends Controller
 {
+    //master siswa
     public function mastersiswa()
     {
         $data = DB::table('siswa')->join('kelas', 'kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [1, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'kelas.nama AS nama_kelas', 'siswa.id AS siswa_id')->get();
@@ -55,6 +56,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //master kelas
     public function masterkelas()
     {
         $data = DB::table('kelas')->get();
