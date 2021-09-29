@@ -21,30 +21,35 @@ Route::get('/mastersiswa/ubah/{id}', 'App\Http\Controllers\pembayaran@mastersisw
 Route::post('/mastersiswa/ubah/', 'App\Http\Controllers\pembayaran@mastersiswaupdateaksi');
 Route::get('/mastersiswa/add/', 'App\Http\Controllers\pembayaran@mastersiswaadd');
 Route::post('/mastersiswa/add/', 'App\Http\Controllers\pembayaran@mastersiswaaddaksi');
+
 Route::get('/masterkelas', 'App\Http\Controllers\pembayaran@masterkelas');
 Route::get('/masterkelas/delete/{id}', 'App\Http\Controllers\pembayaran@masterkelasdelete');
 Route::get('/masterkelas/ubah/{id}', 'App\Http\Controllers\pembayaran@masterkelasupdate');
 Route::post('/masterkelas/ubah/', 'App\Http\Controllers\pembayaran@masterkelasupdateaksi');
 Route::get('/masterkelas/add/', 'App\Http\Controllers\pembayaran@masterkelasadd');
 Route::post('/masterkelas/add/', 'App\Http\Controllers\pembayaran@masterkelasaddaksi');
+
 Route::get('/masterspp', 'App\Http\Controllers\pembayaran@masterspp');
 Route::get('/masterspp/delete/{id}', 'App\Http\Controllers\pembayaran@mastersppdelete');
 Route::get('/masterspp/ubah/{id}', 'App\Http\Controllers\pembayaran@mastersppupdate');
 Route::post('/masterspp/ubah/', 'App\Http\Controllers\pembayaran@mastersppupdateaksi');
 Route::get('/masterspp/add/', 'App\Http\Controllers\pembayaran@mastersppadd');
 Route::post('/masterspp/add/', 'App\Http\Controllers\pembayaran@mastersppaddaksi');
+
 Route::get('/mastermakanan', 'App\Http\Controllers\pembayaran@mastermakan');
 Route::get('/mastermakanan/delete/{id}', 'App\Http\Controllers\pembayaran@mastermakandelete');
 Route::get('/mastermakanan/ubah/{id}', 'App\Http\Controllers\pembayaran@mastermakanupdate');
 Route::post('/mastermakanan/ubah/', 'App\Http\Controllers\pembayaran@mastermakanupdateaksi');
 Route::get('/mastermakanan/add/', 'App\Http\Controllers\pembayaran@mastermakanadd');
 Route::post('/mastermakanan/add/', 'App\Http\Controllers\pembayaran@mastermakanaddaksi');
+
 Route::get('/masterbiayakegiatan', 'App\Http\Controllers\pembayaran@masterkegiatan');
 Route::get('/masterbiayakegiatan/delete/{id}', 'App\Http\Controllers\pembayaran@masterkegiatandelete');
 Route::get('/masterbiayakegiatan/ubah/{id}', 'App\Http\Controllers\pembayaran@masterkegiatanupdate');
 Route::post('/masterbiayakegiatan/ubah/', 'App\Http\Controllers\pembayaran@masterkegiatanupdateaksi');
 Route::get('/masterbiayakegiatan/add/', 'App\Http\Controllers\pembayaran@masterkegiatanadd');
 Route::post('/masterbiayakegiatan/add/', 'App\Http\Controllers\pembayaran@masterkegiatanaddaksi');
+
 Route::get('/masterbiayabukupaket', 'App\Http\Controllers\pembayaran@masterbuku');
 Route::get('/masterbiayabukupaket/delete/{id}', 'App\Http\Controllers\pembayaran@masterbukudelete');
 Route::get('/masterbiayabukupaket/ubah/{id}', 'App\Http\Controllers\pembayaran@masterbukuupdate');
@@ -58,9 +63,11 @@ Route::get('/mastertahun/ubah/{id}', 'App\Http\Controllers\pembayaran@mastertahu
 Route::post('/mastertahun/ubah/', 'App\Http\Controllers\pembayaran@mastertahunupdateaksi');
 Route::get('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunadd');
 Route::post('/mastertahun/add/', 'App\Http\Controllers\pembayaran@mastertahunaddaksi');
+
 Route::get('/naikkelas', 'App\Http\Controllers\pembayaran@naikkelas');
 Route::get('/naikkelas/{id}', 'App\Http\Controllers\pembayaran@naikkelasaksi');
 Route::get('/tinggalkelas/{id}', 'App\Http\Controllers\pembayaran@tinggalkelasaksi');
+
 Route::get('/transaksi', 'App\Http\Controllers\pembayaran@transaksiview');
 Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
 Route::post('/transaksi/bayar/', 'App\Http\Controllers\pembayaran@transaksibayaraksi');

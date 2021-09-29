@@ -30,20 +30,7 @@
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">makan</label><select name="id_makan" class="form-control">
-                            <option disabled='disabled'>- Pilih -</option>
-                            <?php
-                            if ($makan) :
-                                foreach ($makan as $makan) :
-                            ?>
-                                    <option value="<?= $makan->id; ?>"><?= $makan->harga_makan; ?></option>
-                                <?php endforeach;
-                            else : ?>
-                                <option disabled='disabled'>- Tambah Makan Baru -</option>
-                            <?php endif; ?>
-
-                        </select></div>
-                    <div class="position-relative form-group"><label class="">Pangkal</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Gedung</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($gedung) :
@@ -82,7 +69,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Makanan</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Makan</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($makan) :
@@ -132,6 +119,10 @@
                             else : ?>
                                 <option disabled='disabled'>- Tambah Bulan Baru -</option>
                             <?php endif; ?>
+
+                        </select></div>
+                    <div class="position-relative form-group"><label class="">Total Bayar</label><select name="id_makan" class="form-control">
+                            <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
 
