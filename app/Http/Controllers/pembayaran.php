@@ -363,6 +363,7 @@ class pembayaran extends Controller
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
 
+    //relasi button tidak naik kelas
     public function
     tinggalkelasaksi($id)
     {
