@@ -398,8 +398,10 @@ class pembayaran extends Controller
         $buku = DB::table('buku')->get();
         $les = DB::table('les')->get();
         $spp = DB::table('spp')->get();
+        $tetap = DB::table('tetap')->get();
+        $bulan = DB::table('bulan')->get();
         $data = DB::table('siswa')->where('id', $id)->select(DB::raw('(select COALESCE(sum(kredit-debet),0) as tagihan from transaksi where transaksi.id_siswa = siswa.id) as tagihan'), 'nama_siswa', 'id', 'nis', 'id_kelas')->get();
-        return view('transaksi.bayar', ['spp' => $spp, 'makan' => $makan, 'data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
+        return view('transaksi.bayar', ['spp' => $spp, 'bulan' => $bulan, 'tetap' => $tetap, 'makan' => $makan, 'data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
     }
     public function
     transaksibayaraksi(Request $r)

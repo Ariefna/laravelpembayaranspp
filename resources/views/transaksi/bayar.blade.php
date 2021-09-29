@@ -28,6 +28,15 @@
                     <div class="position-relative form-group"><label class="">Kelas</label><input require name="kode" placeholder="Masukkan Kelas" value="{{$data[0]->id_kelas}}" type="text" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Formulir Pendaftaran</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($tetap) :
+                                foreach ($tetap as $tetap) :
+                            ?>
+                                    <option value="<?= $tetap->id; ?>"><?= $tetap->harga; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Lain-Lain Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Gedung</label><select name="id_makan" class="form-control">
