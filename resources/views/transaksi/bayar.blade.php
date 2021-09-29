@@ -30,7 +30,6 @@
                             <option disabled='disabled'>- Pilih -</option>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Pangkal</label><select name="id_makan" class="form-control">
                     <div class="position-relative form-group"><label class="">Gedung</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
 
