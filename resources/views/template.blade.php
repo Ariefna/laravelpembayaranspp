@@ -480,6 +480,12 @@
                                     Biaya Gedung
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/masterlesan" class="">
+                                    <i class="metismenu-icon pe-7s-wallet"></i>
+                                    Biaya Les
+                                </a>
+                            </li>
                             <!-- <li>
                                 <a href="<? //= URL::to('/'); 
                                             ?>/datakeuangan" class="">

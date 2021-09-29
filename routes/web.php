@@ -86,6 +86,13 @@ Route::post('/pakaian/ubah/', 'App\Http\Controllers\pembayaran@pakaianupdateaksi
 Route::get('/pakaian/add/', 'App\Http\Controllers\pembayaran@pakaianadd');
 Route::post('/pakaian/add/', 'App\Http\Controllers\pembayaran@pakaianaddaksi');
 
+Route::get('/masterlesan', 'App\Http\Controllers\pembayaran@masterles');
+Route::get('/masterlesan/delete/{id}', 'App\Http\Controllers\pembayaran@masterlesdelete');
+Route::get('/masterlesan/ubah/{id}', 'App\Http\Controllers\pembayaran@masterlesupdate');
+Route::post('/masterlesan/ubah/', 'App\Http\Controllers\pembayaran@masterlesupdateaksi');
+Route::get('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesadd');
+Route::post('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesaddaksi');
+
 
 
 

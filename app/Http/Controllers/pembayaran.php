@@ -376,8 +376,14 @@ class pembayaran extends Controller
     {
         $spp = DB::table('spp')->get();
         $makan = DB::table('makan')->get();
+        $tahun = DB::table('tahun')->get();
+        $pakaian = DB::table('pakaian')->get();
+        $gedung = DB::table('gedung')->get();
+        $buku = DB::table('buku')->get();
+        $les = DB::table('les')->get();
+        $spp = DB::table('spp')->get();
         $data = DB::table('siswa')->where('id', $id)->select(DB::raw('(select COALESCE(sum(kredit-debet),0) as tagihan from transaksi where transaksi.id_siswa = siswa.id) as tagihan'), 'nama_siswa', 'id', 'nis', 'id_kelas')->get();
-        return view('transaksi.bayar', ['spp' => $spp, 'makan' => $makan, 'data' => $data]);
+        return view('transaksi.bayar', ['spp' => $spp, 'makan' => $makan, 'data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
     }
     public function
     transaksibayaraksi(Request $r)
@@ -542,4 +548,52 @@ class pembayaran extends Controller
     }
 
     //pakaian
+
+    //les
+    public function masterles()
+    {
+        $data = DB::table('les')->join('tahun', 'tahun.id', '=', 'les.id_tahun')->select('*', 'les.id as les_id')->get();
+        return view('masterbiayalesan', ['data' => $data]);
+    }
+    public function masterlesdelete($id)
+    {
+        DB::table('les')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
+    }
+    public function masterlesupdate($id)
+    {
+        $data = DB::table('les')->where('id', $id)->get();
+        $tahun = DB::table('tahun')->get();
+
+        return view('les.update', ['data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp]);
+    }
+    public function
+    masterlesupdateaksi(Request $r)
+    {
+        $id = $r->input('id');
+        $harga = $r->input('harga');
+        $id_tahun = $r->input('id_tahun');
+        DB::table('les')
+            ->where('id', $id)
+            ->update(
+                ['harga_les' => $harga, 'id_tahun' => $id_tahun]
+            );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
+    }
+    public function masterlesadd()
+    {
+        $tahun = DB::table('tahun')->get();
+        return view('les.add', ['tahun' => $tahun]);
+    }
+    public function
+    masterlesaddaksi(Request $r)
+    {
+        $harga = $r->input('harga');
+        $id_tahun = $r->input('id_tahun');
+        DB::table('les')->insert(
+            ['harga_les' => $harga, 'id_tahun' => $id_tahun]
+        );
+        return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
+    }
+    //les
 }

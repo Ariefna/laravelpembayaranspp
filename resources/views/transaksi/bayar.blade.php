@@ -32,34 +32,106 @@
                         </select></div>
                     <div class="position-relative form-group"><label class="">makan</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($makan) :
+                                foreach ($makan as $makan) :
+                            ?>
+                                    <option value="<?= $makan->id; ?>"><?= $makan->harga_makan; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Makan Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Pangkal</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($gedung) :
+                                foreach ($gedung as $gedung) :
+                            ?>
+                                    <option value="<?= $gedung->id; ?>"><?= $gedung->uang_gedung; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Gedung Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Atribut Pakaian</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($pakaian) :
+                                foreach ($pakaian as $pakaian) :
+                            ?>
+                                    <option value="<?= $pakaian->id; ?>"><?= $pakaian->harga_pakaian; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Pakaian Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Buku Paket</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($buku) :
+                                foreach ($buku as $buku) :
+                            ?>
+                                    <option value="<?= $buku->id; ?>"><?= $buku->harga; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Buku Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Makanan</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($makan) :
+                                foreach ($makan as $makan) :
+                            ?>
+                                    <option value="<?= $makan->id; ?>"><?= $makan->harga_makan; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Makan Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">SPP</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($spp) :
+                                foreach ($spp as $spp) :
+                            ?>
+                                    <option value="<?= $spp->id; ?>"><?= $spp->harga_spp; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Spp Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Les</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($les) :
+                                foreach ($les as $les) :
+                            ?>
+                                    <option value="<?= $les->id; ?>"><?= $les->harga_les; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Les Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Bulan</label><select name="id_makan" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
+                            <?php
+                            if ($bulan) :
+                                foreach ($bulan as $bulan) :
+                            ?>
+                                    <option value="<?= $bulan->id; ?>"><?= $bulan->nama_bulan; ?></option>
+                                <?php endforeach;
+                            else : ?>
+                                <option disabled='disabled'>- Tambah Bulan Baru -</option>
+                            <?php endif; ?>
 
                         </select></div>
 
