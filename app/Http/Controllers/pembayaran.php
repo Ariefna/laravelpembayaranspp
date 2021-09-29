@@ -100,6 +100,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //master spp
     public function masterspp()
     {
         $data = DB::table('spp')->join('tahun', 'tahun.id', '=', 'spp.id_tahun')->select('*', 'spp.id as spp_id')->get();
@@ -144,6 +146,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //master makan
     public function mastermakan()
     {
         $data = DB::table('makan')->join('tahun', 'tahun.id', '=', 'makan.id_tahun')->select('*', 'makan.id as makan_id')->get();
@@ -189,6 +193,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //master kegiatan
     public function masterkegiatan()
     {
         $data = DB::table('kegiatan')->join('tahun', 'tahun.id', '=', 'kegiatan.id_tahun')->get();
@@ -234,6 +240,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //master buku
     public function masterbuku()
     {
         $data = DB::table('buku')->join('tahun', 'tahun.id', '=', 'buku.id_tahun')->join('kelas', 'kelas.id', '=', 'buku.id_kelas')->select('*', 'buku.id as id_buku')->get();
@@ -285,6 +293,7 @@ class pembayaran extends Controller
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
 
+    //master tahun
     public function mastertahun()
     {
         $data = DB::table('tahun')->get();
@@ -327,6 +336,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
+
+    //relasi naik kelas
     public function
     naikkelas()
     {
@@ -351,6 +362,7 @@ class pembayaran extends Controller
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
         return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
     }
+
     public function
     tinggalkelasaksi($id)
     {
