@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Sep 2021 pada 04.31
+-- Waktu pembuatan: 30 Sep 2021 pada 03.00
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -51,6 +51,35 @@ INSERT INTO `buku` (`id`, `id_tahun`, `buku`, `harga`, `id_kelas`) VALUES
 (9, 2, 'English SD RB', 77000, 1),
 (10, 2, 'PENDAIS', 72000, 1),
 (11, 2, 'TANTRI BASA JATIM SD', 29000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bulan`
+--
+
+CREATE TABLE `bulan` (
+  `id` int(11) NOT NULL,
+  `nama_bulan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bulan`
+--
+
+INSERT INTO `bulan` (`id`, `nama_bulan`) VALUES
+(1, 'January'),
+(2, 'February'),
+(3, 'maret'),
+(4, 'april'),
+(5, 'mei'),
+(6, 'juni'),
+(7, 'juli'),
+(8, 'agustus'),
+(9, 'september'),
+(10, 'oktober'),
+(11, 'november'),
+(12, 'desember');
 
 -- --------------------------------------------------------
 
@@ -130,6 +159,13 @@ CREATE TABLE `les` (
   `id_tahun` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `les`
+--
+
+INSERT INTO `les` (`id`, `harga_les`, `id_tahun`) VALUES
+(2, 200000, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -181,7 +217,7 @@ INSERT INTO `pakaian` (`id`, `id_tahun`, `harga_pakaian`) VALUES
 
 CREATE TABLE `siswa` (
   `id` int(11) NOT NULL,
-  `nis` int(11) NOT NULL,
+  `nis` bigint(100) NOT NULL,
   `nama_siswa` varchar(100) NOT NULL,
   `id_kelas` int(11) NOT NULL,
   `uang_makan` enum('lunas','angsur') NOT NULL DEFAULT 'lunas'
@@ -192,7 +228,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
-(1, 1000, 'Ray', 2, 'lunas'),
+(1, 16410100076, 'Ray', 2, 'lunas'),
 (2, 2000, 'inii', 6, 'lunas');
 
 -- --------------------------------------------------------
@@ -292,6 +328,12 @@ ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `bulan`
+--
+ALTER TABLE `bulan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
@@ -368,6 +410,12 @@ ALTER TABLE `buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT untuk tabel `bulan`
+--
+ALTER TABLE `bulan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
@@ -389,7 +437,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT untuk tabel `les`
 --
 ALTER TABLE `les`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `makan`
