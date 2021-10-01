@@ -159,7 +159,6 @@
         }, 0);
 
         $("#sum").val(sum)
-        alert(sum);
     })
 </script>
 @stop
