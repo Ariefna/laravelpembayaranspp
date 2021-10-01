@@ -140,7 +140,7 @@
                         </select></div>
                     <div class="position-relative form-group">
                         <label class="">Total Bayar</label>
-                        <input require name="kode" placeholder="Total Bayar" value="" type="text" class="form-control">
+                        <input require id="sum" name="kode" placeholder="Total Bayar" value="" type="text" class="form-control">
                     </div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
@@ -148,4 +148,18 @@
         </div>
     </div>
 </div>
+<script>
+    $("select").change(function() {
+        var s = $('select option:selected').map(function() {
+            return this.value
+        }).get()
+
+        var sum = s.reduce((pv, cv) => {
+            return pv + (parseFloat(cv) || 0);
+        }, 0);
+
+        $("#sum").val(sum)
+        alert(sum);
+    })
+</script>
 @stop
