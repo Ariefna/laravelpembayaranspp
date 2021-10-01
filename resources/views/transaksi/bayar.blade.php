@@ -27,6 +27,7 @@
                     <div class="position-relative form-group"><label class="">Nama</label><input require name="kode" placeholder="Masukkan Nama" value="{{$data[0]->nama_siswa}}" type="text" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><input require name="kode" placeholder="Masukkan Kelas" value="{{$data[0]->id_kelas}}" type="text" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Formulir Pendaftaran</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($tetap) :
@@ -40,6 +41,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Gedung</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($gedung) :
@@ -53,6 +55,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Atribut Pakaian</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($pakaian) :
@@ -66,6 +69,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Buku Paket</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($buku) :
@@ -79,6 +83,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Makan</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($makan) :
@@ -92,6 +97,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">SPP</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($spp) :
@@ -105,6 +111,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Les</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($les) :
@@ -118,6 +125,7 @@
 
                         </select></div>
                     <div class="position-relative form-group"><label class="">Bulan</label><select name="id_makan" class="form-control">
+                            <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($bulan) :
