@@ -22,7 +22,7 @@
                 <form method="POST" action="/mastertahun/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
-                    <div class="position-relative form-group"><label class="">Kode</label><input require name="kode" placeholder="Masukkan kode tahun" type="text" class="form-control" value="{{$data[0]->kode}}"></div>
+                    <div class="position-relative form-group"><label class="">Tahun</label><input require name="kode" placeholder="Masukkan Tahun" type="text" class="form-control" value="{{$data[0]->kode}}"></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>

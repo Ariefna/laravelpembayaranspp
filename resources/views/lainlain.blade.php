@@ -39,7 +39,7 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
-                                        <td><?= $datas->id_tahun; ?></td>
+                                        <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->harga; ?></td>
                                         <td><?= $datas->keterangan; ?></td>
                                         <td>

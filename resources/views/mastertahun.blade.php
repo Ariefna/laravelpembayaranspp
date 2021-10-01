@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Kode</th>
+                                <th>Tahun</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

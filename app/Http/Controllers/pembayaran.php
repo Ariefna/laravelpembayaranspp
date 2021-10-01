@@ -171,10 +171,11 @@ class pembayaran extends Controller
         $id = $r->input('id');
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
+        $status = $r->input('status');
         DB::table('makan')
             ->where('id', $id)
             ->update(
-                ['harga_makan' => $harga, 'id_tahun' => $id_tahun]
+                ['harga_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -188,8 +189,9 @@ class pembayaran extends Controller
     {
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
+        $status = $r->input('status');
         DB::table('makan')->insert(
-            ['harga_makan' => $harga, 'id_tahun' => $id_tahun]
+            ['harga_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -418,7 +420,7 @@ class pembayaran extends Controller
 
     public function lainlain()
     {
-        $data = DB::table('tetap')->get();
+        $data = DB::table('tetap')->join('tahun', 'tahun.id', '=', 'tetap.id_tahun')->get();
         return view('lainlain', ['data' => $data]);
     }
     public function lainlaindelete($id)

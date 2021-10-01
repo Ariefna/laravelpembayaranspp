@@ -21,7 +21,7 @@
                 <h5 class="card-title">Form Tambah</h5>
                 <form method="POST" action="/mastertahun/add/">
                     {{ csrf_field() }}
-                    <div class="position-relative form-group"><label class="">Kode</label><input require name="kode" placeholder="Masukkan kode" type="text" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Tahun</label><input require name="kode" placeholder="Masukkan Tahun" type="text" class="form-control"></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>

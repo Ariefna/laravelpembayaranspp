@@ -32,7 +32,7 @@
                             if ($tetap) :
                                 foreach ($tetap as $tetap) :
                             ?>
-                                    <option value="<?= $tetap->id; ?>"><?= $tetap->harga; ?></option>
+                                    <option value="<?= $tetap->harga; ?>"><?= $tetap->harga; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Lain-Lain Baru -</option>
@@ -45,7 +45,7 @@
                             if ($gedung) :
                                 foreach ($gedung as $gedung) :
                             ?>
-                                    <option value="<?= $gedung->id; ?>"><?= $gedung->uang_gedung; ?></option>
+                                    <option value="<?= $gedung->uang_gedung; ?>"><?= $gedung->uang_gedung; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Gedung Baru -</option>
@@ -58,7 +58,7 @@
                             if ($pakaian) :
                                 foreach ($pakaian as $pakaian) :
                             ?>
-                                    <option value="<?= $pakaian->id; ?>"><?= $pakaian->harga_pakaian; ?></option>
+                                    <option value="<?= $pakaian->harga_pakaian; ?>"><?= $pakaian->harga_pakaian; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Pakaian Baru -</option>
@@ -71,7 +71,7 @@
                             if ($buku) :
                                 foreach ($buku as $buku) :
                             ?>
-                                    <option value="<?= $buku->id; ?>"><?= $buku->harga; ?></option>
+                                    <option value="<?= $buku->harga; ?>"><?= $buku->harga; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Buku Baru -</option>
@@ -84,7 +84,7 @@
                             if ($makan) :
                                 foreach ($makan as $makan) :
                             ?>
-                                    <option value="<?= $makan->id; ?>"><?= $makan->harga_makan; ?></option>
+                                    <option value="<?= $makan->harga_makan; ?>"><?= $makan->harga_makan; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Makan Baru -</option>
@@ -97,7 +97,7 @@
                             if ($spp) :
                                 foreach ($spp as $spp) :
                             ?>
-                                    <option value="<?= $spp->id; ?>"><?= $spp->harga_spp; ?></option>
+                                    <option value="<?= $spp->harga_spp; ?>"><?= $spp->harga_spp; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Spp Baru -</option>
@@ -110,7 +110,7 @@
                             if ($les) :
                                 foreach ($les as $les) :
                             ?>
-                                    <option value="<?= $les->id; ?>"><?= $les->harga_les; ?></option>
+                                    <option value="<?= $les->harga_les; ?>"><?= $les->harga_les; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Les Baru -</option>
@@ -123,18 +123,17 @@
                             if ($bulan) :
                                 foreach ($bulan as $bulan) :
                             ?>
-                                    <option value="<?= $bulan->id; ?>"><?= $bulan->nama_bulan; ?></option>
+                                    <option value="<?= $bulan->nama_bulan; ?>"><?= $bulan->nama_bulan; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Bulan Baru -</option>
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Total Bayar</label><select name="id_makan" class="form-control">
-                            <option disabled='disabled'>- Pilih -</option>
-
-                        </select></div>
-
+                    <div class="position-relative form-group">
+                        <label class="">Total Bayar</label>
+                        <input require name="kode" placeholder="Total Bayar" value="" type="text" class="form-control">
+                    </div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
