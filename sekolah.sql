@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Sep 2021 pada 03.00
+-- Waktu pembuatan: 03 Okt 2021 pada 03.33
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -187,7 +187,9 @@ INSERT INTO `makan` (`id`, `id_tahun`, `harga_makan`, `status`) VALUES
 (1, 1, 2400000, 1),
 (2, 1, 200000, 2),
 (3, 2, 2400000, 1),
-(4, 2, 200000, 2);
+(4, 2, 200000, 2),
+(5, 1, 0, 1),
+(6, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -317,6 +319,26 @@ INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `date`, `keteranga
 (4, 1, 0, 9800000, '2021-09-26 14:52:45', 'Uang Pangkal 2021'),
 (5, 1, 0, 2400000, '2021-09-26 14:52:45', 'Biaya makanan 2021');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi_sekolah`
+--
+
+CREATE TABLE `transaksi_sekolah` (
+  `id` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `formulir` int(11) NOT NULL,
+  `gedung` int(11) NOT NULL,
+  `pakaian` int(11) NOT NULL,
+  `buku` int(11) NOT NULL,
+  `makanan` int(11) NOT NULL,
+  `spp` int(11) NOT NULL,
+  `les` int(11) NOT NULL,
+  `id_bulan` int(11) NOT NULL,
+  `tanggal` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -400,6 +422,12 @@ ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `transaksi_sekolah`
+--
+ALTER TABLE `transaksi_sekolah`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -443,7 +471,7 @@ ALTER TABLE `les`
 -- AUTO_INCREMENT untuk tabel `makan`
 --
 ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `pakaian`
@@ -480,6 +508,12 @@ ALTER TABLE `tetap`
 --
 ALTER TABLE `transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi_sekolah`
+--
+ALTER TABLE `transaksi_sekolah`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
