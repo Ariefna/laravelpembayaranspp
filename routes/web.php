@@ -100,8 +100,8 @@ Route::post('/masterlesan/ubah/', 'App\Http\Controllers\pembayaran@masterlesupda
 Route::get('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesadd');
 Route::post('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesaddaksi');
 
-Route::get('/ltagihan/', 'App\Http\Controllers\pembayaran@ltagihan');
-Route::get('/lpembayaran/', 'App\Http\Controllers\pembayaran@lpembayaran');
+Route::get('/ltagihan', 'App\Http\Controllers\pembayaran@ltagihan');
+Route::get('/lpembayaran', 'App\Http\Controllers\pembayaran@lpembayaran');
 
 
 

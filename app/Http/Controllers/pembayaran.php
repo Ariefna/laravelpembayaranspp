@@ -616,4 +616,12 @@ class pembayaran extends Controller
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
     //les
+
+
+    public function
+    ltagihan()
+    {
+        $data = DB::table('transaksi_sekolah')->join('siswa', 'transaksi_sekolah.id_siswa', '=', 'siswa.id')->get();
+        return view('laporan_pembayaran', ['data' => $data]);
+    }
 }
