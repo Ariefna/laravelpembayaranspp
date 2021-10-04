@@ -24,9 +24,10 @@
                     <div class="position-relative form-group"><label class="">NIS</label>
                         <input require name="kode" value="{{$data[0]->nis}}" placeholder="Masukkan Nis" type="text" class="form-control">
                     </div>
+                    <input type="hidden" name="id_siswa" value="{{$data[0]->id}}">
                     <div class="position-relative form-group"><label class="">Nama</label><input require name="kode" placeholder="Masukkan Nama" value="{{$data[0]->nama_siswa}}" type="text" class="form-control"></div>
-                    <div class="position-relative form-group"><label class="">Kelas</label><input require name="kode" placeholder="Masukkan Kelas" value="{{$data[0]->id_kelas}}" type="text" class="form-control"></div>
-                    <div class="position-relative form-group"><label class="">Formulir Pendaftaran</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Kelas</label><input require name="id_kelas" placeholder="Masukkan Kelas" value="{{$data[0]->id_kelas}}" type="text" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Formulir Pendaftaran</label><select name="formulir" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -40,7 +41,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Gedung</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Gedung</label><select name="gedung" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -54,7 +55,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Atribut Pakaian</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Atribut Pakaian</label><select name="pakaian" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -68,7 +69,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Buku Paket</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Buku Paket</label><select name="buku" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -82,7 +83,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Makan</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Makan</label><select name="makanan" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -96,7 +97,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">SPP</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">SPP</label><select name="spp" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -110,7 +111,7 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Les</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Les</label><select name="les" class="form-control jml">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
@@ -124,14 +125,14 @@
                             <?php endif; ?>
 
                         </select></div>
-                    <div class="position-relative form-group"><label class="">Bulan</label><select name="id_makan" class="form-control">
+                    <div class="position-relative form-group"><label class="">Bulan</label><select name="id_bulan" class="form-control">
                             <option hidden selected>Pilih Satu...</option>
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($bulan) :
                                 foreach ($bulan as $bulan) :
                             ?>
-                                    <option value="<?= $bulan->nama_bulan; ?>"><?= $bulan->nama_bulan; ?></option>
+                                    <option value="<?= $bulan->id; ?>"><?= $bulan->nama_bulan; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Bulan Baru -</option>
@@ -140,7 +141,7 @@
                         </select></div>
                     <div class="position-relative form-group">
                         <label class="">Total Bayar</label>
-                        <input require id="sum" name="kode" placeholder="Total Bayar" value="" type="text" class="form-control">
+                        <input require id="sum" name="total" placeholder="Total Bayar" value="" type="number" readonly class="form-control">
                     </div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
@@ -149,11 +150,10 @@
     </div>
 </div>
 <script>
-    $("select").change(function() {
+    $(".jml").change(function() {
         var s = $('select option:selected').map(function() {
             return this.value
         }).get()
-
         var sum = s.reduce((pv, cv) => {
             return pv + (parseFloat(cv) || 0);
         }, 0);

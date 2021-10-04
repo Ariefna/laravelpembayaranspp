@@ -42,13 +42,13 @@
                         <tbody>
                             <?php
                             $no = 1;
-                            if ($data == null) :
+                            if ($data) :
                                 foreach ($data as $datas) :
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->nis; ?></td>
-                                        <td><?= $datas->nama; ?></td>
+                                        <td><?= $datas->nama_siswa; ?></td>
                                         <td><?= $datas->id_kelas; ?></td>
                                         <td><?= $datas->formulir; ?></td>
                                         <td><?= $datas->gedung; ?></td>
