@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Okt 2021 pada 03.33
+-- Waktu pembuatan: 05 Okt 2021 pada 06.02
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -296,38 +296,13 @@ INSERT INTO `tetap` (`id`, `id_tahun`, `harga`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
---
-
-CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
-  `id_siswa` int(11) NOT NULL,
-  `debet` int(11) NOT NULL,
-  `kredit` int(11) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `keterangan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `date`, `keterangan`) VALUES
-(1, 1, 0, 500000, '2021-09-26 14:52:45', 'Biaya Pakaian 2021'),
-(2, 1, 0, 850000, '2021-09-26 14:52:45', 'Biaya SPP 2021'),
-(3, 1, 0, 1250000, '2021-09-26 14:52:45', 'Biaya Kegiatan 2021'),
-(4, 1, 0, 9800000, '2021-09-26 14:52:45', 'Uang Pangkal 2021'),
-(5, 1, 0, 2400000, '2021-09-26 14:52:45', 'Biaya makanan 2021');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `transaksi_sekolah`
 --
 
 CREATE TABLE `transaksi_sekolah` (
   `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
   `formulir` int(11) NOT NULL,
   `gedung` int(11) NOT NULL,
   `pakaian` int(11) NOT NULL,
@@ -336,8 +311,17 @@ CREATE TABLE `transaksi_sekolah` (
   `spp` int(11) NOT NULL,
   `les` int(11) NOT NULL,
   `id_bulan` int(11) NOT NULL,
-  `tanggal` date NOT NULL DEFAULT current_timestamp()
+  `tanggal` date NOT NULL DEFAULT current_timestamp(),
+  `total` bigint(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `transaksi_sekolah`
+--
+
+INSERT INTO `transaksi_sekolah` (`id`, `id_siswa`, `id_kelas`, `formulir`, `gedung`, `pakaian`, `buku`, `makanan`, `spp`, `les`, `id_bulan`, `tanggal`, `total`) VALUES
+(1, 1, 2, 250000, 9800000, 500000, 77000, 2400000, 950000, 200000, 10, '2021-10-04', 14177010),
+(2, 1, 2, 250000, 9800000, 500000, 59000, 2400000, 950000, 200000, 10, '2021-10-04', 14159010);
 
 --
 -- Indexes for dumped tables
@@ -413,12 +397,6 @@ ALTER TABLE `tahun`
 -- Indeks untuk tabel `tetap`
 --
 ALTER TABLE `tetap`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -504,16 +482,10 @@ ALTER TABLE `tetap`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT untuk tabel `transaksi_sekolah`
 --
 ALTER TABLE `transaksi_sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
