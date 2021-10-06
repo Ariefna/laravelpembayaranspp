@@ -49,23 +49,22 @@
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->nis; ?></td>
                                         <td><?= $datas->nama_siswa; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
-                                        <td><?= $datas->nama_kelas; ?></td>
+                                        <td><?= $datas->id_kelas; ?></td>
+                                        <td><?= $datas->biaya_formulir; ?></td>
+                                        <td><?= $datas->biaya_gedung; ?></td>
+                                        <td><?= $datas->biaya_pakaian; ?></td>
+                                        <td><?= $datas->biaya_buku; ?></td>
+                                        <td><?= $datas->biaya_makan; ?></td>
+                                        <td><?= $datas->biaya_spp; ?></td>
+                                        <td><?= $datas->biaya_les; ?></td>
+                                        <td><?= $datas->id_bulan; ?></td>
+                                        <td><?= $datas->id_bulan; ?></td>
+                                        <td><?= $datas->tanggal; ?></td>
                                     </tr>
                                 <?php endforeach;
                             else : ?>
                                 <tr>
-                                    <td colspan="5" class="text-center">Silahkan tambahkan data siswa / siswi baru</td>
+                                    <td colspan="14" class="text-center">Silahkan tambahkan data Transaksi / Transaksi baru</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
