@@ -174,6 +174,7 @@ CREATE TABLE `spp` (
 CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
   `biaya_formulir` int(11) NOT NULL,
   `biaya_gedung` int(11) NOT NULL,
   `biaya_pakaian` int(11) NOT NULL,
