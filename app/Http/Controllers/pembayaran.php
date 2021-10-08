@@ -82,7 +82,7 @@ class pembayaran extends Controller
         DB::table('master_kelas')
             ->where('id', $id)
             ->update(
-                ['nama' => $nama]
+                ['nama_kelas' => $nama]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
