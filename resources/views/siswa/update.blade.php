@@ -31,11 +31,11 @@
                                 foreach ($kelas as $kelas) :
                                     if ($kelas->id == $data[0]->id_kelas) {
                             ?>
-                                        <option value="<?= $kelas->id; ?>" selected><?= $kelas->nama; ?></option>
+                                        <option value="<?= $kelas->id; ?>" selected><?= $kelas->nama_kelas; ?></option>
                                     <?php
                                     } else {
                                     ?>
-                                        <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                        <option value="<?= $kelas->id; ?>"><?= $kelas->nama_kelas; ?></option>
                                     <?php
                                     }
                                     ?>

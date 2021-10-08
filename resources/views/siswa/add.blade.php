@@ -29,13 +29,13 @@
                             if ($kelas) :
                                 foreach ($kelas as $kelas) :
                             ?>
-                                    <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                    <option value="<?= $kelas->id; ?>"><?= $kelas->nama_kelas; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Kelas Baru -</option>
                             <?php endif; ?>
                         </select></div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" name="makancheck" type="checkbox" value="" id="invalidCheck">
                             <label class="form-check-label" for="invalidCheck">
@@ -45,7 +45,7 @@
                                 You must agree before submitting.
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>

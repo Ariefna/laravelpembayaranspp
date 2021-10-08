@@ -29,7 +29,7 @@
                             if ($kelas) :
                                 foreach ($kelas as $kelas) :
                             ?>
-                                    <option value="<?= $kelas->id; ?>"><?= $kelas->nama; ?></option>
+                                    <option value="<?= $kelas->id; ?>"><?= $kelas->nama_kelas; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Kelas Baru -</option>
