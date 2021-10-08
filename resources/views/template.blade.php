@@ -425,19 +425,18 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="<?= URL::to('/'); ?>/masterkelas" class="">
+                                    <i class="metismenu-icon pe-7s-study"></i>
+                                    Master Kelas
+                                </a>
+                            </li>
+                            <li>
                                 <!-- class="mm-active" -->
                                 <a href="<?= URL::to('/'); ?>/mastersiswa">
                                     <i class="metismenu-icon pe-7s-id"></i>
                                     Master Siswa
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/masterkelas" class="">
-                                    <i class="metismenu-icon pe-7s-study"></i>
-                                    Master Kelas
-                                </a>
-                            </li>
-
                             <li class="app-sidebar__heading">Biaya</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterspp" class="">
