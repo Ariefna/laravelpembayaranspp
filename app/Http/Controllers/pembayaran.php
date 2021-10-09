@@ -12,19 +12,19 @@ class pembayaran extends Controller
     //master siswa
     public function mastersiswa()
     {
-        $data = DB::table('siswa')->join('master_kelas', 'master_kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [1, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [1, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
         return view('mastersiswa', ['data' => $data]);
     }
     public function mastersiswadelete($id)
     {
-        DB::table('siswa')->where('id', '=', $id)->delete();
+        DB::table('master_siswa')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
     public function mastersiswaupdate($id)
     {
-        $data = DB::table('siswa')->where('id', $id)->get();
+        $data = DB::table('master_siswa')->where('id', $id)->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('siswa.update', ['data' => $data, 'master_kelas' => $kelas]);
+        return view('master_siswa.update', ['data' => $data, 'master_kelas' => $kelas]);
     }
     public function
     mastersiswaupdateaksi(Request $r)
@@ -33,7 +33,7 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        DB::table('siswa')
+        DB::table('master_siswa')
             ->where('id', $id)
             ->update(
                 ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas]
@@ -51,7 +51,7 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        DB::table('siswa')->insert(
+        DB::table('master_siswa')->insert(
             ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
@@ -116,7 +116,7 @@ class pembayaran extends Controller
     {
         $data = DB::table('spp')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
-        return view('spp.update', ['data' => $data, 'master_tahun' => $tahun]);
+        return view('spp.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     mastersppupdateaksi(Request $r)
@@ -127,14 +127,14 @@ class pembayaran extends Controller
         DB::table('spp')
             ->where('id', $id)
             ->update(
-                ['id_tahun' => $id_tahun, 'harga_spp' => $harga]
+                ['id_tahun' => $id_tahun, 'biaya_spp' => $harga]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
     public function mastersppadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('spp.add', ['master_tahun' => $tahun]);
+        return view('spp.add', ['tahun' => $tahun]);
     }
     public function
     mastersppaddaksi(Request $r)
@@ -142,7 +142,7 @@ class pembayaran extends Controller
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
         DB::table('spp')->insert(
-            ['harga_spp' => $harga, 'id_tahun' => $id_tahun]
+            ['biaya_spp' => $harga, 'id_tahun' => $id_tahun]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -163,7 +163,7 @@ class pembayaran extends Controller
         $data = DB::table('makan')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
         return view('makan.update', ['data' =>
-        $data, 'master_tahun' => $tahun]);
+        $data, 'tahun' => $tahun]);
     }
     public function
     mastermakanupdateaksi(Request $r)
@@ -175,14 +175,14 @@ class pembayaran extends Controller
         DB::table('makan')
             ->where('id', $id)
             ->update(
-                ['harga_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
+                ['biaya_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
     public function mastermakanadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('makan.add', ['master_tahun' => $tahun]);
+        return view('makan.add', ['tahun' => $tahun]);
     }
     public function
     mastermakanaddaksi(Request $r)
@@ -191,7 +191,7 @@ class pembayaran extends Controller
         $id_tahun = $r->input('id_tahun');
         $status = $r->input('status');
         DB::table('makan')->insert(
-            ['harga_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
+            ['biaya_makan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -213,7 +213,7 @@ class pembayaran extends Controller
         $data = DB::table('kegiatan')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
         return view('kegiatan.update', ['data' =>
-        $data, 'master_tahun' => $tahun]);
+        $data, 'tahun' => $tahun]);
     }
     public function masterkegiatanupdateaksi(Request $r)
     {
@@ -230,7 +230,7 @@ class pembayaran extends Controller
     public function masterkegiatanadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('kegiatan.add', ['master_tahun' => $tahun]);
+        return view('kegiatan.add', ['tahun' => $tahun]);
     }
     public function
     masterkegiatanaddaksi(Request $r)
@@ -259,7 +259,7 @@ class pembayaran extends Controller
         $data = DB::table('buku')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('buku.update', ['data' => $data, 'master_tahun' => $tahun, 'master_kelas' => $kelas]);
+        return view('buku.update', ['data' => $data, 'tahun' => $tahun, 'master_kelas' => $kelas]);
     }
     public function masterbukuupdateaksi(Request $r)
     {
@@ -281,7 +281,7 @@ class pembayaran extends Controller
     {
         $tahun = DB::table('master_tahun')->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('buku.add', ['master_tahun' => $tahun, 'master_kelas' => $kelas]);
+        return view('buku.add', ['tahun' => $tahun, 'master_kelas' => $kelas]);
     }
     public function masterbukuaddaksi(Request $r)
     {
@@ -343,32 +343,32 @@ class pembayaran extends Controller
     public function
     naikkelas()
     {
-        $data = DB::table('siswa')->join('master_kelas', 'master_kelas.id', '=', 'siswa.id_kelas')->whereBetween('siswa.id_kelas', [0, 6])->select('*', 'siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [0, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
         return view('naikkelas', ['data' => $data]);
     }
     public function
     naikkelasaksi($id)
     {
-        DB::table('siswa')
+        DB::table('master_siswa')
             ->where('id', $id)
             ->update(
                 ['id_kelas' => DB::raw('id_kelas + 1')]
             );
         // uang pakaian, uang spp, uang kegiatan, uang buku paket, uang gedung, uang makan
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join tahun b on a.id_tahun = b.id order by b.id desc limit 1)");
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.harga as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga as kredit, CONCAT('Biaya Buku ',a.buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and a.id_kelas = (select id_kelas from siswa where id = " . $id . "))");
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, uang_gedung as kredit, CONCAT('Uang Pangkal ',year(CURRENT_TIMESTAMP)) as keterangan FROM `gedung` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
-        return redirect()->back()->with('success', 'Siswa Anda Berhasil Naik Kelas');
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
+        return redirect()->back()->with('success', 'siswa Anda Berhasil Naik Kelas');
     }
 
     //relasi button tidak naik kelas
     public function
     tinggalkelasaksi($id)
     {
-        DB::table('siswa')
+        DB::table('master_siswa')
             ->where('id', $id)
             ->update(
                 ['id_kelas' => DB::raw('id_kelas')]
@@ -377,15 +377,15 @@ class pembayaran extends Controller
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.harga as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga as kredit, CONCAT('Biaya Buku ',a.buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and a.id_kelas = (select id_kelas from siswa where id = " . $id . "))");
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, uang_gedung as kredit, CONCAT('Uang Pangkal ',year(CURRENT_TIMESTAMP)) as keterangan FROM `gedung` a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, harga_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
         DB::statement("INSERT INTO table (SELECT)");
-        return redirect()->back()->with('success', 'Siswa Anda Berhasil Tinggal Kelas');
+        return redirect()->back()->with('success', 'siswa Anda Berhasil Tinggal Kelas');
     }
 
     public function
     transaksiview()
     {
-        $data = DB::table('siswa')->join('master_kelas', 'master_kelas.id', '=', 'siswa.id_kelas')->select('*', 'siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'siswa.id AS siswa_id')->get();
+        $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
         return view('transaksi', ['data' => $data]);
     }
     public function
@@ -401,8 +401,8 @@ class pembayaran extends Controller
         $spp = DB::table('spp')->get();
         $tetap = DB::table('formulir')->get();
         $bulan = DB::table('bulan')->get();
-        $data = DB::table('siswa')->where('id', $id)->get();
-        return view('transaksi.bayar', ['spp' => $spp, 'bulan' => $bulan, 'formulir' => $tetap, 'makan' => $makan, 'data' => $data, 'master_tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
+        $data = DB::table('master_siswa')->where('id', $id)->get();
+        return view('transaksi.bayar', ['spp' => $spp, 'bulan' => $bulan, 'formulir' => $tetap, 'makan' => $makan, 'data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
     }
     public function
     transaksibayaraksi(Request $r)
@@ -413,13 +413,13 @@ class pembayaran extends Controller
         $gedung = $r->input('biaya_gedung');
         $pakaian = $r->input('biaya_pakaian');
         $buku = $r->input('biaya_buku');
-        $makanan = $r->input('biaya_makan');
+        $makanan = $r->input('biaya_spp');
         $spp = $r->input('biaya_spp');
         $les = $r->input('biaya_les');
         $id_bulan = $r->input('id_bulan');
         $total = $r->input('total');
         DB::table('transaksi_sekolah')->insert(
-            ['id_siswa' => $id_siswa, 'id_kelas' => $id_kelas, 'biaya_formulir' => $formulir, 'biaya_gedung' => $gedung, 'biaya_pakaian' => $pakaian, 'biaya_buku' => $buku, 'biaya_makan' => $makanan, 'biaya_spp' => $spp, 'biaya_les' => $les, 'id_bulan' => $id_bulan, 'total' => $total]
+            ['id_siswa' => $id_siswa, 'id_kelas' => $id_kelas, 'biaya_formulir' => $formulir, 'biaya_gedung' => $gedung, 'biaya_pakaian' => $pakaian, 'biaya_buku' => $buku, 'biaya_spp' => $makanan, 'biaya_spp' => $spp, 'biaya_les' => $les, 'id_bulan' => $id_bulan, 'total' => $total]
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
     }
@@ -440,7 +440,7 @@ class pembayaran extends Controller
     {
         $tahun = DB::table('master_tahun')->get();
         $data = DB::table('formulir')->where('id', $id)->get();
-        return view('lainlain.update', ['data' => $data, 'master_tahun' => $tahun]);
+        return view('lainlain.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     lainlainupdateaksi(Request $r)
@@ -460,7 +460,7 @@ class pembayaran extends Controller
     public function lainlainadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('lainlain.add', ['master_tahun' => $tahun]);
+        return view('lainlain.add', ['tahun' => $tahun]);
     }
     public function
     lainlainaddaksi(Request $r)
@@ -492,7 +492,7 @@ class pembayaran extends Controller
     {
         $tahun = DB::table('master_tahun')->get();
         $data = DB::table('gedung')->where('id', $id)->get();
-        return view('gedung.update', ['data' => $data, 'master_tahun' => $tahun]);
+        return view('gedung.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     gedungupdateaksi(Request $r)
@@ -511,7 +511,7 @@ class pembayaran extends Controller
     public function gedungadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('gedung.add', ['master_tahun' => $tahun]);
+        return view('gedung.add', ['tahun' => $tahun]);
     }
     public function
     gedungaddaksi(Request $r)
@@ -542,7 +542,7 @@ class pembayaran extends Controller
     {
         $tahun = DB::table('master_tahun')->get();
         $data = DB::table('pakaian')->where('id', $id)->get();
-        return view('pakaian.update', ['data' => $data, 'master_tahun' => $tahun]);
+        return view('pakaian.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     pakaianupdateaksi(Request $r)
@@ -561,7 +561,7 @@ class pembayaran extends Controller
     public function pakaianadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('pakaian.add', ['master_tahun' => $tahun]);
+        return view('pakaian.add', ['tahun' => $tahun]);
     }
     public function
     pakaianaddaksi(Request $r)
@@ -592,7 +592,7 @@ class pembayaran extends Controller
         $data = DB::table('les')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
 
-        return view('les.update', ['data' => $data, 'master_tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp]);
+        return view('les.update', ['data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp]);
     }
     public function
     masterlesupdateaksi(Request $r)
@@ -610,7 +610,7 @@ class pembayaran extends Controller
     public function masterlesadd()
     {
         $tahun = DB::table('master_tahun')->get();
-        return view('les.add', ['master_tahun' => $tahun]);
+        return view('les.add', ['tahun' => $tahun]);
     }
     public function
     masterlesaddaksi(Request $r)
@@ -628,7 +628,7 @@ class pembayaran extends Controller
     public function
     ltagihan()
     {
-        $data = DB::table('transaksi')->join('siswa', 'transaksi_sekolah.id_siswa', '=', 'siswa.id')->get();
+        $data = DB::table('transaksi')->join('master_siswa', 'transaksi_sekolah.id_siswa', '=', 'master_siswa.id')->get();
         return view('laporan_pembayaran', ['data' => $data]);
     }
 }

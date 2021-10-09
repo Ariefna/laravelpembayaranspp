@@ -104,7 +104,7 @@
                             if ($spp) :
                                 foreach ($spp as $spp) :
                             ?>
-                                    <option value="<?= $spp->harga_spp; ?>"><?= $spp->harga_spp; ?></option>
+                                    <option value="<?= $spp->biaya_spp; ?>"><?= $spp->biaya_spp; ?></option>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah Spp Baru -</option>

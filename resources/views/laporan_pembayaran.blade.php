@@ -54,7 +54,7 @@
                                         <td><?= $datas->biaya_gedung; ?></td>
                                         <td><?= $datas->biaya_pakaian; ?></td>
                                         <td><?= $datas->biaya_buku; ?></td>
-                                        <td><?= $datas->biaya_makan; ?></td>
+                                        <td><?= $datas->biaya_spp; ?></td>
                                         <td><?= $datas->biaya_spp; ?></td>
                                         <td><?= $datas->biaya_les; ?></td>
                                         <td><?= $datas->id_bulan; ?></td>

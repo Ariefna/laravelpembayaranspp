@@ -22,7 +22,7 @@
                 <form method="POST" action="/masterspp/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->harga_spp}}"></div>
+                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->biaya_spp}}"></div>
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
