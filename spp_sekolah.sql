@@ -79,7 +79,8 @@ CREATE TABLE `gedung` (
 CREATE TABLE `kegiatan` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `biaya_kegiatan` int(11) NOT NULL
+  `biaya_kegiatan` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
