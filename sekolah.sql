@@ -1,493 +1,360 @@
--- phpMyAdmin SQL Dump
--- version 5.1.0
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.19  Distrib 10.3.31-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 05 Okt 2021 pada 06.02
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 7.4.16
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: sekolah
+-- ------------------------------------------------------
+-- Server version	10.3.31-MariaDB-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `sekolah`
+-- Table structure for table `buku`
 --
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `buku`
---
-
+DROP TABLE IF EXISTS `buku`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `buku` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_tahun` int(11) NOT NULL,
-  `buku` varchar(100) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `id_kelas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nama_buku` varchar(100) NOT NULL,
+  `biaya_buku` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `buku`
+-- Dumping data for table `buku`
 --
 
-INSERT INTO `buku` (`id`, `id_tahun`, `buku`, `harga`, `id_kelas`) VALUES
-(1, 2, 'Tematik SD tm 1', 59000, 1),
-(2, 2, 'Tematik SD tm 2', 59000, 1),
-(3, 2, 'Tematik SD tm 3', 59000, 1),
-(4, 2, 'Tematik SD tm 4', 59000, 1),
-(5, 2, 'Tematik SD tm 5', 59000, 1),
-(6, 2, 'Tematik SD tm 6', 59000, 1),
-(7, 2, 'Tematik SD tm 7', 59000, 1),
-(8, 2, 'Tematik SD tm 8', 59000, 1),
-(9, 2, 'English SD RB', 77000, 1),
-(10, 2, 'PENDAIS', 72000, 1),
-(11, 2, 'TANTRI BASA JATIM SD', 29000, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `buku` WRITE;
+/*!40000 ALTER TABLE `buku` DISABLE KEYS */;
+INSERT INTO `buku` VALUES (1,2,'Tematik SD tm 1',59000,1),(2,2,'Tematik SD tm 2',59000,1),(3,2,'Tematik SD tm 3',59000,1),(4,2,'Tematik SD tm 4',59000,1),(5,2,'Tematik SD tm 5',59000,1),(6,2,'Tematik SD tm 6',59000,1),(7,2,'Tematik SD tm 7',59000,1),(8,2,'Tematik SD tm 8',59000,1),(9,2,'English SD RB',77000,1),(10,2,'PENDAIS',72000,1),(11,2,'TANTRI BASA JATIM SD',29000,1);
+/*!40000 ALTER TABLE `buku` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `bulan`
+-- Table structure for table `bulan`
 --
 
+DROP TABLE IF EXISTS `bulan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bulan` (
-  `id` int(11) NOT NULL,
-  `nama_bulan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_bulan` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `bulan`
+-- Dumping data for table `bulan`
 --
 
-INSERT INTO `bulan` (`id`, `nama_bulan`) VALUES
-(1, 'January'),
-(2, 'February'),
-(3, 'maret'),
-(4, 'april'),
-(5, 'mei'),
-(6, 'juni'),
-(7, 'juli'),
-(8, 'agustus'),
-(9, 'september'),
-(10, 'oktober'),
-(11, 'november'),
-(12, 'desember');
-
--- --------------------------------------------------------
+LOCK TABLES `bulan` WRITE;
+/*!40000 ALTER TABLE `bulan` DISABLE KEYS */;
+INSERT INTO `bulan` VALUES (1,'January'),(2,'February'),(3,'maret'),(4,'april'),(5,'mei'),(6,'juni'),(7,'juli'),(8,'agustus'),(9,'september'),(10,'oktober'),(11,'november'),(12,'desember');
+/*!40000 ALTER TABLE `bulan` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `gedung`
+-- Table structure for table `formulir`
 --
 
-CREATE TABLE `gedung` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `formulir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `formulir` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_tahun` int(11) NOT NULL,
-  `uang_gedung` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `biaya_formulir` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `gedung`
+-- Dumping data for table `formulir`
 --
 
-INSERT INTO `gedung` (`id`, `id_tahun`, `uang_gedung`) VALUES
-(1, 1, 9800000),
-(2, 2, 9800000);
-
--- --------------------------------------------------------
+LOCK TABLES `formulir` WRITE;
+/*!40000 ALTER TABLE `formulir` DISABLE KEYS */;
+INSERT INTO `formulir` VALUES (1,2,250000),(2,1,250000);
+/*!40000 ALTER TABLE `formulir` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `kegiatan`
+-- Table structure for table `gedung`
 --
 
+DROP TABLE IF EXISTS `gedung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gedung` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tahun` int(11) NOT NULL,
+  `biaya_gedung` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gedung`
+--
+
+LOCK TABLES `gedung` WRITE;
+/*!40000 ALTER TABLE `gedung` DISABLE KEYS */;
+INSERT INTO `gedung` VALUES (1,1,9800000),(2,2,9800000);
+/*!40000 ALTER TABLE `gedung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kegiatan`
+--
+
+DROP TABLE IF EXISTS `kegiatan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kegiatan` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
-  `harga` int(11) NOT NULL,
+  `biaya_kegiatan` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `kegiatan`
+-- Dumping data for table `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id`, `id_tahun`, `harga`, `status`) VALUES
-(1, 1, 1250000, 1),
-(2, 1, 1750000, 2),
-(3, 2, 1250000, 1),
-(4, 2, 1750000, 2);
-
--- --------------------------------------------------------
+LOCK TABLES `kegiatan` WRITE;
+/*!40000 ALTER TABLE `kegiatan` DISABLE KEYS */;
+INSERT INTO `kegiatan` VALUES (1,1,1250000,1),(2,1,1750000,2),(3,2,1250000,1),(4,2,1750000,2);
+/*!40000 ALTER TABLE `kegiatan` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `les`
 --
 
-CREATE TABLE `kelas` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `kelas`
---
-
-INSERT INTO `kelas` (`id`, `nama`) VALUES
-(1, 'Kelas 1'),
-(2, 'Kelas 2'),
-(3, 'Kelas 3'),
-(4, 'Kelas 4'),
-(5, 'Kelas 5'),
-(7, 'Kelas 6');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `les`
---
-
+DROP TABLE IF EXISTS `les`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `les` (
-  `id` int(11) NOT NULL,
-  `harga_les` int(11) NOT NULL,
-  `id_tahun` int(11) NOT NULL
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tahun` int(11) NOT NULL,
+  `biaya_les` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `les`
+-- Dumping data for table `les`
 --
 
-INSERT INTO `les` (`id`, `harga_les`, `id_tahun`) VALUES
-(2, 200000, 2);
-
--- --------------------------------------------------------
+LOCK TABLES `les` WRITE;
+/*!40000 ALTER TABLE `les` DISABLE KEYS */;
+/*!40000 ALTER TABLE `les` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `makan`
+-- Table structure for table `makan`
 --
 
+DROP TABLE IF EXISTS `makan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `makan` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_tahun` int(11) NOT NULL,
-  `harga_makan` int(11) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `biaya_makan` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `makan`
+-- Dumping data for table `makan`
 --
 
-INSERT INTO `makan` (`id`, `id_tahun`, `harga_makan`, `status`) VALUES
-(1, 1, 2400000, 1),
-(2, 1, 200000, 2),
-(3, 2, 2400000, 1),
-(4, 2, 200000, 2),
-(5, 1, 0, 1),
-(6, 1, 1, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `makan` WRITE;
+/*!40000 ALTER TABLE `makan` DISABLE KEYS */;
+INSERT INTO `makan` VALUES (1,1,2400000,1),(2,1,200000,2),(3,2,2400000,1),(4,2,200000,2),(5,1,0,1),(6,1,1,1);
+/*!40000 ALTER TABLE `makan` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `pakaian`
+-- Table structure for table `master_kelas`
 --
 
-CREATE TABLE `pakaian` (
-  `id` int(11) NOT NULL,
-  `id_tahun` int(11) NOT NULL,
-  `harga_pakaian` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `master_kelas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `master_kelas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_kelas` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `pakaian`
+-- Dumping data for table `master_kelas`
 --
 
-INSERT INTO `pakaian` (`id`, `id_tahun`, `harga_pakaian`) VALUES
-(1, 1, 500000),
-(2, 2, 500000);
-
--- --------------------------------------------------------
+LOCK TABLES `master_kelas` WRITE;
+/*!40000 ALTER TABLE `master_kelas` DISABLE KEYS */;
+INSERT INTO `master_kelas` VALUES (1,'Kelas 1'),(2,'Kelas 2'),(3,'Kelas 3'),(4,'Kelas 4'),(5,'Kelas 5'),(7,'Kelas 6');
+/*!40000 ALTER TABLE `master_kelas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `siswa`
+-- Table structure for table `master_siswa`
 --
 
-CREATE TABLE `siswa` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `master_siswa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `master_siswa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nis` bigint(100) NOT NULL,
   `nama_siswa` varchar(100) NOT NULL,
   `id_kelas` int(11) NOT NULL,
-  `uang_makan` enum('lunas','angsur') NOT NULL DEFAULT 'lunas'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `siswa`
+-- Dumping data for table `master_siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `uang_makan`) VALUES
-(1, 16410100076, 'Ray', 2, 'lunas'),
-(2, 2000, 'inii', 6, 'lunas');
-
--- --------------------------------------------------------
+LOCK TABLES `master_siswa` WRITE;
+/*!40000 ALTER TABLE `master_siswa` DISABLE KEYS */;
+INSERT INTO `master_siswa` VALUES (1,16410100076,'Ray',2),(2,2000,'inii',6);
+/*!40000 ALTER TABLE `master_siswa` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struktur dari tabel `spp`
+-- Table structure for table `master_tahun`
 --
 
+DROP TABLE IF EXISTS `master_tahun`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `master_tahun` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `master_tahun`
+--
+
+LOCK TABLES `master_tahun` WRITE;
+/*!40000 ALTER TABLE `master_tahun` DISABLE KEYS */;
+INSERT INTO `master_tahun` VALUES (1,2022),(2,2021);
+/*!40000 ALTER TABLE `master_tahun` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pakaian`
+--
+
+DROP TABLE IF EXISTS `pakaian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pakaian` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tahun` int(11) NOT NULL,
+  `biaya_pakaian` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pakaian`
+--
+
+LOCK TABLES `pakaian` WRITE;
+/*!40000 ALTER TABLE `pakaian` DISABLE KEYS */;
+INSERT INTO `pakaian` VALUES (1,1,500000),(2,2,500000);
+/*!40000 ALTER TABLE `pakaian` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `spp`
+--
+
+DROP TABLE IF EXISTS `spp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `spp` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_tahun` int(11) NOT NULL,
-  `harga_spp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `biaya_spp` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `spp`
+-- Dumping data for table `spp`
 --
 
-INSERT INTO `spp` (`id`, `id_tahun`, `harga_spp`) VALUES
-(1, 1, 950000),
-(2, 2, 850000);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tahun`
---
-
-CREATE TABLE `tahun` (
-  `id` int(11) NOT NULL,
-  `kode` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+LOCK TABLES `spp` WRITE;
+/*!40000 ALTER TABLE `spp` DISABLE KEYS */;
+INSERT INTO `spp` VALUES (1,1,950000),(2,2,850000);
+/*!40000 ALTER TABLE `spp` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Dumping data untuk tabel `tahun`
+-- Table structure for table `transaksi`
 --
 
-INSERT INTO `tahun` (`id`, `kode`) VALUES
-(1, 2022),
-(2, 2021);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tetap`
---
-
-CREATE TABLE `tetap` (
-  `id` int(11) NOT NULL,
-  `id_tahun` int(11) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `keterangan` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tetap`
---
-
-INSERT INTO `tetap` (`id`, `id_tahun`, `harga`, `keterangan`) VALUES
-(1, 2, 250000, 'Uang kertas formulir'),
-(2, 1, 250000, 'Uang kertas formulir');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `transaksi_sekolah`
---
-
-CREATE TABLE `transaksi_sekolah` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `transaksi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaksi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_siswa` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL,
-  `formulir` int(11) NOT NULL,
-  `gedung` int(11) NOT NULL,
-  `pakaian` int(11) NOT NULL,
-  `buku` int(11) NOT NULL,
-  `makanan` int(11) NOT NULL,
-  `spp` int(11) NOT NULL,
-  `les` int(11) NOT NULL,
+  `biaya_formulir` int(11) NOT NULL,
+  `biaya_gedung` int(11) NOT NULL,
+  `biaya_pakaian` int(11) NOT NULL,
+  `biaya_buku` int(11) NOT NULL,
+  `biaya_makan` int(11) NOT NULL,
+  `biaya_spp` int(11) NOT NULL,
+  `biaya_les` int(11) NOT NULL,
   `id_bulan` int(11) NOT NULL,
-  `tanggal` date NOT NULL DEFAULT current_timestamp(),
-  `total` bigint(100) NOT NULL
+  `tanggal` date NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data untuk tabel `transaksi_sekolah`
+-- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi_sekolah` (`id`, `id_siswa`, `id_kelas`, `formulir`, `gedung`, `pakaian`, `buku`, `makanan`, `spp`, `les`, `id_bulan`, `tanggal`, `total`) VALUES
-(1, 1, 2, 250000, 9800000, 500000, 77000, 2400000, 950000, 200000, 10, '2021-10-04', 14177010),
-(2, 1, 2, 250000, 9800000, 500000, 59000, 2400000, 950000, 200000, 10, '2021-10-04', 14159010);
+LOCK TABLES `transaksi` WRITE;
+/*!40000 ALTER TABLE `transaksi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transaksi` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indeks untuk tabel `buku`
---
-ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `bulan`
---
-ALTER TABLE `bulan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `gedung`
---
-ALTER TABLE `gedung`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `kegiatan`
---
-ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `kelas`
---
-ALTER TABLE `kelas`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `les`
---
-ALTER TABLE `les`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `makan`
---
-ALTER TABLE `makan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `pakaian`
---
-ALTER TABLE `pakaian`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `siswa`
---
-ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `spp`
---
-ALTER TABLE `spp`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tahun`
---
-ALTER TABLE `tahun`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tetap`
---
-ALTER TABLE `tetap`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `transaksi_sekolah`
---
-ALTER TABLE `transaksi_sekolah`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `buku`
---
-ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT untuk tabel `bulan`
---
-ALTER TABLE `bulan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT untuk tabel `gedung`
---
-ALTER TABLE `gedung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `kegiatan`
---
-ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `kelas`
---
-ALTER TABLE `kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `les`
---
-ALTER TABLE `les`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `makan`
---
-ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `pakaian`
---
-ALTER TABLE `pakaian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `siswa`
---
-ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `spp`
---
-ALTER TABLE `spp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `tahun`
---
-ALTER TABLE `tahun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `tetap`
---
-ALTER TABLE `tetap`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi_sekolah`
---
-ALTER TABLE `transaksi_sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-10-11 20:11:09
