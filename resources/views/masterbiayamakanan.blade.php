@@ -39,7 +39,7 @@
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->kode; ?></td>
-                                        <td><?= $datas->harga_makan; ?></td>
+                                        <td><?= $datas->biaya_makan; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/mastermakanan'); ?>/ubah/<?= $datas->makan_id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/mastermakanan'); ?>/delete/<?= $datas->makan_id ?>" href="#">Hapus</a>
