@@ -465,7 +465,7 @@
                             <li>
                                 <a href="<?= URL::to('/'); ?>/lainlain" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    Biaya Lain Lain
+                                    Biaya Formulir
                                 </a>
                             </li>
                             <li>
