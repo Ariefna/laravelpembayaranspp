@@ -238,7 +238,7 @@ class pembayaran extends Controller
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
         DB::table('kegiatan')->insert(
-            ['harga' => $harga, 'id_tahun' => $id_tahun]
+            ['biaya_kegiatan' => $harga, 'id_tahun' => $id_tahun]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -290,7 +290,7 @@ class pembayaran extends Controller
         $harga = $r->input('harga');
         $kelas = $r->input('id_kelas');
         DB::table('buku')->insert(
-            ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga, 'id_kelas' => $kelas]
+            ['id_tahun' => $id_tahun, 'nama_buku' => $buku, 'biaya_buku' => $harga, 'id_kelas' => $kelas]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -468,9 +468,8 @@ class pembayaran extends Controller
     {
         $id_tahun = $r->input('id_tahun');
         $harga = $r->input('harga');
-        $keterangan = $r->input('keterangan');
         DB::table('formulir')->insert(
-            ['id_tahun' => $id_tahun, 'harga' => $harga, 'keterangan' => $keterangan]
+            ['id_tahun' => $id_tahun, 'biaya_formulir' => $harga]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -520,7 +519,7 @@ class pembayaran extends Controller
         $id_tahun = $r->input('id_tahun');
         $uang_gedung = $r->input('uang_gedung');
         DB::table('gedung')->insert(
-            ['id_tahun' => $id_tahun, 'uang_gedung' => $uang_gedung]
+            ['id_tahun' => $id_tahun, 'biaya_gedung' => $uang_gedung]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
@@ -570,7 +569,7 @@ class pembayaran extends Controller
         $id_tahun = $r->input('id_tahun');
         $harga_pakaian = $r->input('harga');
         DB::table('pakaian')->insert(
-            ['id_tahun' => $id_tahun, 'harga_pakaian' => $harga_pakaian]
+            ['id_tahun' => $id_tahun, 'biaya_pakaian' => $harga_pakaian]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
