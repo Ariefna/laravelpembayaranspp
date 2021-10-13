@@ -199,7 +199,7 @@ class pembayaran extends Controller
     //master kegiatan
     public function masterkegiatan()
     {
-        $data = DB::table('kegiatan')->join('master_tahun', 'master_tahun.id', '=', 'kegiatan.id_tahun')->get();
+        $data = DB::table('kegiatan')->join('master_tahun', 'master_tahun.id', '=', 'kegiatan.id_tahun')->select('*', 'kegiatan.id as id_kegiatan')->get();
         return view('masterbiayakegiatan', ['data' => $data]);
     }
     public function masterkegiatandelete($id)
@@ -223,7 +223,7 @@ class pembayaran extends Controller
         DB::table('kegiatan')
             ->where('id', $id)
             ->update(
-                ['harga' => $harga, 'id_tahun' => $id_tahun]
+                ['biaya_kegiatan' => $harga, 'id_tahun' => $id_tahun]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -237,8 +237,9 @@ class pembayaran extends Controller
     {
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
+        $status = $r->input('status');
         DB::table('kegiatan')->insert(
-            ['biaya_kegiatan' => $harga, 'id_tahun' => $id_tahun]
+            ['biaya_kegiatan' => $harga, 'id_tahun' => $id_tahun, 'status' => $status]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }

@@ -41,8 +41,8 @@
                                         <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->biaya_kegiatan; ?></td>
                                         <td>
-                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayakegiatan'); ?>/ubah/<?= $datas->id ?>">Edit</a>
-                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterbiayakegiatan'); ?>/delete/<?= $datas->id ?>" href="#">Hapus</a>
+                                            <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayakegiatan'); ?>/ubah/<?= $datas->id_kegiatan ?>">Edit</a>
+                                            <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/masterbiayakegiatan'); ?>/delete/<?= $datas->id_kegiatan ?>" href="#">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach;

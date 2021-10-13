@@ -43,6 +43,11 @@
                                 <option disabled='disabled'>- Tambah tahun Baru -</option>
                             <?php endif; ?>
                         </select></div>
+                        <div class="position-relative form-group"><label class="">Status</label><select name="status" class="form-control">
+                            <option disabled='disabled'>- Pilih -</option>
+                            <option value="1" <?php if($data[0]->status == 1){ echo "selected";}?>>Kelas 6</option>
+                            <option value="2" <?php if($data[0]->status == 2){ echo "selected";}?>>Kelas 1 - 5</option>
+                        </select></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
