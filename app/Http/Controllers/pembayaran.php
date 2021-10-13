@@ -259,7 +259,7 @@ class pembayaran extends Controller
         $data = DB::table('buku')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('buku.update', ['data' => $data, 'tahun' => $tahun, 'master_kelas' => $kelas]);
+        return view('buku.update', ['data' => $data, 'tahun' => $tahun, 'kelas' => $kelas]);
     }
     public function masterbukuupdateaksi(Request $r)
     {
@@ -604,7 +604,7 @@ class pembayaran extends Controller
         DB::table('les')
             ->where('id', $id)
             ->update(
-                ['harga_les' => $harga, 'id_tahun' => $id_tahun]
+                ['biaya_les' => $harga, 'id_tahun' => $id_tahun]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -619,7 +619,7 @@ class pembayaran extends Controller
         $harga = $r->input('harga');
         $id_tahun = $r->input('id_tahun');
         DB::table('les')->insert(
-            ['harga_les' => $harga, 'id_tahun' => $id_tahun]
+            ['biaya_les' => $harga, 'id_tahun' => $id_tahun]
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }

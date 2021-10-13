@@ -22,7 +22,7 @@
                 <form method="POST" action="/pakaian/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{$data[0]->id}}">
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->harga_pakaian}}"></div>
+                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->biaya_pakaian}}"></div>
 
                     <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>

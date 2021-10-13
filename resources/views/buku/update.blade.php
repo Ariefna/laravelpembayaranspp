@@ -22,8 +22,8 @@
                 <form method="POST" action="/masterbiayabukupaket/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
-                    <div class="position-relative form-group"><label class="">Nama Buku</label><input name="buku" placeholder="Masukkan Nama Buku" type="text" class="form-control" value="{{$data[0]->buku}}"></div>
-                    <div class="position-relative form-group"><label class="">Harga</label><input require name="harga" placeholder="Masukkan Harga" type="text" class="form-control" value="{{$data[0]->harga}}"></div>
+                    <div class="position-relative form-group"><label class="">Nama Buku</label><input name="buku" placeholder="Masukkan Nama Buku" type="text" class="form-control" value="{{$data[0]->nama_buku}}"></div>
+                    <div class="position-relative form-group"><label class="">Harga</label><input require name="harga" placeholder="Masukkan Harga" type="text" class="form-control" value="{{$data[0]->biaya_buku}}"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
