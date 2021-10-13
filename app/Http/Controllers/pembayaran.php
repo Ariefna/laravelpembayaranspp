@@ -281,7 +281,7 @@ class pembayaran extends Controller
     {
         $tahun = DB::table('master_tahun')->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('buku.add', ['tahun' => $tahun, 'master_kelas' => $kelas]);
+        return view('buku.add', ['tahun' => $tahun, 'kelas' => $kelas]);
     }
     public function masterbukuaddaksi(Request $r)
     {
