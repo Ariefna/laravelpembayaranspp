@@ -420,7 +420,7 @@ class pembayaran extends Controller
         $les = $r->input('biaya_les');
         $id_bulan = $r->input('id_bulan');
         $total = $r->input('total');
-        DB::table('transaksi_sekolah')->insert(
+        DB::table('transaksi')->insert(
             ['id_siswa' => $id_siswa, 'id_kelas' => $id_kelas, 'biaya_formulir' => $formulir, 'biaya_gedung' => $gedung, 'biaya_pakaian' => $pakaian, 'biaya_buku' => $buku, 'biaya_spp' => $makanan, 'biaya_spp' => $spp, 'biaya_les' => $les, 'id_bulan' => $id_bulan, 'total' => $total]
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
@@ -629,7 +629,7 @@ class pembayaran extends Controller
     public function
     ltagihan()
     {
-        $data = DB::table('transaksi')->join('master_siswa', 'transaksi_sekolah.id_siswa', '=', 'master_siswa.id')->get();
+        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->get();
         return view('laporan_pembayaran', ['data' => $data]);
     }
 }
