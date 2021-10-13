@@ -390,6 +390,12 @@ class pembayaran extends Controller
         $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [0, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
         return view('perbulan', ['data' => $data]);
     }
+    public function
+    kirimangsuran($id)
+    {
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT ".$id." as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+        return redirect()->back()->with('success', 'Anda Berhasil Kirim Angsuran');
+    }
 
     public function
     transaksiview()
