@@ -593,7 +593,7 @@ class pembayaran extends Controller
         $data = DB::table('les')->where('id', $id)->get();
         $tahun = DB::table('master_tahun')->get();
 
-        return view('les.update', ['data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp]);
+        return view('les.update', ['data' => $data, 'tahun' => $tahun]);
     }
     public function
     masterlesupdateaksi(Request $r)
