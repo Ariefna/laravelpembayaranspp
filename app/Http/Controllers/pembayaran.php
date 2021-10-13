@@ -479,7 +479,7 @@ class pembayaran extends Controller
 
     public function gedung()
     {
-        $data = DB::table('gedung')->get();
+        $data = DB::table('gedung')->join('master_tahun', 'master_tahun.id', '=', 'gedung.id_tahun')->get();
         return view('gedung', ['data' => $data]);
     }
     public function gedungdelete($id)
@@ -529,7 +529,7 @@ class pembayaran extends Controller
 
     public function pakaian()
     {
-        $data = DB::table('pakaian')->get();
+        $data = DB::table('pakaian')->join('master_tahun', 'master_tahun.id', '=', 'pakaian.id_tahun')->get();
         return view('pakaian', ['data' => $data]);
     }
     public function pakaiandelete($id)

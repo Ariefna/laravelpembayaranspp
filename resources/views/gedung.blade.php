@@ -38,7 +38,7 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
-                                        <td><?= $datas->id_tahun; ?></td>
+                                        <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->biaya_gedung; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/gedung'); ?>/ubah/<?= $datas->id ?>">Edit</a>
