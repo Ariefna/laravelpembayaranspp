@@ -428,6 +428,10 @@ ALTER TABLE `spp`
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
+
+  ALTER TABLE `kegiatan`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -455,6 +459,9 @@ ALTER TABLE `formulir`
 --
 ALTER TABLE `gedung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+  ALTER TABLE `kegiatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `les`
