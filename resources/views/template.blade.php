@@ -500,6 +500,12 @@
                                     Naik Kelas
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/perbulan" class="">
+                                    <i class="metismenu-icon pe-7s-up-arrow"></i>
+                                    Perbulan
+                                </a>
+                            </li>
                             <li class="app-sidebar__heading">Pembayaran</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/transaksi" class="">

@@ -385,6 +385,13 @@ class pembayaran extends Controller
     }
 
     public function
+    perbulan()
+    {
+        $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [0, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
+        return view('perbulan', ['data' => $data]);
+    }
+
+    public function
     transaksiview()
     {
         $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
