@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2021 at 08:14 AM
+-- Generation Time: Oct 14, 2021 at 02:46 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -51,7 +51,14 @@ INSERT INTO `buku` (`id`, `id_tahun`, `nama_buku`, `biaya_buku`, `id_kelas`) VAL
 (20, 1, 'Buku Paket Kelas 5', 645200, 5),
 (21, 2, 'Buku Paket Kelas 5', 645200, 5),
 (22, 1, 'Buku Paket Kelas 6', 646800, 7),
-(23, 2, 'Buku Paket Kelas 6', 646800, 7);
+(23, 2, 'Buku Paket Kelas 6', 646800, 7),
+(24, 8, 'Buku Paket Kelas 1', 530000, 1),
+(25, 8, 'Buku Paket Kelas 2', 533200, 2),
+(26, 8, 'Buku Paket Kelas 3', 529200, 3),
+(27, 8, 'Buku Paket Kelas 4', 646000, 4),
+(28, 8, 'Buku Paket Kelas 5', 645200, 5),
+(29, 8, 'Buku Paket Kelas 6', 646800, 7),
+(30, 2, 'percobaan', 10000, 1);
 
 -- --------------------------------------------------------
 
@@ -100,10 +107,10 @@ CREATE TABLE `formulir` (
 
 INSERT INTO `formulir` (`id`, `id_tahun`, `biaya_formulir`) VALUES
 (1, 2, 250000),
-(2, 1, 250000),
 (3, 3, 250000),
 (5, 4, 250000),
-(6, 8, 250000);
+(6, 8, 250000),
+(7, 2, 100);
 
 -- --------------------------------------------------------
 
@@ -127,7 +134,6 @@ INSERT INTO `gedung` (`id`, `id_tahun`, `biaya_gedung`) VALUES
 (5, 3, 7000000),
 (6, 4, 7000000),
 (7, 2, 8400000),
-(8, 8, 8400000),
 (9, 3, 8400000),
 (10, 8, 7000000),
 (11, 2, 14000000),
@@ -156,7 +162,8 @@ INSERT INTO `kegiatan` (`id`, `id_tahun`, `biaya_kegiatan`, `status`) VALUES
 (1, 1, 1250000, 1),
 (2, 1, 1750000, 2),
 (3, 2, 1250000, 1),
-(4, 2, 1750000, 2);
+(4, 2, 1750000, 2),
+(6, 8, 1750000, 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +185,7 @@ INSERT INTO `les` (`id`, `id_tahun`, `biaya_les`) VALUES
 (1, 1, 200000),
 (2, 2, 100000),
 (3, 8, 100000),
-(4, 3, 100000);
+(5, 3, 100000);
 
 -- --------------------------------------------------------
 
@@ -338,13 +345,20 @@ INSERT INTO `spp` (`id`, `id_tahun`, `biaya_spp`) VALUES
 --
 
 CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `debet` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
-  `keterangan` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `keterangan`) VALUES
+(2, 1, 0, 850000, 'Biaya SPP 2021'),
+(3, 1, 0, 850000, 'Biaya SPP 2021');
 
 --
 -- Indexes for dumped tables
@@ -372,6 +386,12 @@ ALTER TABLE `formulir`
 -- Indexes for table `gedung`
 --
 ALTER TABLE `gedung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kegiatan`
+--
+ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -422,10 +442,6 @@ ALTER TABLE `spp`
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
-
-  ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id`);
-
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -434,7 +450,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `bulan`
@@ -446,7 +462,7 @@ ALTER TABLE `bulan`
 -- AUTO_INCREMENT for table `formulir`
 --
 ALTER TABLE `formulir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `gedung`
@@ -454,56 +470,23 @@ ALTER TABLE `formulir`
 ALTER TABLE `gedung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
-  ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `kegiatan`
+--
+ALTER TABLE `kegiatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `les`
 --
 ALTER TABLE `les`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `makan`
---
-ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `master_kelas`
---
-ALTER TABLE `master_kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `master_siswa`
---
-ALTER TABLE `master_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `master_tahun`
---
-ALTER TABLE `master_tahun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `pakaian`
---
-ALTER TABLE `pakaian`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `spp`
---
-ALTER TABLE `spp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
