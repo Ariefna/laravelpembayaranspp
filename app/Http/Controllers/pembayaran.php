@@ -457,7 +457,7 @@ class pembayaran extends Controller
         DB::table('formulir')
             ->where('id', $id)
             ->update(
-                ['id_tahun' => $id_tahun, 'harga' => $harga, 'keterangan' => $keterangan]
+                ['id_tahun' => $id_tahun, 'biaya_formulir' => $harga]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -557,7 +557,7 @@ class pembayaran extends Controller
         DB::table('pakaian')
             ->where('id', $id)
             ->update(
-                ['harga_pakaian' => $harga_pakaian, 'id_tahun' => $id_tahun]
+                ['biaya_pakaian' => $harga_pakaian, 'id_tahun' => $id_tahun]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
