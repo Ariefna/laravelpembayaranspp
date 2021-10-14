@@ -24,13 +24,21 @@
                     <input type="hidden" name="id" value="{{$data[0]->id}}">
                     <div class="position-relative form-group"><label class="">Harga</label><input name="uang_gedung" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->biaya_gedung}}"></div>
 
-                    <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
+                    <div class="position-relative form-group"><label class="">tahun</label><select required name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($tahun) :
                                 foreach ($tahun as $tahun) :
+                                    if ($tahun->id == $data[0]->id_tahun) {
                             ?>
-                                    <option value="<?= $tahun->id; ?>"><?= $tahun->kode; ?></option>
+                                        <option value="<?= $tahun->id; ?>" selected><?= $tahun->kode; ?></option>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <option value="<?= $tahun->id; ?>"><?= $tahun->kode; ?></option>
+                                    <?php
+                                    }
+                                    ?>
                                 <?php endforeach;
                             else : ?>
                                 <option disabled='disabled'>- Tambah tahun Baru -</option>

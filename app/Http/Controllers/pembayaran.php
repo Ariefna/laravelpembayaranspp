@@ -483,7 +483,7 @@ class pembayaran extends Controller
 
     public function gedung()
     {
-        $data = DB::table('gedung')->join('master_tahun', 'master_tahun.id', '=', 'gedung.id_tahun')->get();
+        $data = DB::table('gedung')->join('master_tahun', 'master_tahun.id', '=', 'gedung.id_tahun')->select('*', 'gedung.id as gedung_id')->get();
         return view('gedung', ['data' => $data]);
     }
     public function gedungdelete($id)
