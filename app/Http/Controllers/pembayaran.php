@@ -273,7 +273,7 @@ class pembayaran extends Controller
         DB::table('buku')
             ->where('id', $id)
             ->update(
-                ['id_tahun' => $id_tahun, 'buku' => $buku, 'harga' => $harga, 'id_kelas' => $kelas]
+                ['id_tahun' => $id_tahun, 'nama_buku' => $buku, 'biaya_buku' => $harga, 'id_kelas' => $kelas]
             );
         // dd(DB::getQueryLog());
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
