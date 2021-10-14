@@ -406,18 +406,8 @@ class pembayaran extends Controller
     public function
     transaksibayar($id)
     {
-        $spp = DB::table('spp')->get();
-        $makan = DB::table('makan')->get();
-        $tahun = DB::table('master_tahun')->get();
-        $pakaian = DB::table('pakaian')->get();
-        $gedung = DB::table('gedung')->get();
-        $buku = DB::table('buku')->get();
-        $les = DB::table('les')->get();
-        $spp = DB::table('spp')->get();
-        $tetap = DB::table('formulir')->get();
-        $bulan = DB::table('bulan')->get();
-        $data = DB::table('master_siswa')->where('id', $id)->get();
-        return view('transaksi.bayar', ['spp' => $spp, 'bulan' => $bulan, 'formulir' => $tetap, 'makan' => $makan, 'data' => $data, 'tahun' => $tahun, 'gedung' => $gedung, 'buku' => $buku, 'les' => $les, 'makan' => $makan, 'spp' => $spp, 'pakaian' => $pakaian]);
+        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan'))->get();
+        return view('transaksi.bayar', ['data' => $data]);
     }
     public function
     transaksibayaraksi(Request $r)

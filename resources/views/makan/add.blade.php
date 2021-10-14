@@ -21,13 +21,13 @@
                 <h5 class="card-title">Form Tambah</h5>
                 <form method="POST" action="/mastermakanan/add/">
                     {{ csrf_field() }}
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control"></div>
-                    <div class="position-relative form-group"><label class="">Status</label><select name="status" class="form-control">
+                    <div class="position-relative form-group"><label class="">Harga</label><input required name="harga" placeholder="Masukkan Harga" type="number" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Status</label><select required name="status" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <option value="1">Kelas 6</option>
                             <option value="2">Kelas 1 - 5</option>
                         </select></div>
-                    <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
+                    <div class="position-relative form-group"><label class="">tahun</label><select required name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($tahun) :

@@ -22,8 +22,8 @@
                 <form method="POST" action="/masterbiayakegiatan/ubah/">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
-                    <div class="position-relative form-group"><label class="">Harga</label><input name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->biaya_kegiatan}}"></div>
-                    <div class="position-relative form-group"><label class="">tahun</label><select name="id_tahun" class="form-control">
+                    <div class="position-relative form-group"><label class="">Harga</label><input required name="harga" placeholder="Masukkan Harga" type="number" class="form-control" value="{{$data[0]->biaya_kegiatan}}"></div>
+                    <div class="position-relative form-group"><label class="">tahun</label><select required name="id_tahun" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
                             <?php
                             if ($tahun) :
@@ -43,10 +43,19 @@
                                 <option disabled='disabled'>- Tambah tahun Baru -</option>
                             <?php endif; ?>
                         </select></div>
-                        <div class="position-relative form-group"><label class="">Status</label><select name="status" class="form-control">
+                        <div class="position-relative form-group"><label class="">Status</label><select required name="status" class="form-control">
                             <option disabled='disabled'>- Pilih -</option>
-                            <option value="1" <?php if($data[0]->status == 1){ echo "selected";}?>>Kelas 6</option>
-                            <option value="2" <?php if($data[0]->status == 2){ echo "selected";}?>>Kelas 1 - 5</option>
+                            @if ($data[0]->status == 1)
+                            <option value="1" selected>Kelas 6</option>
+                            <option value="2">Kelas 1 - 5</option>
+                            @endif
+                            @if ($data[0]->id_tahun == 2)
+                            <option value="1">Kelas 6</option>
+                            <option value="2" selected>Kelas 1 - 5</option>
+                            @else
+                            <option value="1">Kelas 6</option>
+                            <option value="2">Kelas 1 - 5</option>
+                            @endif
                         </select></div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
