@@ -507,7 +507,7 @@ class pembayaran extends Controller
         DB::table('gedung')
             ->where('id', $id)
             ->update(
-                ['id_tahun' => $id_tahun, 'biaya_gudang' => $uang_gedung]
+                ['id_tahun' => $id_tahun, 'biaya_gedung' => $uang_gedung]
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
