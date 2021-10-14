@@ -338,19 +338,13 @@ INSERT INTO `spp` (`id`, `id_tahun`, `biaya_spp`) VALUES
 --
 
 CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_siswa` int(11) NOT NULL,
-  `id_kelas` int(11) NOT NULL,
-  `biaya_formulir` int(11) NOT NULL,
-  `biaya_gedung` int(11) NOT NULL,
-  `biaya_pakaian` int(11) NOT NULL,
-  `biaya_buku` int(11) NOT NULL,
-  `biaya_makan` int(11) NOT NULL,
-  `biaya_spp` int(11) NOT NULL,
-  `biaya_les` int(11) NOT NULL,
-  `id_bulan` int(11) NOT NULL,
-  `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `debet` int(11) NOT NULL,
+  `kredit` int(11) NOT NULL,
+  `keterangan` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
