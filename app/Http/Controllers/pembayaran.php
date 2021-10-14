@@ -24,7 +24,7 @@ class pembayaran extends Controller
     {
         $data = DB::table('master_siswa')->where('id', $id)->get();
         $kelas = DB::table('master_kelas')->get();
-        return view('master_siswa.update', ['data' => $data, 'master_kelas' => $kelas]);
+        return view('siswa.update', ['data' => $data, 'kelas' => $kelas]);
     }
     public function
     mastersiswaupdateaksi(Request $r)
