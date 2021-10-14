@@ -28,8 +28,7 @@
                             @if ($data[0]->status == 1)
                             <option value="1" selected>Kelas 6</option>
                             <option value="2">Kelas 1 - 5</option>
-                            @endif
-                            @if ($data[0]->id_tahun == 2)
+                            @elseif ($data[0]->id_tahun == 2)
                             <option value="1">Kelas 6</option>
                             <option value="2" selected>Kelas 1 - 5</option>
                             @else
