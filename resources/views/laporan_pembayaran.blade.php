@@ -24,18 +24,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>NIS</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Formulir Pendaftaran</th>
-                                <th>Pangkal</th>
-                                <th>Atribut Pakaian</th>
-                                <th>Buku Paket</th>
-                                <th>Makanan</th>
-                                <th>Spp</th>
-                                <th>les</th>
-                                <th>Bulan</th>
-                                <th>Total Bayar</th>
+                                <th>Keterangan</th>
+                                <th>Pengeluaran</th>
+                                <th>Pemasukkan</th>
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
@@ -47,18 +38,9 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
-                                        <td><?= $datas->nis; ?></td>
-                                        <td><?= $datas->nama_siswa; ?></td>
-                                        <td><?= $datas->id_kelas; ?></td>
-                                        <td><?= $datas->biaya_formulir; ?></td>
-                                        <td><?= $datas->biaya_gedung; ?></td>
-                                        <td><?= $datas->biaya_pakaian; ?></td>
-                                        <td><?= $datas->biaya_buku; ?></td>
-                                        <td><?= $datas->biaya_spp; ?></td>
-                                        <td><?= $datas->biaya_spp; ?></td>
-                                        <td><?= $datas->biaya_les; ?></td>
-                                        <td><?= $datas->id_bulan; ?></td>
-                                        <td><?= $datas->id_bulan; ?></td>
+                                        <td><?= $datas->keterangan; ?></td>
+                                        <td><?= $datas->debet; ?></td>
+                                        <td><?= $datas->kredit; ?></td>
                                         <td><?= $datas->tanggal; ?></td>
                                     </tr>
                                 <?php endforeach;

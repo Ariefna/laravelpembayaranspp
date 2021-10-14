@@ -521,13 +521,13 @@
                             </li>
                             <li class="app-sidebar__heading">Laporan</li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/ltagihan">
+                                <a href="<?= URL::to('/'); ?>/lpembayaran">
                                     <i class="metismenu-icon pe-7s-print"></i>
                                     Laporan Pembayaran
                                 </a>
                             </li>
                             <li>
-                                <a href="dashboard-boxes.html">
+                                <a href="<?= URL::to('/'); ?>/ltagihan">
                                     <i class="metismenu-icon pe-7s-print"></i>
                                     Laporan Tagihan
                                 </a>
