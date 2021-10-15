@@ -514,7 +514,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= URL::to('/'); ?>/index.html" class="">
+                                <a href="<?= URL::to('/'); ?>/dpembayaran" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Pembayaran
                                 </a>

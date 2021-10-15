@@ -109,6 +109,7 @@ Route::post('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesaddak
 
 Route::get('/ltagihan', 'App\Http\Controllers\pembayaran@ltagihan');
 Route::get('/lpembayaran', 'App\Http\Controllers\pembayaran@lpembayaran');
+Route::get('/dpembayaran', 'App\Http\Controllers\pembayaran@lpembayaran');
 
 
 

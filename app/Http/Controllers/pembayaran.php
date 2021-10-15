@@ -390,7 +390,6 @@ class pembayaran extends Controller
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT ".$id." as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
         return redirect()->back()->with('success', 'Anda Berhasil Kirim Angsuran');
     }
-
     public function
     transaksiview()
     {
@@ -450,7 +449,6 @@ class pembayaran extends Controller
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
-
     public function lainlainadd()
     {
         $tahun = DB::table('master_tahun')->get();
@@ -466,10 +464,8 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
-
     //lain lain
     //gadung
-
     public function gedung()
     {
         $data = DB::table('gedung')->join('master_tahun', 'master_tahun.id', '=', 'gedung.id_tahun')->select('*', 'gedung.id as gedung_id')->get();
@@ -566,9 +562,7 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
-
     //pakaian
-
     //les
     public function masterles()
     {
@@ -616,8 +610,6 @@ class pembayaran extends Controller
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
     //les
-
-
     public function
     ltagihan()
     {
