@@ -10,6 +10,9 @@ use Session;
 class pembayaran extends Controller
 {
     //master siswa
+    public function login(){
+        return view('login');
+    }
     public function mastersiswa()
     {
         $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [1, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
