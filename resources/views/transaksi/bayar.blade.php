@@ -21,9 +21,11 @@
                 <h5 class="card-title">Form Pembayaran</h5>
                 <form method="POST" action="/transaksi/bayar">
                     {{ csrf_field() }}
-                    <div class="position-relative form-group"><label class="">Total Tagihan</label><input name="tagihan" placeholder="" type="number" class="form-control" value="{{$data[0]->tagihan}}"></div>
-                    <div class="position-relative form-group"><label class="">Total Pembayaran</label><input name="bayar" placeholder="Masukkan Pembayaran" type="number" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Total Tagihan</label><input name="tagihan" placeholder="" type="number" class="form-control" value="{{$data[0]->tagihan}}" readonly></div>
+                    <div class="position-relative form-group"><label class="">Total Pembayaran</label><input name="bayar" placeholder="Masukkan Pembayaran" type="number" class="form-control" value="{{$data[0]->tagihan}}" readonly></div>
                     <div class="position-relative form-group"><label class="">Keterangan</label><input name="keterangan" placeholder="Masukkan Keterangan" type="number" class="form-control"></div>
+                    <div class="position-relative form-group"><label class="">Bukti Pembayaran</label><br> <input type="file" id="file" name="file" multiple>
+                </div>
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
