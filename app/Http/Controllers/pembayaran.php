@@ -37,7 +37,7 @@ class pembayaran extends Controller
 			else {
                 $request->session()->put('id_siswa', $user[0]->id);
                 $request->session()->put('role', 'siswa');
-				return redirect('/transaksi');
+				return redirect('/transaksi/bayar/'.$user[0]->id);
 			}
 	}
     }

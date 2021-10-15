@@ -19,6 +19,8 @@ Route::get('/login', 'App\Http\Controllers\pembayaran@login');
 Route::post('/login', 'App\Http\Controllers\pembayaran@login_request');
 Route::get('/logout', 'App\Http\Controllers\pembayaran@logout');
 
+
+Route::middleware(['admin'])->group(function () {
 Route::get('/mastersiswa', 'App\Http\Controllers\pembayaran@mastersiswa');
 Route::get('/mastersiswa/delete/{id}', 'App\Http\Controllers\pembayaran@mastersiswadelete');
 Route::get('/mastersiswa/ubah/{id}', 'App\Http\Controllers\pembayaran@mastersiswaupdate');
@@ -80,8 +82,7 @@ Route::get('/kirimangsuran/{id}', 'App\Http\Controllers\pembayaran@kirimangsuran
 
 
 Route::get('/transaksi', 'App\Http\Controllers\pembayaran@transaksiview');
-Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
-Route::post('/transaksi/bayar/', 'App\Http\Controllers\pembayaran@transaksibayaraksi');
+
 
 Route::get('/gedung', 'App\Http\Controllers\pembayaran@gedung');
 Route::get('/gedung/delete/{id}', 'App\Http\Controllers\pembayaran@gedungdelete');
@@ -110,10 +111,18 @@ Route::get('/masterlesan/ubah/{id}', 'App\Http\Controllers\pembayaran@masterlesu
 Route::post('/masterlesan/ubah/', 'App\Http\Controllers\pembayaran@masterlesupdateaksi');
 Route::get('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesadd');
 Route::post('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesaddaksi');
+});
 
+
+Route::middleware(['siswa'])->group(function () {
+    Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
+    Route::post('/transaksi/bayar/', 'App\Http\Controllers\pembayaran@transaksibayaraksi');
+    });
+Route::middleware(['yayasan'])->group(function () {
 Route::get('/ltagihan', 'App\Http\Controllers\pembayaran@ltagihan');
 Route::get('/lpembayaran', 'App\Http\Controllers\pembayaran@lpembayaran');
 Route::get('/dpembayaran', 'App\Http\Controllers\pembayaran@lpembayaran');
+});
 
 
 
