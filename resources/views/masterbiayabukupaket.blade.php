@@ -42,7 +42,7 @@
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->kode; ?></td>
                                         <td><?= $datas->nama_buku; ?></td>
-                                        <td><?= $datas->biaya_buku; ?></td>
+                                        <td>@currency($datas->biaya_buku)</td>
                                         <td><?= $datas->nama_kelas; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/masterbiayabukupaket'); ?>/ubah/<?= $datas->id_buku ?>">Edit</a>

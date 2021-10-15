@@ -40,7 +40,7 @@
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->kode; ?></td>
-                                        <td><?= $datas->biaya_makan; ?></td>
+                                        <td>@currency($datas->biaya_makan)</td>
                                         <?php if($datas->status == 2){?>
                                             <td>Kelas 1 - 5</td>
                                         <?php }else{?>

@@ -39,8 +39,8 @@
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->keterangan; ?></td>
-                                        <td><?= $datas->debet; ?></td>
-                                        <td><?= $datas->kredit; ?></td>
+                                        <td>@currency($datas->debet)</td>
+                                        <td>@currency($datas->kredit)</td>
                                         <td><?= $datas->tanggal; ?></td>
                                     </tr>
                                 <?php endforeach;
