@@ -295,7 +295,6 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
-
     //master tahun
     public function mastertahun()
     {
@@ -307,7 +306,6 @@ class pembayaran extends Controller
         DB::table('master_tahun')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Data Anda Berhasil Dihapus');
     }
-
     public function mastertahunupdate($id)
     {
         $data = DB::table('master_tahun')->where('id', $id)->get();
@@ -325,7 +323,6 @@ class pembayaran extends Controller
             );
         return redirect()->back()->with('success', 'Data Anda Berhasil Diubah');
     }
-
     public function mastertahunadd()
     {
         return view('tahun.add');
@@ -339,7 +336,6 @@ class pembayaran extends Controller
         );
         return redirect()->back()->with('success', 'Data Anda Berhasil Dimasukkan');
     }
-
     //relasi naik kelas
     public function
     naikkelas()
@@ -364,7 +360,6 @@ class pembayaran extends Controller
         DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
         return redirect()->back()->with('success', 'siswa Anda Berhasil Naik Kelas');
     }
-
     //relasi button tidak naik kelas
     public function
     tinggalkelasaksi($id)

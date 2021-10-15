@@ -254,7 +254,10 @@ CREATE TABLE `master_siswa` (
   `id` int(11) NOT NULL,
   `nis` bigint(100) NOT NULL,
   `nama_siswa` varchar(100) NOT NULL,
-  `id_kelas` int(11) NOT NULL
+  `id_kelas` int(11) NOT NULL,
+  `status_les` int(11) NOT NULL,
+    `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -349,7 +352,8 @@ CREATE TABLE `transaksi` (
   `id_siswa` int(11) NOT NULL,
   `debet` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
-  `keterangan` text NOT NULL
+  `keterangan` text NOT NULL,
+    `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
