@@ -10,7 +10,7 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #56baed !important;
 }
 
 body {
@@ -112,7 +112,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: #39ace7 !important;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -124,9 +124,9 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 input[type=text] {
-  background-color: #f6f6f6;
+  background-color: #f6f6f6 !important;
   border: none;
-  color: #0d0d0d;
+  color: #0d0d0d !important;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -144,13 +144,42 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
+input[type=password] {
+  background-color: #f6f6f6 !important;
+  border: none;
+  color: #0d0d0d !important;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+
 input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+input[type=password]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
 input[type=text]:placeholder {
-  color: #cccccc;
+  color: #cccccc !important;
+}
+input[type=password]:placeholder {
+  color: #cccccc !important;
 }
 
 
@@ -244,7 +273,7 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #56baed !important;
   content: "";
   transition: width 0.2s;
 }
@@ -279,6 +308,20 @@ input[type=text]:placeholder {
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
+    @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('success') !!}</li>
+            </ul>
+        </div>
+        @endif
+        @if (\Session::has('failed'))
+        <div class="alert alert-danger">
+            <ul>
+                <li>{!! \Session::get('failed') !!}</li>
+            </ul>
+        </div>
+        @endif
     <h2 class="active"> Sign In </h2>
 
     <!-- Icon -->
@@ -287,9 +330,11 @@ input[type=text]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+   
+    <form method="POST" action="/login">
+     {{ csrf_field() }}
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 

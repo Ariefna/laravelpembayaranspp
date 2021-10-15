@@ -9,10 +9,39 @@ use Session;
 
 class pembayaran extends Controller
 {
-    //master siswa
+    
+    public function logout(){
+		Session::forget('role');
+		return redirect('/login'); 
+	}
     public function login(){
         return view('login');
     }
+    public function login_request(Request $request){
+        $pass = $request->input('password');
+        $username = $request->input('username');
+		$user = DB::table('master_siswa')->where('nama_siswa', $username)->where('nis', $pass)->get();
+		if (!$user->count() && (($pass != "admin") && ($username != "admin")) && (($pass != "admin123") && ($username != "admin"))) {
+			return redirect('/login')->with('failed', 'Maaf, username atau password salah');
+		}else {
+			// $request->session()->put('role', $user[0]->role);
+			// $request->session()->put('id_user', $user[0]->id_user);
+			if ($pass == "admin" && $username == "admin") {
+                $request->session()->put('role', 'admin');
+				return redirect('/');
+			} 
+			else if ($pass == "admin123" && $username == "admin") {
+                $request->session()->put('role', 'yayasan');
+				return redirect('/lpembayaran');
+			} 
+			else {
+                $request->session()->put('id_siswa', $user[0]->id);
+                $request->session()->put('role', 'siswa');
+				return redirect('/transaksi');
+			}
+	}
+    }
+    //master siswa
     public function mastersiswa()
     {
         $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [1, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();

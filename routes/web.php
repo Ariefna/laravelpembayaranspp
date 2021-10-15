@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\pembayaran@mastersiswa');
 Route::get('/login', 'App\Http\Controllers\pembayaran@login');
+Route::post('/login', 'App\Http\Controllers\pembayaran@login_request');
+Route::post('/logout', 'App\Http\Controllers\pembayaran@logout');
+
 Route::get('/mastersiswa', 'App\Http\Controllers\pembayaran@mastersiswa');
 Route::get('/mastersiswa/delete/{id}', 'App\Http\Controllers\pembayaran@mastersiswadelete');
 Route::get('/mastersiswa/ubah/{id}', 'App\Http\Controllers\pembayaran@mastersiswaupdate');
