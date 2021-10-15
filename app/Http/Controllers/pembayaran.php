@@ -52,7 +52,7 @@ class pembayaran extends Controller
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
         $insert =DB::table('master_siswa')->insert(
-            ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas]
+            ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => '1']
         );
         $id = $insert[0]->AUTO_INCREMENT;
         if($id_kelas == 1){
