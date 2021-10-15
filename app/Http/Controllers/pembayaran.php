@@ -375,7 +375,6 @@ class pembayaran extends Controller
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_gedung as kredit, CONCAT('Uang Pangkal ',year(CURRENT_TIMESTAMP)) as keterangan FROM `gedung` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
-        // DB::statement("INSERT INTO table (SELECT)");
         return redirect()->back()->with('success', 'siswa Anda Berhasil Tinggal Kelas');
     }
 
@@ -401,25 +400,20 @@ class pembayaran extends Controller
     public function
     transaksibayar($id)
     {
-        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan'))->get();
+        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan'),'id_siswa')->groupBy('id_siswa')->get();
         return view('transaksi.bayar', ['data' => $data]);
     }
     public function
     transaksibayaraksi(Request $r)
     {
-        $id_siswa = $r->input('id_siswa');
-        $id_kelas = $r->input('id_kelas');
-        $formulir = $r->input('biaya_formulir');
-        $gedung = $r->input('biaya_gedung');
-        $pakaian = $r->input('biaya_pakaian');
-        $buku = $r->input('biaya_buku');
-        $makanan = $r->input('biaya_spp');
-        $spp = $r->input('biaya_spp');
-        $les = $r->input('biaya_les');
-        $id_bulan = $r->input('id_bulan');
-        $total = $r->input('total');
+        $id = $r->input('id_siswa');
+        $keterangan = $r->input('keterangan');
+        $bayar = $r->input('bayar');
+        $file = $r->file('file');
+        $tujuan_upload = 'data_file';
+        $file->move($tujuan_upload,$file->getClientOriginalName());
         DB::table('transaksi')->insert(
-            ['id_siswa' => $id_siswa, 'id_kelas' => $id_kelas, 'biaya_formulir' => $formulir, 'biaya_gedung' => $gedung, 'biaya_pakaian' => $pakaian, 'biaya_buku' => $buku, 'biaya_spp' => $makanan, 'biaya_spp' => $spp, 'biaya_les' => $les, 'id_bulan' => $id_bulan, 'total' => $total]
+            ['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0]
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
     }
