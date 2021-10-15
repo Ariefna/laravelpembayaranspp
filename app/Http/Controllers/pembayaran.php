@@ -51,10 +51,10 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        $insert =DB::table('master_siswa')->insert(
+        $id =DB::table('master_siswa')->insertGetId(
             ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => '1']
         );
-        $id = $insert[0]->AUTO_INCREMENT;
+        // $id = $insert[0]->AUTO_INCREMENT;
         if($id_kelas == 1){
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1)");
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
