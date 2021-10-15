@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 03:41 PM
+-- Generation Time: Oct 15, 2021 at 07:25 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -117,7 +117,7 @@ INSERT INTO `gedung` (`id`, `id_tahun`, `biaya_gedung`) VALUES
 (7, 1, 14000000),
 (8, 2, 14000000),
 (9, 3, 14000000),
-(10, 4, 200000);
+(10, 4, 1400000);
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,10 @@ CREATE TABLE `les` (
 INSERT INTO `les` (`id`, `id_tahun`, `biaya_les`) VALUES
 (1, 1, 100000),
 (2, 2, 100000),
-(3, 3, 100000);
+(3, 3, 100000),
+(5, 1, 0),
+(6, 2, 0),
+(7, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -247,26 +250,30 @@ CREATE TABLE `master_siswa` (
   `id` int(11) NOT NULL,
   `nis` bigint(100) NOT NULL,
   `nama_siswa` varchar(100) NOT NULL,
-  `id_kelas` int(11) NOT NULL
+  `id_kelas` int(11) NOT NULL,
+  `status_les` int(11) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `master_siswa`
 --
 
-INSERT INTO `master_siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`) VALUES
-(1, 1841012225, 'Coba', 1),
-(2, 18452878, 'Coba 2', 2),
-(3, 184101022, 'Coba 3', 3),
-(4, 1845461, 'Coba 4', 4),
-(5, 18410225, 'Coba 5', 5),
-(7, 1000000, 'Coba 6', 6),
-(9, 1872465, 'Coba 11', 1),
-(10, 154841323, 'Coba 22', 2),
-(11, 1574562632, 'Coba 33', 3),
-(12, 13889566, 'Coba 44', 4),
-(13, 13854664, 'Coba 55', 5),
-(14, 158461616, 'Coba 66', 6);
+INSERT INTO `master_siswa` (`id`, `nis`, `nama_siswa`, `id_kelas`, `status_les`, `tanggal`) VALUES
+(1, 1841012225, 'Coba', 1, 0, '2021-10-15 13:57:02'),
+(2, 18452878, 'Coba 2', 2, 0, '2021-10-15 13:57:02'),
+(3, 184101022, 'Coba 3', 3, 0, '2021-10-15 13:57:02'),
+(4, 1845461, 'Coba 4', 4, 0, '2021-10-15 13:57:02'),
+(5, 18410225, 'Coba 5', 5, 0, '2021-10-15 13:57:02'),
+(7, 1000000, 'Coba 6', 6, 0, '2021-10-15 13:57:02'),
+(9, 1872465, 'Coba 11', 1, 0, '2021-10-15 13:57:02'),
+(10, 154841323, 'Coba 22', 2, 0, '2021-10-15 13:57:02'),
+(11, 1574562632, 'Coba 33', 3, 0, '2021-10-15 13:57:02'),
+(12, 13889566, 'Coba 44', 4, 0, '2021-10-15 13:57:02'),
+(13, 13854664, 'Coba 55', 5, 0, '2021-10-15 13:57:02'),
+(14, 158461616, 'Coba 66', 6, 0, '2021-10-15 13:57:02'),
+(15, 121566, 'Hasil', 1, 1, '2021-10-15 17:09:01'),
+(16, 154653131, 'Hasil', 1, 1, '2021-10-15 17:10:36');
 
 -- --------------------------------------------------------
 
@@ -351,6 +358,28 @@ CREATE TABLE `transaksi` (
   `kredit` int(11) NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `id_siswa`, `debet`, `kredit`, `keterangan`) VALUES
+(1, 1, 0, 850000, 'Biaya SPP 2021'),
+(2, 1, 0, 850000, 'Biaya SPP 2021'),
+(3, 1, 1700000, 0, 'Uang kertas formulir'),
+(4, 1, 0, 850000, 'Biaya SPP 2021'),
+(5, 2, 0, 850000, 'Biaya SPP 2021'),
+(6, 2, 850000, 0, 'Uang kertas formulir'),
+(7, 1, 0, 850000, 'Biaya SPP 2021'),
+(8, 3, 0, 850000, 'Biaya SPP 2021'),
+(9, 4, 0, 850000, 'Biaya SPP 2021'),
+(10, 1, 1700000, 0, 'semua'),
+(11, 1, 0, 850000, 'Biaya SPP 2021'),
+(12, 2, 0, 850000, 'Biaya SPP 2021'),
+(13, 3, 0, 850000, 'Biaya SPP 2021'),
+(14, 4, 0, 850000, 'Biaya SPP 2021'),
+(15, 5, 0, 850000, 'Biaya SPP 2021'),
+(16, 7, 0, 850000, 'Biaya SPP 2021');
 
 --
 -- Indexes for dumped tables
@@ -472,7 +501,7 @@ ALTER TABLE `kegiatan`
 -- AUTO_INCREMENT for table `les`
 --
 ALTER TABLE `les`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `makan`
@@ -490,7 +519,7 @@ ALTER TABLE `master_kelas`
 -- AUTO_INCREMENT for table `master_siswa`
 --
 ALTER TABLE `master_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `master_tahun`
@@ -514,7 +543,7 @@ ALTER TABLE `spp`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
