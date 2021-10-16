@@ -28,15 +28,18 @@ class pembayaran extends Controller
 			// $request->session()->put('id_user', $user[0]->id_user);
 			if ($pass == "admin" && $username == "admin") {
                 $request->session()->put('role', 'admin');
+                $request->session()->put('nama', 'admin');
 				return redirect('/');
 			} 
 			else if ($pass == "admin123" && $username == "admin") {
                 $request->session()->put('role', 'yayasan');
+                $request->session()->put('nama', 'yayasan');
 				return redirect('/lpembayaran');
 			} 
 			else {
                 $request->session()->put('id_siswa', $user[0]->id);
                 $request->session()->put('role', 'siswa');
+                $request->session()->put('nama', $user[0]->nama_siswa);
 				return redirect('/transaksi/bayar/'.$user[0]->id);
 			}
 	}

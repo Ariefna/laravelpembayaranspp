@@ -90,10 +90,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                    {{Session::get('nama')}}
                                     </div>
                                     <div class="widget-subheading">
-                                        VP People Manager
+                                    {{Session::get('role')}}
                                     </div>
                                 </div>
                             </div>
