@@ -91,26 +91,6 @@ INSERT INTO `formulir` VALUES (1,1,250000),(2,2,250000),(4,3,250000);
 UNLOCK TABLES;
 
 --
--- Table structure for table `gedung`
---
-
-DROP TABLE IF EXISTS `gedung`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `gedung`
---
-
--- LOCK TABLES `gedung` WRITE;
-/*!40000 ALTER TABLE `gedung` DISABLE KEYS */;
--- INSERT INTO `gedung` VALUES (7,1,14000000),(8,2,14000000);
-/*!40000 ALTER TABLE `gedung` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `kegiatan`
 --
 
@@ -325,7 +305,7 @@ CREATE TABLE `transaksi` (
   `debet` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
   `keterangan` text NOT NULL,
-  `bukti` text NULL,
+  `bukti` text DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -349,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-16  1:10:47
+-- Dump completed on 2021-10-17 13:10:40
