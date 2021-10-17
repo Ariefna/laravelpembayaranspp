@@ -47,6 +47,17 @@ class pembayaran extends Controller
     //master siswa
     public function mastersiswa()
     {
+        if (Session::get('role') == null) {
+            // if (Session::get('role') == 'admin') {
+                // echo Session::get('role');
+            // return $next($request);
+            return redirect('/login');
+            // }
+        }
+        // else {
+        //     return redirect()->back()->with('failed', 'Maaf, Anda Tidak Ada Akses Ke Halaman Tertentu');
+        //     }
+   
         $data = DB::table('master_siswa')->join('master_kelas', 'master_kelas.id', '=', 'master_siswa.id_kelas')->whereBetween('master_siswa.id_kelas', [1, 6])->select('*', 'master_siswa.nama_siswa as nama_siswa', 'master_kelas.nama_kelas AS nama_kelas', 'master_siswa.id AS siswa_id')->get();
         return view('mastersiswa', ['data' => $data]);
     }
