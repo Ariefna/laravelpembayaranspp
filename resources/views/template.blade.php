@@ -525,6 +525,12 @@
                                     Laporan Transaksi
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/logout">
+                                    <i class="metismenu-icon pe-7s-close"></i>
+                                    Log out
+                                </a>
+                            </li>
                             @endif
                             @if(Session::get('role') == 'admin')
                             <li>
