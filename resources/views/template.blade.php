@@ -474,12 +474,12 @@
                                     Biaya Pakaian
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/gedung" class="">
+                            <!-- <li>
+                                <a href="<?//= URL::to('/'); ?>/gedung" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Gedung
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterlesan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
