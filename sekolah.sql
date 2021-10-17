@@ -97,21 +97,16 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `gedung`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gedung` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_tahun` int(11) NOT NULL,
-  `biaya_gedung` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `gedung`
 --
 
-LOCK TABLES `gedung` WRITE;
+-- LOCK TABLES `gedung` WRITE;
 /*!40000 ALTER TABLE `gedung` DISABLE KEYS */;
-INSERT INTO `gedung` VALUES (7,1,14000000),(8,2,14000000);
+-- INSERT INTO `gedung` VALUES (7,1,14000000),(8,2,14000000);
 /*!40000 ALTER TABLE `gedung` ENABLE KEYS */;
 UNLOCK TABLES;
 
