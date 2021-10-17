@@ -440,7 +440,7 @@ ALTER TABLE `les`
 -- AUTO_INCREMENT for table `makan`
 --
 ALTER TABLE `makan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `master_kelas`
