@@ -702,4 +702,11 @@ class pembayaran extends Controller
         $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->get();
         return view('laporan_pembayaran', ['data' => $data]);
     }
+    public function
+    lpembayaransiswa($id)
+    {
+        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->where('id_siswa', $id)->get();
+        return view('laporan_pembayaran', ['data' => $data]);
+    }
+    
 }

@@ -117,6 +117,7 @@ Route::post('/masterlesan/add/', 'App\Http\Controllers\pembayaran@masterlesaddak
 Route::middleware(['siswa'])->group(function () {
     Route::get('/transaksi/bayar/{id}', 'App\Http\Controllers\pembayaran@transaksibayar');
     Route::post('/transaksi/bayar/', 'App\Http\Controllers\pembayaran@transaksibayaraksi');
+Route::get('/dpembayaran/{id}', 'App\Http\Controllers\pembayaran@lpembayaransiswa');
     });
 Route::middleware(['yayasan'])->group(function () {
 Route::get('/ltagihan', 'App\Http\Controllers\pembayaran@ltagihan');

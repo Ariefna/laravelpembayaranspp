@@ -519,6 +519,12 @@
                                     Transaksi Pembayaran
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?= URL::to('/'); ?>/dpembayaran/{{Session::get('id_siswa')}}">
+                                    <i class="metismenu-icon pe-7s-print"></i>
+                                    Laporan Transaksi
+                                </a>
+                            </li>
                             @endif
                             @if(Session::get('role') == 'admin')
                             <li>

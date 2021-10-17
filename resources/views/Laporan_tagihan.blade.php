@@ -25,8 +25,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Keterangan</th>
-                                <th>Pengeluaran</th>
-                                <th>Pemasukkan</th>
+                                <th>Pembayaran</th>
+                                <th>Tagihan</th>
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
