@@ -28,6 +28,7 @@
                                 <th>Pengeluaran</th>
                                 <th>Pemasukkan</th>
                                 <th>Tanggal</th>
+                                <th>bukti</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +43,7 @@
                                         <td>@currency($datas->debet)</td>
                                         <td>@currency($datas->kredit)</td>
                                         <td><?= $datas->tanggal; ?></td>
+                                        <td> <img src="<?= URL::to('/'); ?>/data_file/<?= $datas->bukti; ?>" alt=" " class="rounded-circle" width="40px">  </td>
                                     </tr>
                                 <?php endforeach;
                             else : ?>

@@ -464,7 +464,7 @@ class pembayaran extends Controller
         $tujuan_upload = 'data_file';
         $file->move($tujuan_upload,$file->getClientOriginalName());
         DB::table('transaksi')->insert(
-            ['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0]
+            ['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0, 'bukti' => $file->getClientOriginalName()]
         );
         return redirect()->back()->with('success', 'Transaksi Berhasil Di bayar');
     }
