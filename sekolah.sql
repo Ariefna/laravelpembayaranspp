@@ -204,6 +204,7 @@ CREATE TABLE `master_siswa` (
   `nama_siswa` varchar(100) NOT NULL,
   `id_kelas` int(11) NOT NULL,
   `status_les` int(11) NOT NULL,
+  `status_makan` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
