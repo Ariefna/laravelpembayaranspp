@@ -94,6 +94,12 @@ class pembayaran extends Controller
         $lescheck = 0;
         $lescheck = $r->input('lescheck');
         $lescheck = $r->input('lescicilcheck');
+        if ($lescheck == null) {
+        $lescheck = 0;
+        }
+        if ($makancheck == null) {
+        $makancheck = 0;
+        }
         $id =DB::table('master_siswa')->insertGetId(
             ['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck]
         );
