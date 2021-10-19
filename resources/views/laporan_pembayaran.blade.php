@@ -1,5 +1,11 @@
 @extends('template')
 @section('content')
+<script>
+  $(document).ready(function() {
+    $('.table').DataTable({ select: true, dom: 'Blfrtip', lengthMenu: [ [10, 25, 50, -1], ['10 Filas', '25 Filas', '50 Filas', 'Mostrar todo'] ], dom: 'Bfrtip', buttons: [ { extend: 'pdf', text: ' Export a PDF' }, { extend: 'csv', text: ' Export a CSV' }, { extend: 'excel', text: ' Export a EXCEL' }, 'pageLength' ], }); table.buttons().container() .appendTo('#datatable_wrapper .col-md-6:eq(0)');
+
+} );
+</script>
 <div class="row">
     <div class="col-md-12">
         @if (\Session::has('success'))
