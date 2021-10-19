@@ -24,6 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
                                 <th>Keterangan</th>
                                 <th>Pembayaran</th>
                                 <th>Tagihan</th>
@@ -38,6 +40,8 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
+                                        <td><?= $datas->nama_siswa; ?></td>
+                                        <td><?= $datas->id_kelas; ?></td>
                                         <td><?= $datas->keterangan; ?></td>
                                         <td>@currency($datas->debet)</td>
                                         <td>@currency($datas->kredit)</td>
