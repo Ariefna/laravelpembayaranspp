@@ -2,7 +2,7 @@
 @section('content')
 <script>
   $(document).ready(function() {
-    $('.table').DataTable({ select: true, dom: 'Blfrtip', lengthMenu: [ [10, 25, 50, -1], ['10 Filas', '25 Filas', '50 Filas', 'Mostrar todo'] ], dom: 'Bfrtip', buttons: [ { extend: 'pdf', text: ' Export a PDF' }, { extend: 'csv', text: ' Export a CSV' }, { extend: 'excel', text: ' Export a EXCEL' }, 'pageLength' ], }); table.buttons().container() .appendTo('#datatable_wrapper .col-md-6:eq(0)');
+    $('.table').DataTable({ select: true, dom: 'Blfrtip', lengthMenu: [ [10, 25, 50, -1], ['10 Data', '25 Data', '50 Data', 'Semua'] ], dom: 'Bfrtip', buttons: [ { extend: 'pdf', text: ' Export a PDF' }, { extend: 'csv', text: ' Export a CSV' }, { extend: 'excel', text: ' Export a EXCEL' }, 'pageLength' ], }); table.buttons().container() .appendTo('#datatable_wrapper .col-md-6:eq(0)');
 
 } );
 </script>
@@ -42,8 +42,12 @@
                         <tbody>
                             <?php
                             $no = 1;
+                            $totalk = 0;
+                            $totald = 0;
                             if ($data) :
                                 foreach ($data as $datas) :
+                                    $totald=$totald+$datas->debet;
+                                    $totalk=$totalk+$datas->kredit;
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
@@ -61,6 +65,17 @@
                                     <td colspan="14" class="text-center">Silahkan tambahkan data Transaksi / Transaksi baru</td>
                                 </tr>
                             <?php endif; ?>
+                            <tr>
+                                        <td scope="row">99999999</td>
+                                        <td>Total</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>@currency($totald)</td>
+                                        <td>@currency($totalk)</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                         </tbody>
                     </table>
                 </div>
