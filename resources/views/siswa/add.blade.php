@@ -39,6 +39,17 @@
                         <div class="form-check">
                             <input class="form-check-input" name="makancheck" type="checkbox" value="1" id="invalidCheck">
                             <label class="form-check-label" for="invalidCheck">
+                                Biaya Makanan
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="makancicilcheck" type="checkbox" value="2" id="invalidCheck">
+                            <label class="form-check-label" for="invalidCheck">
                                 Cicil Biaya Makanan
                             </label>
                             <div class="invalid-feedback">
@@ -57,7 +68,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" name="lescicilcheck" type="checkbox" value="2" id="invalidCheck">
                             <label class="form-check-label" for="invalidCheck">
@@ -67,7 +78,7 @@
                                 You must agree before submitting.
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <button class="mt-1 btn btn-primary">Submit</button>
                 </form>
             </div>
