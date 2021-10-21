@@ -66,14 +66,14 @@
                                 </tr>
                             <?php endif; ?>
                             <tr>
-                                        <td scope="row">99999999</td>
-                                        <td>Total</td>
+                                        <td scope="row"><?= $no++; ?></td>
+                                        <td colspan="3" class="text-right">Total</td>
+                                        <!-- <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td></td> -->
                                         <td>@currency($totald)</td>
                                         <td>@currency($totalk)</td>
-                                        <td></td>
+                                        <td>@currency($totalk-$totald)</td>
                                         <td></td>
                                     </tr>
                         </tbody>
