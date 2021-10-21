@@ -457,30 +457,30 @@
                                     Biaya Makan
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/masterbiayakegiatan" class="">
+                            <!-- <li>
+                                <a href="<?//= URL::to('/'); ?>/masterbiayakegiatan" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Kegiatan
                                 </a>
-                            </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/masterbiayabukupaket" class="">
+                            </li> -->
+                            <!-- <li>
+                                <a href="<?//= URL::to('/'); ?>/masterbiayabukupaket" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Buku Paket
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="<?= URL::to('/'); ?>/lainlain" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Formulir
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= URL::to('/'); ?>/pakaian" class="">
+                            <!-- <li>
+                                <a href="<?//= URL::to('/'); ?>/pakaian" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Pakaian
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- <li>
                                 <a href="<?//= URL::to('/'); ?>/gedung" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
