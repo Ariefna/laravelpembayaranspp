@@ -107,11 +107,19 @@ class pembayaran extends Controller
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
         $makancheck = 0;
-        $makancheck = $r->input('makancheck');
-        $makancheck = $r->input('makancicilcheck');
+       
+        if (1 == $r->input('makancheck'))
+        {
+            $makancheck = $r->input('makancheck');
+        }
+        
+        if (2 == $r->input('makancicilcheck'))
+        {
+            $makancheck = $r->input('makancicilcheck');
+        }
         $lescheck = 0;
         $lescheck = $r->input('lescheck');
-        $lescheck = $r->input('lescicilcheck');
+        // $lescheck = $r->input('lescicilcheck');
         if ($lescheck == null)
         {
             $lescheck = 0;
