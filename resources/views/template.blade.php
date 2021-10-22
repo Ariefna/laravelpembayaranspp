@@ -553,7 +553,7 @@
                                     Data Pembayaran
                                 </a>
                               
-                            </li>
+                            </li> 
                             @endif
                             @endif
                             @if(Session::get('role') == 'yayasan' || Session::get('role') == 'admin')
