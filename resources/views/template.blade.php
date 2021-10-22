@@ -428,7 +428,7 @@
                                 <!-- class="mm-active" -->
                                 <a href="<?= URL::to('/'); ?>/mastertahun">
                                     <i class="metismenu-icon pe-7s-date"></i>
-                                    Master tahun
+                                    Master Tahun
                                 </a>
                             </li>
                             <li>
@@ -448,7 +448,7 @@
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterspp" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    biaya SPP
+                                    Biaya SPP
                                 </a>
                             </li>
                             <li>
