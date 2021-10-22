@@ -428,7 +428,7 @@
                                 <!-- class="mm-active" -->
                                 <a href="<?= URL::to('/'); ?>/mastertahun">
                                     <i class="metismenu-icon pe-7s-date"></i>
-                                    Master tahun
+                                    Master Tahun
                                 </a>
                             </li>
                             <li>
@@ -448,7 +448,7 @@
                             <li>
                                 <a href="<?= URL::to('/'); ?>/masterspp" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
-                                    biaya SPP
+                                    Biaya SPP
                                 </a>
                             </li>
                             <li>
@@ -469,12 +469,12 @@
                                     Biaya Buku Paket
                                 </a>
                             </li> -->
-                            <li>
+                            <!-- <li>
                                 <a href="<?= URL::to('/'); ?>/lainlain" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Formulir
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- <li>
                                 <a href="<?//= URL::to('/'); ?>/pakaian" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
@@ -553,7 +553,7 @@
                                     Data Pembayaran
                                 </a>
                               
-                            </li>
+                            </li> 
                             @endif
                             @endif
                             @if(Session::get('role') == 'yayasan' || Session::get('role') == 'admin')
