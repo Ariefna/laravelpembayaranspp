@@ -469,12 +469,12 @@
                                     Biaya Buku Paket
                                 </a>
                             </li> -->
-                            <li>
+                            <!-- <li>
                                 <a href="<?= URL::to('/'); ?>/lainlain" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
                                     Biaya Formulir
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- <li>
                                 <a href="<?//= URL::to('/'); ?>/pakaian" class="">
                                     <i class="metismenu-icon pe-7s-wallet"></i>
