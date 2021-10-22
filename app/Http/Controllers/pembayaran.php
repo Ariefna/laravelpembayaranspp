@@ -140,6 +140,8 @@ class pembayaran extends Controller
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
             $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp]);
+            $newTimestamp = $time->modify('-1 year')
+            ->format('Y-m-d H:i:s');
         }
         if ($lescheck != 0 && $id_kelas != 6)
         {
