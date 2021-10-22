@@ -215,7 +215,7 @@ class pembayaran extends Controller
             }
         }
         return redirect()->back()
-            ->with('success', 'Data Anda Berhasil Dimasukkan '.$newTimestamp);
+            ->with('success', 'Data Anda Berhasil Dimasukkan ');
     }
     //master kelas
     public function masterkelas()
