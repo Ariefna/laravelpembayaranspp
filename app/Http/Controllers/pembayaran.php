@@ -138,6 +138,7 @@ class pembayaran extends Controller
             // $newTimestamp = strtotime('+1 years', new \DateTime('NOW'));
             $newTimestamp = $time->modify('+1 year')
                 ->format('Y-m-d');
+                echo $newTimestamp;
             $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp]);
         }
         if ($lescheck != 0 && $id_kelas != 6)
@@ -213,8 +214,8 @@ class pembayaran extends Controller
                 DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
             }
         }
-        return redirect()->back()
-            ->with('success', 'Data Anda Berhasil Dimasukkan');
+        // return redirect()->back()
+        //     ->with('success', 'Data Anda Berhasil Dimasukkan');
     }
     //master kelas
     public function masterkelas()
