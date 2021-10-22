@@ -603,7 +603,7 @@ class pembayaran extends Controller
         {
             DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
         }
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
 
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
         return redirect()->back()
