@@ -24,6 +24,16 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title float-left">Report Tagihan</h5>
+                <form action="" method="get" id="form-id">
+                <select name="id_kelas" class="form-control" onclick="document.getElementById('form-id').submit();">
+  <option value="1">Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="3">Kelas 3</option>
+  <option value="4">Kelas 4</option>
+  <option value="5">Kelas 5</option>
+  <option value="6">Kelas 6</option>
+</select>
+                </form>
                 <div class="table-responsive">
                     <table class="mb-0 table">
                         <thead>
