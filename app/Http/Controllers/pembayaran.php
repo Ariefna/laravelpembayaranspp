@@ -160,10 +160,9 @@ class pembayaran extends Controller
                 $biayaperbulan = (int)$harga_makanan[0]->biaya_makan / 12;
                 if ($biayaperbulan != 0)
                 {
-                    for ($i = 1;$i < 2;$i++)
-                    {
-                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP),' Bulan ',(select nama_bulan from bulan where id = " . $i . ")) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
-                    }
+                  
+                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
+                    
                 }
             }
             else if ($makancheck == 1)
@@ -201,10 +200,9 @@ class pembayaran extends Controller
                 $biayaperbulan = (int)$harga_makanan[0]->biaya_makan / 12;
                 if ($biayaperbulan != 0)
                 {
-                    for ($i = 1;$i < 2;$i++)
-                    {
-                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP),' Bulan ',(select nama_bulan from bulan where id = " . $i . ")) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
-                    }
+                  
+                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
+                    
                 }
             }
             else if ($makancheck == 1)
