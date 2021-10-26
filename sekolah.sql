@@ -304,6 +304,7 @@ DROP TABLE IF EXISTS `transaksi`;
 CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_siswa` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
   `debet` int(11) NOT NULL,
   `kredit` int(11) NOT NULL,
   `keterangan` text NOT NULL,

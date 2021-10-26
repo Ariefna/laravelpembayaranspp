@@ -145,7 +145,7 @@ class pembayaran extends Controller
         }
         if ($lescheck != 0 && $id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
         }
 
         if ($id_kelas == 1)
@@ -161,16 +161,16 @@ class pembayaran extends Controller
                 if ($biayaperbulan != 0)
                 {
                   
-                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
+                        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
                     
                 }
             }
             else if ($makancheck == 1)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 2)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 2)");
             }
             // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1)");
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP))");
             // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.biaya_kegiatan as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 2)");
             // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
         }
@@ -180,14 +180,14 @@ class pembayaran extends Controller
             {
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.biaya_kegiatan as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1 OFFSET 1)");
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP)+1)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP)+1)");
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
             }
             else
             {
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.biaya_kegiatan as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 1)");
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1 OFFSET 1)");
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP)+1)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP)+1)");
                 // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
             }
             if ($id_kelas != 6 && $makancheck == 2)
@@ -201,17 +201,17 @@ class pembayaran extends Controller
                 if ($biayaperbulan != 0)
                 {
                   
-                        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
+                        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
                     
                 }
             }
             else if ($makancheck == 1)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 2)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 2)");
             }
             else if ($id_kelas == 6)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) and status = 1)");
             }
         }
         return redirect()->back()
@@ -508,7 +508,7 @@ class pembayaran extends Controller
         DB::table('master_siswa')->where('id', $id)->update(['id_kelas' => DB::raw('id_kelas + 1'), 'tanggal' => DB::raw('tanggal')]);
         $data = DB::table('master_siswa')->where('id', $id)->get();
         if($data[0]->id_kelas == 6){
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $data[0]->id . "))");
+        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $data[0]->id . "))");
         return redirect()->back()
         ->with('success', 'siswa Anda Berhasil Naik Kelas');
         }
@@ -522,20 +522,20 @@ class pembayaran extends Controller
             $biayaperbulan = (int)$harga_makanan[0]->biaya_makan / 12;
             if ($biayaperbulan != 0)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
             }
         }
         else if ($data[0]->status_makan == 1 && $data[0]->id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
         }
         if ($data[0]->status_les != 0 && $data[0]->id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
         }
         // uang pakaian, uang spp, uang kegiatan, uang buku paket, uang gedung, uang makan
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1)");
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $data[0]->id . "))");
+        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $data[0]->id . "))");
         // echo "SELECT " . $id . " as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $data[0]->id . ")";
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.biaya_kegiatan as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 1)");
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
@@ -549,7 +549,7 @@ class pembayaran extends Controller
         DB::table('master_siswa')->where('id', $id)->update(['id_kelas' => DB::raw('id_kelas'), 'tanggal' => DB::raw('tanggal') ]);
         $data = DB::table('master_siswa')->where('id', $id)->get();
         if($data[0]->id_kelas == 6){
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
             return redirect()->back()
             ->with('success', 'siswa Anda Berhasil Tinggal Kelas');
             }
@@ -563,20 +563,20 @@ class pembayaran extends Controller
             $biayaperbulan = (int)$harga_makanan[0]->biaya_makan / 12;
             if ($biayaperbulan != 0)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
             }
 
         }
         else if ($data[0]->status_makan == 1 && $data[0]->id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan ',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
         }
         if ($data[0]->status_les != 0 && $data[0]->id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
         }
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_pakaian as kredit, CONCAT('Biaya Pakaian ',year(CURRENT_TIMESTAMP)) as keterangan FROM `pakaian` a join master_tahun b on a.id_tahun = b.id order by b.id desc limit 1)");
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
+        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, a.biaya_kegiatan as kredit, CONCAT('Biaya Kegiatan ',year(CURRENT_TIMESTAMP)) as keterangan FROM `kegiatan` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 1)");
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_buku as kredit, CONCAT('Biaya Buku ',a.nama_buku,' ',year(CURRENT_TIMESTAMP)) as keterangan FROM `buku` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and a.id_kelas = (select id_kelas from master_siswa where id = " . $id . "))");
         return redirect()->back()
@@ -604,7 +604,7 @@ class pembayaran extends Controller
             $biayaperbulan = (int)$harga_makanan[0]->biaya_makan / 12;
             if ($biayaperbulan != 0)
             {
-                DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
+                DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, (" . $biayaperbulan . ") as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . ") and status = 2)");
             }
         }
         else if ($data[0]->status_makan == 1 && $data[0]->id_kelas != 6)
@@ -613,9 +613,9 @@ class pembayaran extends Controller
         }
         if ($data[0]->status_les != 0 && $data[0]->id_kelas != 6)
         {
-            DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
+            DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_les as kredit, CONCAT('Biaya Les ',year(CURRENT_TIMESTAMP)) as keterangan FROM `les` a join master_tahun b on a.id_tahun = b.id where b.kode = year(CURRENT_TIMESTAMP) order by a.biaya_les desc limit 1)");
         }
-        DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
+        DB::statement("INSERT INTO transaksi (id_siswa, id_kelas, debet, kredit, keterangan) (SELECT " . $id . " as id_siswa, ".$id_kelas." as id_kelas, '0' as debet, biaya_spp as kredit, CONCAT('Biaya SPP ',year(CURRENT_TIMESTAMP)) as keterangan FROM `spp` a join master_tahun b on a.id_tahun = b.id where b.kode = (select year(tanggal) from master_siswa where id = " . $id . "))");
 
         // DB::statement("INSERT INTO transaksi (id_siswa, debet, kredit, keterangan) (SELECT '" . $id . "' as id_siswa, '0' as debet, biaya_makan as kredit, CONCAT('Biaya makanan tahun',year(CURRENT_TIMESTAMP)) as keterangan FROM makan a join master_tahun b on a.id_tahun = b.id where b.kode = (year(CURRENT_TIMESTAMP)+1) and status = 2)");
         return redirect()->back()
@@ -839,16 +839,29 @@ class pembayaran extends Controller
             ->with('success', 'Data Anda Berhasil Dimasukkan');
     }
     //les
-    public function ltagihan()
+    public function ltagihan(Request $r)
     {
-        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
-            ->get();
+        $id_kelas = $r->input('id_kelas');
+if ($id_kelas == null) {
+    $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+    ->get();
+}else {
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+            ->where('transaksi.id_kelas', $id_kelas)->get();
+}
+        
         return view('Laporan_tagihan', ['data' => $data]);
     }
-    public function lpembayaran()
+    public function lpembayaran(Request $r)
     {
+        $id_kelas = $r->input('id_kelas');
+        if ($id_kelas != null) {
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+            ->where('transaksi.id_kelas', $id_kelas)->get();
+        }else {
         $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
             ->get();
+        }
         return view('laporan_pembayaran', ['data' => $data]);
     }
     public function lpembayaransiswa($id)
