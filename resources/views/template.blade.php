@@ -545,15 +545,14 @@
                                     Transaksi Pembayaran
                                 </a>
                             </li>
-                            <li>
-                             
-                              
+                           
+                            <!--<li>
                                 <a href="<?= URL::to('/'); ?>/dpembayaran" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
                                     Data Pembayaran
-                                </a>
+                                </a> 
                               
-                            </li> 
+                            </li> -->
                             @endif
                             @endif
                             @if(Session::get('role') == 'yayasan' || Session::get('role') == 'admin')
@@ -564,12 +563,12 @@
                                     Laporan Pembayaran
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?= URL::to('/'); ?>/ltagihan">
                                     <i class="metismenu-icon pe-7s-print"></i>
                                     Laporan Tagihan
                                 </a>
-                            </li>
+                            </li> -->
                             @endif
 
                         </ul>
