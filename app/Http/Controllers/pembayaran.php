@@ -23,6 +23,8 @@ class pembayaran extends Controller
         $pass = $request->input('password');
         $username = $request->input('username');
         $user = DB::table('master_siswa')->where('nama_siswa', $username)->where('nis', $pass)->get();
+        //count ini digunakan untuk memperiksa apakah login dengan nis dan password ini ada di database atau tidak?
+        //jika ada maka bernilai 1 bisa masuk, jika tidak ber nilai 0 maka tidak bisa masuk
         if (!$user->count() && (($pass != "admin") && ($username != "admin")) && (($pass != "admin123") && ($username != "admin")))
         {
             return redirect('/login')->with('failed', 'Maaf, username atau password salah');
@@ -106,7 +108,7 @@ class pembayaran extends Controller
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
-        $makancheck = 0;
+        $makancheck = 0; //pertama di deklarasikan dulu default nya
        
         if (1 == $r->input('makancheck'))
         {
