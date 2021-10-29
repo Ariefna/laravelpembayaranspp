@@ -25,7 +25,7 @@
             <div class="card-body">
                 <h5 class="card-title float-left">Report Tagihan</h5>
                 <form action="" method="get" id="form-id">
-                <select name="id_kelas" class="form-control" onclick="document.getElementById('form-id').submit();">
+                <select name="id_kelas" class="form-control" onchange="document.getElementById('form-id').submit();">
   <option value="1">Kelas 1</option>
   <option value="2">Kelas 2</option>
   <option value="3">Kelas 3</option>
