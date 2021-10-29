@@ -56,7 +56,7 @@
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
                                         <td><?= $datas->nama_siswa; ?></td>
-                                        <td><?= $datas->id_kelas; ?></td>
+                                        <td><?= $datas->nama_kelas; ?></td>
                                         <td><?= $datas->keterangan; ?></td>
                                         <td>@currency($datas->debet)</td>
                                         <td>@currency($datas->kredit)</td>
