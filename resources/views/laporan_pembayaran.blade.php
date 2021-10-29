@@ -27,12 +27,63 @@
                 <h5 class="card-title float-left">Report Pembayaran</h5>
                 <form action="" method="get" id="form-id">
                 <select name="id_kelas" class="form-control" onchange="document.getElementById('form-id').submit();">
+            @if(app('request')->input('id_kelas') !== null)
+                @if(app('request')->input('id_kelas') == 1)
+                <option value="1" selected>Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="3">Kelas 3</option>
+  <option value="4">Kelas 4</option>
+  <option value="5">Kelas 5</option>
+  <option value="6">Kelas 6</option>
+                @endif
+                @if(app('request')->input('id_kelas') == 2)
+                <option value="2" selected>Kelas 2</option>
+                <option value="1">Kelas 1</option>
+  <option value="3">Kelas 3</option>
+  <option value="4">Kelas 4</option>
+  <option value="5">Kelas 5</option>
+  <option value="6">Kelas 6</option>
+                @endif
+                @if(app('request')->input('id_kelas') == 3)
+                <option value="3" selected>Kelas 3</option>
+                <option value="1">Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="4">Kelas 4</option>
+  <option value="5">Kelas 5</option>
+  <option value="6">Kelas 6</option>
+                @endif
+                @if(app('request')->input('id_kelas') == 4)
+                <option value="4" selected>Kelas 4</option>
+                <option value="1">Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="3">Kelas 3</option>
+  <option value="5">Kelas 5</option>
+  <option value="6">Kelas 6</option>
+                @endif
+                @if(app('request')->input('id_kelas') == 5)
+                <option value="5" selected>Kelas 5</option>
+                <option value="1">Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="3">Kelas 3</option>
+  <option value="4">Kelas 4</option>
+  <option value="6">Kelas 6</option>
+                @endif
+                @if(app('request')->input('id_kelas') == 6)
+                <option value="6" selected>Kelas 6</option>
+                <option value="1">Kelas 1</option>
+  <option value="2">Kelas 2</option>
+  <option value="3">Kelas 3</option>
+  <option value="4">Kelas 4</option>
+  <option value="5">Kelas 5</option>
+                @endif
+  @else 
   <option value="1">Kelas 1</option>
   <option value="2">Kelas 2</option>
   <option value="3">Kelas 3</option>
   <option value="4">Kelas 4</option>
   <option value="5">Kelas 5</option>
   <option value="6">Kelas 6</option>
+  @endif
 </select>
                 </form>
                
