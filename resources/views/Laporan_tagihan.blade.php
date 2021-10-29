@@ -76,6 +76,7 @@
   <option value="5">Kelas 5</option>
                 @endif
   @else 
+  <option value=""></option>
   <option value="1">Kelas 1</option>
   <option value="2">Kelas 2</option>
   <option value="3">Kelas 3</option>
