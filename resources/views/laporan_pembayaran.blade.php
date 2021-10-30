@@ -134,10 +134,10 @@
                                         <td colspan="0" class="text-right">Total</td>
                                         <!-- <td></td>
                                         <td></td> -->
-                                        <td></td>
+                                        <td></td> 
                                         <td>@currency($totald)</td>
                                         <td>@currency($totalk)</td>
-                                        <td>@currency($totalk-$totald)</td>
+                                        <td>@currency($totalk-$totald)</td> 
                                         <td></td>
                                     </tr>
                         </tbody>
