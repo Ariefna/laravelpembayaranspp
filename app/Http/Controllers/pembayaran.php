@@ -49,7 +49,7 @@ class pembayaran extends Controller
                     ->put('nama', 'yayasan');
                 return redirect('/lpembayaran');
             }
-            else
+            else if($user->count())
             {
                 $request->session()
                     ->put('id_siswa', $user[0]->id);
@@ -58,6 +58,8 @@ class pembayaran extends Controller
                 $request->session()
                     ->put('nama', $user[0]->nama_siswa);
                 return redirect('/transaksi/bayar/' . $user[0]->id);
+            }else {
+            return redirect('/login')->with('failed', 'Maaf, username atau password salah');
             }
         }
     }
@@ -851,10 +853,10 @@ class pembayaran extends Controller
     {
         $id_kelas = $r->input('id_kelas');
 if ($id_kelas == null) {
-    $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+    $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
     ->get();
 }else {
-            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
             ->where('transaksi.id_kelas', $id_kelas)->get();
 }
         
@@ -864,10 +866,10 @@ if ($id_kelas == null) {
     {
         $id_kelas = $r->input('id_kelas');
         if ($id_kelas != null) {
-            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
             ->where('transaksi.id_kelas', $id_kelas)->get();
         }else {
-        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')
+        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
             ->get();
         }
         return view('laporan_pembayaran', ['data' => $data]);
