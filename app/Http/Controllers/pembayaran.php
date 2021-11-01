@@ -640,21 +640,22 @@ class pembayaran extends Controller
     }
     public function transaksibayar($id) //akumulasi tagihan yang harus di bayar
     {
-        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan') , 'id_siswa')
-            ->groupBy('id_siswa')
+        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan') , 'id_siswa' , 'id_kelas')
+            ->groupBy('id_siswa', 'id_kelas')
             ->get();
         return view('transaksi.bayar', ['data' => $data]);
     }
     public function transaksibayaraksi(Request $r) // diguunakan untuk submit pembayaran
     {
         $id = $r->input('id_siswa');
+        $id_kelas = $r->input('id_kelas');
         $keterangan = $r->input('keterangan');
         $bayar = $r->input('bayar');
         $file = $r->file('file');
         $tujuan_upload = 'data_file';
         $file->move($tujuan_upload, $file->getClientOriginalName());
         DB::table('transaksi')
-            ->insert(['id_siswa' => $id, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0, 'bukti' => $file->getClientOriginalName() ]);
+            ->insert(['id_siswa' => $id, 'id_kelas' => $id_kelas, 'keterangan' => $keterangan, 'debet' => $bayar, 'kredit' => 0, 'bukti' => $file->getClientOriginalName() ]);
         return redirect()
             ->back()
             ->with('success', 'Transaksi Berhasil Di bayar');
