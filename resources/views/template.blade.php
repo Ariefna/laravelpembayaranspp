@@ -514,7 +514,7 @@
                                 </a>
                             </li>
                             @endif
-                            @if(Session::get('role') == 'admin' || Session::get('role') == 'siswa')
+                            @if(Session::get('role') == 'siswa')
                             <li class="app-sidebar__heading">Pembayaran</li>
                            
                             @if(Session::get('role') == 'siswa')
