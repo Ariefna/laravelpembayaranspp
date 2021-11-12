@@ -645,10 +645,10 @@ class pembayaran extends Controller
     {
         $data = DB::table('master_siswa')->where('id', $id)->get();
         $id_kelas = $data[0]->id_kelas;
-        $data = DB::table('transaksi')->where('id_siswa', $id)->where('id_kelas', $id_kelas)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan') , 'id_siswa' , 'id_kelas')
-            ->groupBy('id_siswa', 'id_kelas')
+        $data = DB::table('transaksi')->where('id_siswa', $id)->select(DB::raw('COALESCE(sum(kredit-debet),0) as tagihan') , 'id_siswa')
+            ->groupBy('id_siswa')
             ->get();
-        return view('transaksi.bayar', ['data' => $data]);
+        return view('transaksi.bayar', ['data' => $data, 'id_kelas' => $id_kelas]);
     }
     public function transaksibayaraksi(Request $r) // diguunakan untuk submit pembayaran
     {
