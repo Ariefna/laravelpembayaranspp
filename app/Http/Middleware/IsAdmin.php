@@ -17,7 +17,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Session::get('role') == 'admin') {
+        if (Session::get('role') == 'administrator') {
             // if (Session::get('role') == 'admin') {
                 // echo Session::get('role');
             return $next($request);
