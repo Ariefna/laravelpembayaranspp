@@ -422,7 +422,7 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                        @if(Session::get('role') == 'admin')
+                        @if(Session::get('role') == 'administrator')
                             <li class="app-sidebar__heading">Master</li>
                             <li>
                                 <!-- class="mm-active" -->
@@ -514,7 +514,7 @@
                                 </a>
                             </li>
                             @endif
-                            @if(Session::get('role') == 'admin' || Session::get('role') == 'siswa')
+                            @if(Session::get('role') == 'administrator' || Session::get('role') == 'siswa')
                             <li class="app-sidebar__heading">Pembayaran</li>
                            
                             @if(Session::get('role') == 'siswa')
@@ -528,7 +528,7 @@
                             <li>
                                 <a href="<?= URL::to('/'); ?>/dpembayaran/{{Session::get('id_siswa')}}">
                                     <i class="metismenu-icon pe-7s-print"></i>
-                                    Laporan Transaksi
+                                    Laporan Pembayaran
                                 </a>
                             </li>
                             <li>
@@ -538,7 +538,7 @@
                                 </a>
                             </li>
                             @endif
-                            @if(Session::get('role') == 'admin')
+                            @if(Session::get('role') == 'administrator')
                             <li>
                                 <a href="<?= URL::to('/'); ?>/transaksi" class="">
                                     <i class="metismenu-icon pe-7s-cash"></i>
@@ -555,7 +555,7 @@
                             </li> -->
                             @endif
                             @endif
-                            @if(Session::get('role') == 'yayasan' || Session::get('role') == 'admin')
+                            @if(Session::get('role') == 'yayasan' || Session::get('role') == 'administrator')
                             <li class="app-sidebar__heading">Laporan</li>
                             <li>
                                 <a href="<?= URL::to('/'); ?>/lpembayaran">
