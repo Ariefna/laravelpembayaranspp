@@ -995,10 +995,16 @@ if ($id_kelas == null) {
         }
         return view('laporan_pembayaran', ['data' => $data]);
     }
-    public function lpembayaransiswa($id)
+    public function lpembayaransiswa($id, Request $r)
     {
-        $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
+        $id_kelas = $r->input('id_kelas');
+        if ($id_kelas != null) {
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
+            ->where('id_siswa', $id)->where('transaksi.id_kelas', $id_kelas)->get();
+        }else {
+            $data = DB::table('transaksi')->join('master_siswa', 'transaksi.id_siswa', '=', 'master_siswa.id')->join('master_kelas', 'master_kelas.id', '=', 'transaksi.id_kelas')
             ->where('id_siswa', $id)->get();
+            }
         return view('laporan_pembayaran', ['data' => $data]);
     }
 
