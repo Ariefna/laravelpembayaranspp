@@ -225,6 +225,9 @@ class pembayaran extends Controller
     }
     public function mastersiswaaddaksi(Request $r)
     {
+        $file = $r->file('file');
+        $tujuan_upload = 'data_file';
+        $file->move($tujuan_upload, $file->getClientOriginalName());
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
