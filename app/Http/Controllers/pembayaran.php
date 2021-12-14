@@ -92,6 +92,9 @@ class pembayaran extends Controller
     public function mastersiswaupdateaksi(Request $r)
     {
         $id = $r->input('id');
+        $file = $r->file('file');
+        $tujuan_upload = 'data_file';
+        $file->move($tujuan_upload, $file->getClientOriginalName());
         $nis = $r->input('nis');
         $nama = $r->input('nama');
         $id_kelas = $r->input('id_kelas');
@@ -120,7 +123,7 @@ class pembayaran extends Controller
         }
         if ($id_kelas == 1) //ini dimulai dari kelas 1
         {
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'foto_siswa' => $file->getClientOriginalName()]);
         }
         else
         {
@@ -129,7 +132,7 @@ class pembayaran extends Controller
             $newTimestamp = $time->modify('+1 year') // modify buat tambah tahun
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'foto_siswa' => $file->getClientOriginalName()]);
             $newTimestamp = $time->modify('-1 year')
             ->format('Y-m-d H:i:s');
         }
@@ -211,7 +214,7 @@ class pembayaran extends Controller
             }
         }
         DB::table('master_siswa')
-            ->where('id', $id)->update(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_makan' => $makancheck, 'status_les' => $lescheck]);
+            ->where('id', $id)->update(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_makan' => $makancheck, 'status_les' => $lescheck, 'foto_siswa' => $file->getClientOriginalName()]);
         return redirect()->back()
             ->with('success', 'Data Anda Berhasil Diubah');
     }
@@ -249,7 +252,7 @@ class pembayaran extends Controller
         }
         if ($id_kelas == 1) //ini dimulai dari kelas 1
         {
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'foto_siswa' => $file->getClientOriginalName()]);
         }
         else
         {
@@ -258,7 +261,7 @@ class pembayaran extends Controller
             $newTimestamp = $time->modify('+1 year') // modify buat tambah tahun
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'foto_siswa' => $file->getClientOriginalName()]);
             $newTimestamp = $time->modify('-1 year')
             ->format('Y-m-d H:i:s');
         }
