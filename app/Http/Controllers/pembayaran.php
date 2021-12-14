@@ -261,7 +261,7 @@ class pembayaran extends Controller
             $newTimestamp = $time->modify('+1 year') // modify buat tambah tahun
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'foto_siswa' => $file->getClientOriginalName()]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'foto_siswa' => $file->getClientOriginalName()] );
             $newTimestamp = $time->modify('-1 year')
             ->format('Y-m-d H:i:s');
         }
