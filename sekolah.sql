@@ -220,8 +220,8 @@ INSERT INTO `master_kelas` (`id`, `nama_kelas`) VALUES
 (3, 'Kelas 3'),
 (4, 'Kelas 4'),
 (5, 'Kelas 5'),
-(8, 'Kelas 6'),
-(9, 'Kelas 1');
+(6, 'Kelas 6'),
+(1, 'Kelas 1');
 
 -- --------------------------------------------------------
 
