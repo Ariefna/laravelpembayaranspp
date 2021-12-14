@@ -19,9 +19,10 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Ubah</h5>
-                <form method="POST" action="/mastersiswa/ubah/">
+                <form method="POST" action="/mastersiswa/ubah/" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$data[0]->id}}" name="id">
+                    <div class="position-relative form-group"><label class="">Foto Siswa</label><br> <input type="file" id="file" name="file" >
                     <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control" value="{{$data[0]->nis}}"></div>
                     <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="{{$data[0]->nama_siswa}}"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
