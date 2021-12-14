@@ -19,8 +19,9 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Form Tambah</h5>
-                <form method="POST" action="/mastersiswa/add/">
+                <form method="POST" action="/mastersiswa/add/" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    <div class="position-relative form-group"><label class="">Foto Siswa</label><br> <input type="file" id="file" name="file" multiple>
                     <div class="position-relative form-group"><label class="">NIS</label><input name="nis" placeholder="Masukkan NIS" type="number" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Nama</label><input require name="nama" placeholder="Masukkan Nama" type="text" class="form-control"></div>
                     <div class="position-relative form-group"><label class="">Kelas</label><select name="id_kelas" class="form-control">
