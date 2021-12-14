@@ -24,10 +24,13 @@
                     <table class="mb-0 table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>No</th>
+                                <th>Foto Siswa</th>
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Kelas</th>
+                                <th>Status Makan</th>
+                                <th>Status Les</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -39,9 +42,12 @@
                             ?>
                                     <tr>
                                         <td scope="row"><?= $no++; ?></td>
+                                        <td> <img src="<?= URL::to('/'); ?>/data_file/<?= $datas->foto_siswa; ?>" alt=" " class="" width="100px">  </td>
                                         <td><?= $datas->nis; ?></td>
                                         <td><?= $datas->nama_siswa; ?></td>
                                         <td><?= $datas->nama_kelas; ?></td>
+                                        <td><?= $datas->status_makan; ?></td>
+                                        <td><?= $datas->status_les; ?></td>
                                         <td>
                                             <a class="mb-2 mr-2 btn btn-warning" href="<?= URL::to('/mastersiswa'); ?>/ubah/<?= $datas->siswa_id ?>">Edit</a>
                                             <a class="mb-2 mr-2 btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')" href="<?= URL::to('/mastersiswa'); ?>/delete/<?= $datas->siswa_id ?>" href="#">Hapus</a> 
