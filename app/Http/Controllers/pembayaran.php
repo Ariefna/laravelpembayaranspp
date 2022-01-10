@@ -259,12 +259,12 @@ class pembayaran extends Controller
             ->select('spp.id')
             ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP)'))
             ->get();
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'id_spp' => $biaya_spp, 'foto_siswa' => $file->getClientOriginalName()]);
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'id_spp' => $biaya_spp[0]->id, 'foto_siswa' => $file->getClientOriginalName()]);
         }
         else
         {
             $time = new \DateTime('NOW'); // ambil tanggal yang sekarang
-            // $newTimestamp = strtotime('+1 years', new \DateTime('NOW'));
+            // $newTimestamp = strtotime('+1 years', new \DateTimaster_siswame('NOW'));
             $newTimestamp = $time->modify('+1 year') // modify buat tambah tahun
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
@@ -272,7 +272,9 @@ class pembayaran extends Controller
             ->select('spp.id')
             ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP)+1'))
             ->get();
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'id_spp' => $biaya_spp, 'foto_siswa' => $file->getClientOriginalName()] );
+            print $biaya_spp[0]->id;
+
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'id_spp' => $biaya_spp[0]->id, 'foto_siswa' => $file->getClientOriginalName()] );
             $newTimestamp = $time->modify('-1 year')
             ->format('Y-m-d H:i:s');
         }
