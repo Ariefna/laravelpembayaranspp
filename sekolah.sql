@@ -323,6 +323,7 @@ INSERT INTO `pakaian` (`id`, `id_tahun`, `biaya_pakaian`) VALUES
 CREATE TABLE `spp` (
   `id` int(11) NOT NULL,
   `id_tahun` int(11) NOT NULL,
+  `id_spp` int(11) NOT NULL,
   `biaya_spp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

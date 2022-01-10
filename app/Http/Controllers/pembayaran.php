@@ -255,7 +255,11 @@ class pembayaran extends Controller
         }
         if ($id_kelas == 1) //ini dimulai dari kelas 1
         {
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'foto_siswa' => $file->getClientOriginalName()]);
+            $biaya_spp = DB::table('spp')->join('master_tahun', 'master_tahun.id', '=', 'spp.id_tahun')
+            ->select('spp.id')
+            ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP)'))
+            ->get();
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'id_spp' => $biaya_spp, 'foto_siswa' => $file->getClientOriginalName()]);
         }
         else
         {
@@ -264,7 +268,11 @@ class pembayaran extends Controller
             $newTimestamp = $time->modify('+1 year') // modify buat tambah tahun
                 ->format('Y-m-d H:i:s');
                 // echo $newTimestamp;
-            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'foto_siswa' => $file->getClientOriginalName()] );
+                $biaya_spp = DB::table('spp')->join('master_tahun', 'master_tahun.id', '=', 'spp.id_tahun')
+            ->select('spp.id')
+            ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP)+1'))
+            ->get();
+            $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'id_spp' => $biaya_spp, 'foto_siswa' => $file->getClientOriginalName()] );
             $newTimestamp = $time->modify('-1 year')
             ->format('Y-m-d H:i:s');
         }
