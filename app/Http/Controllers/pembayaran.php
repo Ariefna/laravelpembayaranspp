@@ -270,9 +270,8 @@ class pembayaran extends Controller
                 // echo $newTimestamp;
                 $biaya_spp = DB::table('spp')->join('master_tahun', 'master_tahun.id', '=', 'spp.id_tahun')
             ->select('spp.id')
-            ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP)+1'))
+            ->where('master_tahun.kode', DB::raw('year(CURRENT_TIMESTAMP+INTERVAL 1 YEAR)'))
             ->get();
-            print $biaya_spp[0]->id;
 
             $id = DB::table('master_siswa')->insertGetId(['nis' => $nis, 'nama_siswa' => $nama, 'id_kelas' => $id_kelas, 'status_les' => $lescheck, 'status_makan' => $makancheck, 'tanggal' => $newTimestamp, 'id_spp' => $biaya_spp[0]->id, 'foto_siswa' => $file->getClientOriginalName()] );
             $newTimestamp = $time->modify('-1 year')
